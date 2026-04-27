@@ -1,50 +1,16 @@
 import { useEffect, useState, useRef } from 'react';
+import { CustomCursor } from './components/custom-cursor';
+import { HeroBackgroundLayers } from './components/hero-background-layers';
 import { HeroStatsBar } from './components/hero-spline-section';
-import { ParticleTextEffect } from './components/ui/particle-text-effect';
-import { SplineScene } from './components/ui/splite';
-import { Spotlight } from './components/ui/spotlight';
-
-const HERO_SPLINE_SCENE = 'https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode';
-
-const HERO_PARTICLE_WORDS = ['SADRTDINOV', 'СИСТЕМА', 'ПАЦИЕНТЫ', 'РОСТ', 'МаркетИНГ'];
 
 export default function App() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
-  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
-  const [cursorRingPos, setCursorRingPos] = useState({ x: 0, y: 0 });
-  const [cursorScale, setCursorScale] = useState(1);
-  const [mouseVelocity, setMouseVelocity] = useState({ x: 0, y: 0 });
   const heroRef = useRef<HTMLDivElement>(null);
-  const lastMousePos = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 60);
-    };
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const velocity = {
-        x: e.clientX - lastMousePos.current.x,
-        y: e.clientY - lastMousePos.current.y
-      };
-      setMouseVelocity(velocity);
-      lastMousePos.current = { x: e.clientX, y: e.clientY };
-
-      setCursorPos({ x: e.clientX, y: e.clientY });
-      setTimeout(() => {
-        setCursorRingPos({ x: e.clientX, y: e.clientY });
-      }, 80);
-
-      // Parallax: тонкое смещение фона и слоя с роботом
-      if (heroRef.current) {
-        const pattern = heroRef.current.querySelector('.hero-bg-pattern') as HTMLElement;
-        const px = (e.clientX / window.innerWidth - 0.5) * 20;
-        const py = (e.clientY / window.innerHeight - 0.5) * 20;
-        if (pattern) {
-          pattern.style.transform = `translate(${px}px, ${py}px)`;
-        }
-      }
     };
 
     const observeElements = () => {
@@ -101,27 +67,28 @@ export default function App() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    document.addEventListener('mousemove', handleMouseMove);
 
     setTimeout(() => {
       observeElements();
       animateNumbers();
     }, 100);
 
-    // Add mouse enter/leave events for interactive elements
-    const addCursorEffects = () => {
-      document.querySelectorAll('a, button, .interactive').forEach(el => {
-        el.addEventListener('mouseenter', () => setCursorScale(2));
-        el.addEventListener('mouseleave', () => setCursorScale(1));
-      });
-    };
-
-    setTimeout(addCursorEffects, 200);
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      document.removeEventListener('mousemove', handleMouseMove);
     };
+  }, []);
+
+  useEffect(() => {
+    const onMove = (e: MouseEvent) => {
+      if (!heroRef.current) return;
+      const pattern = heroRef.current.querySelector('.hero-bg-pattern') as HTMLElement | null;
+      if (!pattern) return;
+      const px = (e.clientX / window.innerWidth - 0.5) * 20;
+      const py = (e.clientY / window.innerHeight - 0.5) * 20;
+      pattern.style.transform = `translate(${px}px, ${py}px)`;
+    };
+    document.addEventListener('mousemove', onMove);
+    return () => document.removeEventListener('mousemove', onMove);
   }, []);
 
   useEffect(() => {
@@ -183,24 +150,7 @@ export default function App() {
         ))}
       </div>
 
-      {/* Custom Cursor */}
-      <div
-        className="fixed w-[10px] h-[10px] bg-[#C9A96E] rounded-full pointer-events-none z-[9999] transition-all duration-150"
-        style={{
-          left: `${cursorPos.x}px`,
-          top: `${cursorPos.y}px`,
-          transform: `translate(-50%, -50%) scale(${cursorScale})`,
-          mixBlendMode: 'exclusion'
-        }}
-      ></div>
-      <div
-        className="fixed w-[36px] h-[36px] border border-[#C9A96E] rounded-full pointer-events-none z-[9998] transition-all duration-[400ms] opacity-50"
-        style={{
-          left: `${cursorRingPos.x}px`,
-          top: `${cursorRingPos.y}px`,
-          transform: `translate(-50%, -50%) scale(${cursorScale * 0.8})`
-        }}
-      ></div>
+      <CustomCursor />
 
       {/* Navigation */}
       <nav
@@ -320,58 +270,7 @@ export default function App() {
         ref={heroRef}
         className="relative min-h-screen overflow-hidden bg-[#060607]"
       >
-        <div className="absolute inset-0 z-0">
-          <div
-            className="absolute inset-0 z-0 overflow-hidden opacity-[0.3] [mix-blend-mode:soft-light] pointer-events-none"
-            aria-hidden
-          >
-            <ParticleTextEffect asBackground words={HERO_PARTICLE_WORDS} />
-          </div>
-          <div className="hero-spline-layer absolute inset-0 z-[1] min-h-full min-w-full cursor-auto">
-            <div className="absolute inset-0 h-full min-h-screen w-full touch-pan-y outline-none [&_canvas]:!h-full [&_canvas]:!w-full">
-              <SplineScene
-                scene={HERO_SPLINE_SCENE}
-                className="!block !h-full !w-full !min-h-screen"
-              />
-            </div>
-          </div>
-          <div
-            className="pointer-events-none absolute inset-0 z-[2] bg-[radial-gradient(ellipse_100%_80%_at_20%_20%,rgba(201,169,110,0.12),transparent_55%)]"
-            aria-hidden
-          />
-          <div
-            className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-r from-[#0C0C0E] via-[#0C0C0E]/85 to-[#0C0C0E]/20"
-            aria-hidden
-          />
-          <div
-            className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-b from-[#0C0C0E]/5 via-transparent to-[#0C0C0E]/88"
-            aria-hidden
-          />
-          <div
-            className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-l from-transparent via-[#0C0C0E]/35 to-[#0C0C0E]/80"
-            aria-hidden
-          />
-          <div
-            className="pointer-events-none absolute inset-0 z-[2] mix-blend-screen opacity-[0.24]"
-            aria-hidden
-          >
-            <Spotlight
-              className="-top-32 left-0 !opacity-100 [animation:spotlight_2s_ease_0.75s_1_forwards] md:-top-20 md:left-[20%] lg:left-[50%] lg:-translate-x-1/2"
-              fill="#E8D5B0"
-            />
-          </div>
-          <div
-            className="hero-bg-pattern pointer-events-none absolute inset-0 z-[2] opacity-40 mix-blend-overlay transition-transform duration-200 ease-out"
-            style={{
-              background: `repeating-linear-gradient(45deg, transparent, transparent 60px, rgba(201,169,110,0.04) 60px, rgba(201,169,110,0.04) 61px)`,
-            }}
-          />
-          <div className="pointer-events-none absolute top-0 right-0 z-[0] h-[500px] w-[500px] translate-x-1/4 -translate-y-1/4 rounded-full bg-[#C9A96E] opacity-[0.05] blur-[120px] animate-pulse-slow" />
-          <div
-            className="pointer-events-none absolute bottom-0 left-1/3 z-[0] h-[400px] w-[400px] rounded-full bg-[#E8D5B0] opacity-[0.04] blur-[100px] animate-pulse-slow"
-            style={{ animationDelay: '2s' }}
-          />
-        </div>
+        <HeroBackgroundLayers />
 
         {/* pointer-events-none на обёртке — клики в «пустоте» доходят до Spline; текст — pointer-events-auto */}
         <div className="relative z-[10] flex min-h-screen flex-col pointer-events-none">
