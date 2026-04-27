@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Роберт Садртдинов — Маркетолог для медицинского бизнеса</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --ink:    #0C0C0E;
+    --paper:  #F5F2ED;
+    --gold:   #C9A96E;
+    --gold2:  #E8D5B0;
+    --mid:    #3A3A3A;
+    --muted:  #888;
+    --green:  #2A6E47;
+    --line:   rgba(201,169,110,0.25);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom cursor */
+  .cursor {
+    position: fixed; top:0; left:0; width:10px; height:10px;
+    background: var(--gold); border-radius:50%;
+    pointer-events:none; z-index:9999;
+    transform: translate(-50%,-50%);
+    transition: transform 0.15s ease, width 0.2s, height 0.2s, opacity 0.2s;
+    mix-blend-mode: exclusion;
+  }
+  .cursor-ring {
+    position: fixed; top:0; left:0; width:36px; height:36px;
+    border: 1px solid var(--gold); border-radius:50%;
+    pointer-events:none; z-index:9998;
+    transform: translate(-50%,-50%);
+    transition: transform 0.4s ease;
+    opacity: 0.5;
+  }
+  body:hover .cursor { opacity:1; }
+
+  /* ---- NAV ---- */
+  nav {
+    position: fixed; top:0; left:0; right:0; z-index:100;
+    padding: 28px 60px;
+    display: flex; justify-content:space-between; align-items:center;
+    border-bottom: 1px solid transparent;
+    transition: background 0.4s, border-color 0.4s, padding 0.3s;
+  }
+  nav.scrolled {
+    background: rgba(12,12,14,0.95);
+    border-bottom-color: var(--line);
+    padding-top: 18px; padding-bottom: 18px;
+    backdrop-filter: blur(12px);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; letter-spacing: 0.12em;
+    color: var(--gold); text-decoration:none;
+    font-weight: 300;
+  }
+  .nav-links { display:flex; gap:40px; list-style:none; }
+  .nav-links a {
+    font-size: 0.72rem; letter-spacing: 0.18em; text-transform:uppercase;
+    color: var(--muted); text-decoration:none;
+    transition: color 0.25s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    font-size: 0.72rem; letter-spacing: 0.18em; text-transform:uppercase;
+    color: var(--ink); background: var(--gold);
+    padding: 10px 24px; text-decoration:none;
+    transition: background 0.25s, transform 0.2s;
+    display:inline-block;
+  }
+  .nav-cta:hover { background: var(--gold2); transform: translateY(-1px); }
+
+  /* ---- HERO ---- */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex; flex-direction:column;
+    justify-content: flex-end;
+    padding: 180px 60px 100px;
+    position: relative; z-index:2;
+  }
+
+  .hero-tag {
+    font-size: 0.68rem; letter-spacing: 0.25em; text-transform:uppercase;
+    color: var(--gold); margin-bottom: 32px;
+    display: flex; align-items: center; gap:14px;
+  }
+  .hero-tag::before {
+    content:''; display:block; width:40px; height:1px; background:var(--gold);
+  }
+
+  .hero-h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.2rem, 5.5vw, 6rem);
+    font-weight: 300; line-height: 1.05;
+    color: var(--paper);
+    margin-bottom: 16px;
+  }
+  .hero-h1 em { font-style: italic; color: var(--gold); }
+
+  .hero-sub {
+    font-size: 0.9rem; color: var(--muted); line-height: 1.75;
+    max-width: 440px; margin-bottom: 60px;
+    font-weight: 400; letter-spacing: 0.02em;
+  }
+
+  .hero-cta-row { display:flex; gap:20px; align-items:center; }
+  .btn-primary {
+    font-size: 0.72rem; letter-spacing: 0.2em; text-transform:uppercase;
+    color: var(--ink); background: var(--gold);
+    padding: 16px 36px; text-decoration:none;
+    transition: all 0.25s; display:inline-block;
+    position:relative; overflow:hidden;
+  }
+  .btn-primary::after {
+    content:''; position:absolute; inset:0;
+    background: var(--gold2); transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  .btn-primary:hover::after { transform: translateX(0); }
+  .btn-primary span { position:relative; z-index:1; }
+
+  .btn-ghost {
+    font-size: 0.72rem; letter-spacing: 0.2em; text-transform:uppercase;
+    color: var(--gold); border: 1px solid var(--gold);
+    padding: 16px 36px; text-decoration:none;
+    transition: all 0.25s; display:inline-block;
+  }
+  .btn-ghost:hover { background: rgba(201,169,110,0.08); }
+
+  .hero-right {
+    position: relative;
+    display: flex; align-items:center; justify-content:center;
+    overflow: hidden;
+  }
+  .hero-bg-pattern {
+    position:absolute; inset:0;
+    background:
+      repeating-linear-gradient(
+        45deg,
+        transparent, transparent 60px,
+        rgba(201,169,110,0.03) 60px, rgba(201,169,110,0.03) 61px
+      );
+  }
+  .hero-stat-card {
+    position:relative; z-index:2;
+    border: 1px solid var(--line);
+    padding: 50px 50px;
+    background: rgba(255,255,255,0.02);
+    backdrop-filter: blur(6px);
+    display: grid; grid-template-columns: 1fr 1fr; gap:1px;
+    background-color: var(--line);
+  }
+  .hero-stat-cell {
+    background: rgba(12,12,14,0.95);
+    padding: 36px 32px;
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.2rem; font-weight:600; color: var(--gold);
+    line-height:1; margin-bottom:8px;
+    display:block;
+  }
+  .stat-label {
+    font-size: 0.68rem; letter-spacing:0.15em; text-transform:uppercase;
+    color: var(--muted); line-height:1.5;
+  }
+
+  .hero-scroll {
+    position:absolute; bottom:40px; left:60px;
+    font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase;
+    color: var(--muted); display:flex; align-items:center; gap:12px;
+  }
+  .hero-scroll::before {
+    content:''; display:block; width:1px; height:60px;
+    background: linear-gradient(var(--gold), transparent);
+  }
+
+  /* ---- SECTION SHARED ---- */
+  section { position:relative; }
+  .section-label {
+    font-size:0.65rem; letter-spacing:0.3em; text-transform:uppercase;
+    color: var(--gold); margin-bottom:16px;
+    display:flex; align-items:center; gap:14px;
+  }
+  .section-label::before { content:''; display:block; width:30px; height:1px; background:var(--gold); }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 3.5vw, 3.6rem);
+    font-weight: 300; line-height: 1.1; color: var(--paper);
+  }
+  h2 em { font-style: italic; color: var(--gold); }
+
+  /* ---- PROBLEM ---- */
+  .problem {
+    padding: 140px 60px;
+    border-top: 1px solid var(--line);
+  }
+  .problem-inner {
+    display:grid; grid-template-columns: 1fr 1fr; gap:100px;
+    max-width: 1300px; margin:0 auto;
+    align-items: start;
+  }
+  .problem-left h2 { margin-bottom: 40px; }
+  .problem-text {
+    font-size:1.05rem; color: var(--muted); line-height:1.85;
+    margin-bottom: 24px;
+  }
+
+  .problem-list {
+    list-style:none; display:flex; flex-direction:column; gap:0;
+    border-top: 1px solid var(--line);
+  }
+  .problem-list li {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
+    display:grid; grid-template-columns: 36px 1fr; gap:20px;
+    align-items:start;
+  }
+  .pain-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size:0.9rem; color: var(--gold); opacity:0.6;
+    margin-top:2px;
+  }
+  .pain-text { font-size:0.9rem; color: var(--muted); line-height:1.7; }
+
+  /* ---- HOW IT WORKS ---- */
+  .process {
+    padding: 140px 60px;
+    background: rgba(255,255,255,0.015);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .process-inner { max-width:1300px; margin:0 auto; }
+  .process-header { margin-bottom:80px; }
+  .process-steps {
+    display: grid; grid-template-columns: repeat(5,1fr);
+    gap: 1px; background: var(--line);
+  }
+  .step {
+    background: var(--ink);
+    padding: 44px 32px;
+    position: relative;
+    transition: background 0.3s;
+  }
+  .step:hover { background: rgba(201,169,110,0.04); }
+  .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size:4rem; font-weight:300; color: rgba(201,169,110,0.12);
+    line-height:1; margin-bottom:24px; display:block;
+  }
+  .step-title {
+    font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase;
+    color: var(--gold); margin-bottom:14px;
+  }
+  .step-desc { font-size:0.82rem; color: var(--muted); line-height:1.75; }
+
+  /* ---- DIFFERENCE ---- */
+  .difference {
+    padding: 140px 60px;
+  }
+  .diff-inner { max-width:1300px; margin:0 auto; }
+  .diff-header { margin-bottom:70px; }
+  .diff-table {
+    border: 1px solid var(--line);
+    width:100%;
+  }
+  .diff-row {
+    display:grid; grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 1px solid var(--line);
+    gap:1px; background: var(--line);
+  }
+  .diff-row:last-child { border-bottom:none; }
+  .diff-cell {
+    background: var(--ink);
+    padding: 28px 36px;
+    font-size:0.85rem; line-height:1.6;
+  }
+  .diff-head {
+    font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase;
+    color: var(--muted);
+  }
+  .diff-cell.mine { color: var(--paper); }
+  .diff-cell.theirs { color: var(--muted); opacity:0.6; }
+  .diff-cell.category {
+    color: var(--gold); font-size:0.78rem; letter-spacing:0.08em; font-weight:500;
+  }
+
+  /* ---- CASES ---- */
+  .cases {
+    padding: 140px 60px;
+    background: rgba(255,255,255,0.015);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .cases-inner { max-width:1300px; margin:0 auto; }
+  .cases-header { margin-bottom:70px; }
+  .cases-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background: var(--line); }
+  .case-card {
+    background: var(--ink); padding: 60px;
+    position: relative; overflow: hidden;
+    transition: background 0.3s;
+  }
+  .case-card:hover { background: rgba(201,169,110,0.03); }
+  .case-tag {
+    font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase;
+    color: var(--gold); margin-bottom:28px; display:block;
+  }
+  .case-metric {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem,5vw,5rem); font-weight:300; color: var(--paper);
+    line-height:1; margin-bottom:8px; display:block;
+  }
+  .case-metric-label {
+    font-size:0.78rem; color: var(--muted); letter-spacing:0.08em;
+    text-transform:uppercase; margin-bottom:32px; display:block;
+  }
+  .case-desc { font-size:0.88rem; color: var(--muted); line-height:1.75; }
+  .case-divider { width:40px; height:1px; background:var(--line); margin:28px 0; }
+
+  /* ---- ABOUT ---- */
+  .about {
+    padding: 140px 60px;
+  }
+  .about-inner {
+    max-width:1300px; margin:0 auto;
+    display:grid; grid-template-columns: 1fr 1fr; gap:100px;
+    align-items: start;
+  }
+  .about-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.4rem,2.2vw,2rem); font-style:italic;
+    color: var(--paper); line-height:1.6;
+    border-left: 1px solid var(--gold); padding-left:32px;
+    margin-bottom:40px;
+  }
+  .about-body { font-size:0.9rem; color: var(--muted); line-height:1.85; margin-bottom:24px; }
+  .about-tags { display:flex; flex-wrap:wrap; gap:10px; margin-top:32px; }
+  .about-tag {
+    font-size:0.68rem; letter-spacing:0.15em; text-transform:uppercase;
+    border: 1px solid var(--line); padding:8px 18px;
+    color: var(--muted);
+  }
+  .creds { display:flex; flex-direction:column; gap:0; }
+  .cred-row {
+    border-bottom: 1px solid var(--line);
+    padding: 28px 0;
+    display:grid; grid-template-columns: 80px 1fr; gap:24px;
+    align-items:start;
+  }
+  .cred-row:first-child { border-top: 1px solid var(--line); }
+  .cred-icon {
+    font-family: 'Cormorant Garamond', serif;
+    font-size:1.8rem; color: rgba(201,169,110,0.3);
+    line-height:1;
+  }
+  .cred-title { font-size:0.78rem; color: var(--paper); letter-spacing:0.05em; margin-bottom:6px; }
+  .cred-desc { font-size:0.8rem; color: var(--muted); line-height:1.6; }
+
+  /* ---- AUDIENCES ---- */
+  .audiences {
+    padding: 140px 60px;
+    background: rgba(255,255,255,0.015);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .aud-inner { max-width:1300px; margin:0 auto; }
+  .aud-header { margin-bottom:70px; }
+  .aud-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:1px; background: var(--line); }
+  .aud-card {
+    background: var(--ink); padding: 44px 36px;
+    transition: background 0.3s;
+  }
+  .aud-card:hover { background: rgba(201,169,110,0.04); }
+  .aud-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size:2.2rem; color: rgba(201,169,110,0.18); line-height:1;
+    margin-bottom:20px; display:block;
+  }
+  .aud-name { font-size:0.82rem; color: var(--paper); letter-spacing:0.08em; margin-bottom:12px; font-weight:500; }
+  .aud-jtbd { font-size:0.8rem; color: var(--gold); line-height:1.5; margin-bottom:16px; font-style:italic; }
+  .aud-pain { font-size:0.78rem; color: var(--muted); line-height:1.7; }
+
+  /* ---- GUARANTEE ---- */
+  .guarantee {
+    padding: 120px 60px;
+    border-top: 1px solid var(--line);
+  }
+  .guarantee-inner {
+    max-width:1300px; margin:0 auto;
+    display:grid; grid-template-columns: 1fr 1fr; gap:100px; align-items:center;
+  }
+  .guarantee-text h2 { margin-bottom:24px; }
+  .guarantee-text p { font-size:0.9rem; color: var(--muted); line-height:1.85; margin-bottom:20px; }
+  .guarantee-points { display:flex; flex-direction:column; gap:0; }
+  .gpoint {
+    padding: 22px 0; border-bottom: 1px solid var(--line);
+    display:flex; gap:20px; align-items:start;
+  }
+  .gpoint:first-child { border-top: 1px solid var(--line); }
+  .gpoint-check { color: var(--gold); font-size:0.8rem; margin-top:2px; }
+  .gpoint-text { font-size:0.85rem; color: var(--muted); line-height:1.7; }
+  .gpoint-text strong { color: var(--paper); font-weight:500; }
+
+  /* ---- CTA SECTION ---- */
+  .cta-section {
+    padding: 160px 60px;
+    background: rgba(201,169,110,0.04);
+    border-top: 1px solid var(--line);
+    text-align: center;
+  }
+  .cta-section h2 { margin-bottom:20px; }
+  .cta-section p { font-size:0.95rem; color: var(--muted); max-width:500px; margin:0 auto 56px; line-height:1.8; }
+  .cta-row { display:flex; gap:20px; justify-content:center; align-items:center; }
+  .cta-contact-info {
+    margin-top:50px; display:flex; justify-content:center; gap:50px;
+    font-size:0.75rem; color: var(--muted); letter-spacing:0.1em;
+  }
+  .cta-contact-info a { color: var(--muted); text-decoration:none; transition:color 0.2s; }
+  .cta-contact-info a:hover { color: var(--gold); }
+
+  /* ---- AUDIT REPORT (hidden section for builder) ---- */
+  .audit-section {
+    padding: 100px 60px;
+    border-top: 4px solid var(--gold);
+    background: rgba(201,169,110,0.03);
+    display:none; /* Toggle to block to reveal */
+  }
+  .audit-inner { max-width:1100px; margin:0 auto; }
+  .audit-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size:2.4rem; color: var(--gold); margin-bottom:12px;
+  }
+  .audit-subtitle { font-size:0.8rem; color: var(--muted); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:60px; }
+  .audit-block { margin-bottom:56px; }
+  .audit-block-title {
+    font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase;
+    color: var(--gold); border-bottom: 1px solid var(--line); padding-bottom:12px; margin-bottom:24px;
+  }
+  .audit-item { margin-bottom:20px; }
+  .audit-item-head { font-size:0.88rem; color: var(--paper); margin-bottom:6px; font-weight:500; }
+  .audit-item-body { font-size:0.82rem; color: var(--muted); line-height:1.75; }
+  .audit-badge {
+    display:inline-block; font-size:0.62rem; letter-spacing:0.15em; text-transform:uppercase;
+    padding:3px 10px; border:1px solid; margin-right:8px; margin-bottom:4px;
+  }
+  .badge-ok { border-color: var(--green); color: var(--green); }
+  .badge-warn { border-color: #C97E2E; color: #C97E2E; }
+  .badge-bad { border-color: #C93E3E; color: #C93E3E; }
+  .you-do, .need-specialist { padding:20px 28px; border-left:2px solid; margin:10px 0; font-size:0.82rem; color: var(--muted); line-height:1.7; }
+  .you-do { border-color: var(--green); }
+  .need-specialist { border-color: #C97E2E; }
+
+  /* ---- FOOTER ---- */
+  footer {
+    padding: 60px;
+    border-top: 1px solid var(--line);
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size:1rem; color: var(--gold); letter-spacing:0.1em; font-weight:300;
+  }
+  .footer-links { display:flex; gap:32px; }
+  .footer-links a {
+    font-size:0.68rem; letter-spacing:0.15em; text-transform:uppercase;
+    color: var(--muted); text-decoration:none; transition:color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-legal { font-size:0.65rem; color: rgba(136,136,136,0.4); letter-spacing:0.08em; }
+
+  /* ---- SCROLL REVEAL ---- */
+  .reveal { opacity:0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity:1; transform: translateY(0); }
+
+  /* ---- NOISE OVERLAY ---- */
+  .noise {
+    position:fixed; inset:0; pointer-events:none; z-index:999;
+    opacity:0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px;
+  }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 1024px) {
+    nav { padding: 24px 32px; }
+    .hero { grid-template-columns:1fr; }
+    .hero-right { display:none; }
+    .hero-left { padding: 160px 32px 80px; }
+    .problem-inner, .about-inner, .guarantee-inner { grid-template-columns:1fr; gap:60px; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .cases-grid { grid-template-columns:1fr; }
+    .aud-grid { grid-template-columns:1fr 1fr; }
+    .diff-row { grid-template-columns:1fr; }
+    section, .problem, .process, .difference, .cases, .about, .audiences, .guarantee, .cta-section { padding: 100px 32px; }
+    footer { padding: 40px 32px; flex-direction:column; gap:24px; text-align:center; }
+    .nav-links { display:none; }
+  }
+
+  @media (max-width: 600px) {
+    .aud-grid { grid-template-columns:1fr; }
+    .process-steps { grid-template-columns:1fr; }
+    .hero-cta-row { flex-direction:column; align-items:flex-start; }
+    .cta-row { flex-direction:column; }
+  }
+</style>
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">Р. Садртдинов</a>
+  <ul class="nav-links">
+    <li><a href="#process">Подход</a></li>
+    <li><a href="#cases">Кейсы</a></li>
+    <li><a href="#about">Об эксперте</a></li>
+    <li><a href="#audiences">Кому подходит</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Записаться на разбор</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Системный маркетолог · Медицинский бизнес</div>
+    <h1 class="hero-h1">
+      Стабильный поток<br>
+      пациентов —<br>
+      <em>это система,</em><br>
+      а не случайность
+    </h1>
+    <p class="hero-sub">
+      Выстраиваю маркетинг для стоматологий, клиник и медицинских специалистов от аудита до первых записей. Понимаю медицину изнутри. Медфак + ИИ-инструменты вместо дорогого агентства.
+    </p>
+    <div class="hero-cta-row">
+      <a href="#contact" class="btn-primary"><span>Получить бесплатный разбор</span></a>
+      <a href="#cases" class="btn-ghost">Смотреть кейсы</a>
+    </div>
+    <div class="hero-scroll">Листать вниз</div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-stat-card">
+      <div class="hero-stat-cell">
+        <span class="stat-num">14</span>
+        <span class="stat-label">Новых пациентов<br>за первый месяц</span>
+      </div>
+      <div class="hero-stat-cell">
+        <span class="stat-num">90K</span>
+        <span class="stat-label">₽ выручки<br>в первую неделю</span>
+      </div>
+      <div class="hero-stat-cell">
+        <span class="stat-num">0₽</span>
+        <span class="stat-label">Рекламный бюджет<br>для первого кейса</span>
+      </div>
+      <div class="hero-stat-cell">
+        <span class="stat-num">10</span>
+        <span class="stat-label">Лет в продажах<br>на трёх рынках</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem" id="problem">
+  <div class="problem-inner">
+    <div class="problem-left reveal">
+      <div class="section-label">Знакомая история</div>
+      <h2>Маркетолог брал деньги.<br>Пациентов <em>не стало.</em></h2>
+      <p class="problem-text">
+        Большинство клиник теряют новых пациентов не из-за плохого продукта — а потому что у них нет системы. Запускают рекламу без стратегии, нанимают маркетологов без понимания медицины и получают «охваты» вместо записей.
+      </p>
+    </div>
+    <div class="problem-right reveal">
+      <ul class="problem-list">
+        <li>
+          <span class="pain-num">01</span>
+          <span class="pain-text">Нанимали маркетологов — брали деньги, результата нет. Страх снова потерять бюджет</span>
+        </li>
+        <li>
+          <span class="pain-num">02</span>
+          <span class="pain-text">Нет понимания, какие каналы работают в медицине и как обойти ограничения ФЗ-38</span>
+        </li>
+        <li>
+          <span class="pain-num">03</span>
+          <span class="pain-text">Профиль в картах заброшен, нет отзывов — пациент уходит к конкуренту</span>
+        </li>
+        <li>
+          <span class="pain-num">04</span>
+          <span class="pain-text">Непонятно откуда приходят пациенты и сколько каждый из них стоит клинике</span>
+        </li>
+        <li>
+          <span class="pain-num">05</span>
+          <span class="pain-text">Пробовали разных подрядчиков — каждый делал своё. Единой системы так и нет</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="process-inner">
+    <div class="process-header reveal">
+      <div class="section-label">Как строится работа</div>
+      <h2>Пять шагов от хаоса<br>к <em>измеримой системе</em></h2>
+    </div>
+    <div class="process-steps">
+      <div class="step reveal">
+        <span class="step-num">01</span>
+        <div class="step-title">Аудит и анализ</div>
+        <p class="step-desc">Изучаю целевую аудиторию, конкурентов и текущее состояние маркетинга. Нахожу точки потерь.</p>
+      </div>
+      <div class="step reveal">
+        <span class="step-num">02</span>
+        <div class="step-title">Стратегия</div>
+        <p class="step-desc">Строю маркетинговую карту: какие каналы, в какой последовательности, с каким бюджетом.</p>
+      </div>
+      <div class="step reveal">
+        <span class="step-num">03</span>
+        <div class="step-title">Запуск системы</div>
+        <p class="step-desc">Яндекс.Карты, сайт, соцсети, чат-боты — запускаем с нуля или восстанавливаем. Первые пациенты уже в первый месяц.</p>
+      </div>
+      <div class="step reveal">
+        <span class="step-num">04</span>
+        <div class="step-title">Автоматизация</div>
+        <p class="step-desc">ИИ-инструменты и чат-боты берут на себя запись, прогрев и обработку входящих. Система работает без вас.</p>
+      </div>
+      <div class="step reveal">
+        <span class="step-num">05</span>
+        <div class="step-title">Аналитика и рост</div>
+        <p class="step-desc">Прозрачная отчётность: видно каждое действие и каждый рубль. Итерируем и масштабируем то, что работает.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFFERENCE -->
+<section class="difference" id="difference">
+  <div class="diff-inner">
+    <div class="diff-header reveal">
+      <div class="section-label">Отличие от рынка</div>
+      <h2>Не «ещё один маркетолог».<br><em>Системный подход</em> + медфак.</h2>
+    </div>
+    <div class="diff-table reveal">
+      <div class="diff-row">
+        <div class="diff-cell diff-head">Критерий</div>
+        <div class="diff-cell diff-head">Роберт Садртдинов</div>
+        <div class="diff-cell diff-head">Обычный маркетолог / агентство</div>
+      </div>
+      <div class="diff-row">
+        <div class="diff-cell category">Подход к задаче</div>
+        <div class="diff-cell mine">Строит маркетинг как единую систему от анализа до аналитики</div>
+        <div class="diff-cell theirs">Решает точечные задачи — таргет, SMM или сайт отдельно</div>
+      </div>
+      <div class="diff-row">
+        <div class="diff-cell category">Знание ниши</div>
+        <div class="diff-cell mine">Медицинское образование + практика. Понимает мышление врача и пациента</div>
+        <div class="diff-cell theirs">Работает по универсальным шаблонам без понимания медицинской специфики</div>
+      </div>
+      <div class="diff-row">
+        <div class="diff-cell category">Инструменты</div>
+        <div class="diff-cell mine">ИИ-инструменты (Claude, ChatGPT, Midjourney) — быстрее и дешевле в 3–5 раз</div>
+        <div class="diff-cell theirs">Работает вручную, дольше и дороже без снижения стоимости производства</div>
+      </div>
+      <div class="diff-row">
+        <div class="diff-cell category">Результат</div>
+        <div class="diff-cell mine">Измеримый итог: пациенты, выручка, заявки. Договор с KPI</div>
+        <div class="diff-cell theirs">Результат — «охваты выросли» без привязки к коммерческим показателям</div>
+      </div>
+      <div class="diff-row">
+        <div class="diff-cell category">Прозрачность</div>
+        <div class="diff-cell mine">Открытый прайс. Честно о сроках и возможностях до подписания</div>
+        <div class="diff-cell theirs">Цены только после звонка. Обещания золотых гор без фиксации результата</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section class="cases" id="cases">
+  <div class="cases-inner">
+    <div class="cases-header reveal">
+      <div class="section-label">Доказанный результат</div>
+      <h2>Реальные цифры.<br><em>Реальные клиники.</em></h2>
+    </div>
+    <div class="cases-grid">
+      <div class="case-card reveal">
+        <span class="case-tag">Кейс 01 · Стоматология «Аристократ»</span>
+        <span class="case-metric">14</span>
+        <span class="case-metric-label">Новых пациентов за 1 месяц</span>
+        <div class="case-divider"></div>
+        <p class="case-desc">Результат получен через Яндекс.Карты без рекламного бюджета. Аудит профиля, работа с отзывами, оптимизация описания — системный запуск бесплатного органического канала дал немедленный результат.</p>
+      </div>
+      <div class="case-card reveal">
+        <span class="case-tag">Кейс 02 · Медицинский специалист</span>
+        <span class="case-metric">90К</span>
+        <span class="case-metric-label">₽ выручки в первую неделю</span>
+        <div class="case-divider"></div>
+        <p class="case-desc">90 000 рублей выручки для медицинского специалиста в первую неделю после запуска системы продаж. Построена связка: упаковка → автоматическая запись → воронка прогрева.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="reveal">
+      <div class="section-label">Об эксперте</div>
+      <blockquote class="about-quote">«Большинство клиник теряют пациентов не из-за плохого продукта — а из-за отсутствия системы. Я строю эту систему. Шаг за шагом, инструмент за инструментом.»</blockquote>
+      <p class="about-body">Роберт Садртдинов — специалист в области системного маркетинга с десятилетним опытом в продажах на трёх рынках. Разрабатывает комплексные маркетинговые решения для медицинского бизнеса.</p>
+      <p class="about-body">Ключевое отличие — редкое сочетание медицинского образования (стоматологический факультет), которое даёт понимание отрасли изнутри, и глубокой практической экспертизы в digital-маркетинге, продажах и современных ИИ-инструментах.</p>
+      <div class="about-tags">
+        <span class="about-tag">Медфак · стомфак</span>
+        <span class="about-tag">10 лет в продажах</span>
+        <span class="about-tag">ИИ-инструменты</span>
+        <span class="about-tag">Договор с KPI</span>
+        <span class="about-tag">Открытый прайс</span>
+      </div>
+    </div>
+    <div class="creds reveal">
+      <div class="cred-row">
+        <div class="cred-icon">01</div>
+        <div>
+          <div class="cred-title">Медицинское образование</div>
+          <div class="cred-desc">Стоматологический факультет. Единственный маркетолог с медобразованием в нише. Понимает ФЗ-38, мышление пациента и врача.</div>
+        </div>
+      </div>
+      <div class="cred-row">
+        <div class="cred-icon">02</div>
+        <div>
+          <div class="cred-title">10 лет в продажах</div>
+          <div class="cred-desc">Недвижимость, нефтепродукты, B2B. Первая сделка на 19-й день. Объёмы — несколько миллионов рублей в B2B-канале.</div>
+        </div>
+      </div>
+      <div class="cred-row">
+        <div class="cred-icon">03</div>
+        <div>
+          <div class="cred-title">ИИ-инструменты</div>
+          <div class="cred-desc">Claude, ChatGPT, Midjourney, Figma, чат-боты. Снижают стоимость производства контента и аналитики в 3–5 раз.</div>
+        </div>
+      </div>
+      <div class="cred-row">
+        <div class="cred-icon">04</div>
+        <div>
+          <div class="cred-title">Работал в нишах</div>
+          <div class="cred-desc">Стоматология, подология, нутрициология, психология. Понимает специфику каждой специализации.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCES -->
+<section class="audiences" id="audiences">
+  <div class="aud-inner">
+    <div class="aud-header reveal">
+      <div class="section-label">Кому подходит</div>
+      <h2>Работаю с теми, кто<br><em>берёт ответственность</em> за результат</h2>
+    </div>
+    <div class="aud-grid">
+      <div class="aud-card reveal">
+        <span class="aud-num">01</span>
+        <div class="aud-name">Владельцы стоматологий</div>
+        <div class="aud-jtbd">«Хочу стабильный поток новых пациентов, не зависящий от сарафана»</div>
+        <p class="aud-pain">Знаю специфику медрекламы и ФЗ-38. Строю систему с нуля или восстанавливаю существующую.</p>
+      </div>
+      <div class="aud-card reveal">
+        <span class="aud-num">02</span>
+        <div class="aud-name">Подологи, нутрициологи, узкие специалисты</div>
+        <div class="aud-jtbd">«Хочу выйти из режима сарафана и выстроить предсказуемый поток»</div>
+        <p class="aud-pain">Работаю с узкими нишами, которые другие агентства не видят как аудиторию.</p>
+      </div>
+      <div class="aud-card reveal">
+        <span class="aud-num">03</span>
+        <div class="aud-name">Врачи, открывающие частную практику</div>
+        <div class="aud-jtbd">«Хочу выстроить поток клиентов и не зависеть от клиники-работодателя»</div>
+        <p class="aud-pain">Специализируюсь на быстром старте с нуля через бесплатные каналы. Первые клиенты за 1–2 месяца.</p>
+      </div>
+      <div class="aud-card reveal">
+        <span class="aud-num">04</span>
+        <div class="aud-name">Многопрофильные медицинские центры</div>
+        <div class="aud-jtbd">«Хочу единую маркетинговую систему для всего центра»</div>
+        <p class="aud-pain">Системный подход и опыт работы с несколькими нишами одновременно.</p>
+      </div>
+      <div class="aud-card reveal">
+        <span class="aud-num">05</span>
+        <div class="aud-name">Предприниматели с хаосом в маркетинге</div>
+        <div class="aud-jtbd">«Хочу прекратить хаос и понять откуда приходят клиенты»</div>
+        <p class="aud-pain">Прозрачность процесса, измеримые результаты, системный подход к делегированию.</p>
+      </div>
+      <div class="aud-card reveal">
+        <span class="aud-num">06</span>
+        <div class="aud-name">Эксперты, коучи, психологи</div>
+        <div class="aud-jtbd">«Хочу превратить экспертизу в стабильный поток клиентов онлайн»</div>
+        <p class="aud-pain">Сам являюсь экспертом, строящим личный бренд — понимаю модель изнутри.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee" id="guarantee">
+  <div class="guarantee-inner">
+    <div class="guarantee-text reveal">
+      <div class="section-label">Условия работы</div>
+      <h2>Договор с KPI.<br><em>Прозрачно</em> до подписания.</h2>
+      <p>Роберт не обещает того, чего не может выполнить. Цены видны без звонка — единственный маркетолог в нише с открытым прайсом. Каждый проект закрепляется договором с фиксированными результатами и сроками.</p>
+    </div>
+    <div class="guarantee-points reveal">
+      <div class="gpoint">
+        <div class="gpoint-check">◆</div>
+        <div class="gpoint-text"><strong>Договор с KPI</strong> — фиксируем результат, сроки и стоимость до начала работы. Никаких сюрпризов.</div>
+      </div>
+      <div class="gpoint">
+        <div class="gpoint-check">◆</div>
+        <div class="gpoint-text"><strong>Открытый прайс</strong> — цены на сайте видны без звонка. Единственный на рынке.</div>
+      </div>
+      <div class="gpoint">
+        <div class="gpoint-check">◆</div>
+        <div class="gpoint-text"><strong>Один эксперт — вся система</strong> — клиент не теряется между исполнителями. Персональный контакт и полная ответственность.</div>
+      </div>
+      <div class="gpoint">
+        <div class="gpoint-check">◆</div>
+        <div class="gpoint-text"><strong>Прозрачная отчётность</strong> — видно каждое действие и каждый рубль. Еженедельный отчёт о движении по системе.</div>
+      </div>
+      <div class="gpoint">
+        <div class="gpoint-check">◆</div>
+        <div class="gpoint-text"><strong>Понимаю ФЗ-38</strong> — работаю строго в рамках ограничений медицинской рекламы. Нет риска штрафов.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="section-label" style="justify-content:center">Начать работу</div>
+  <h2>Разберёмся, что мешает<br>вашим <em>пациентам вас найти</em></h2>
+  <p>Проведу бесплатный 30-минутный разбор. Покажу, какой канал даст первых пациентов быстрее всего именно в вашей ситуации.</p>
+  <div class="cta-row">
+    <a href="https://t.me/Robertunov" target="_blank" class="btn-primary"><span>Написать в Telegram</span></a>
+    <a href="mailto:Redstarrob@mail.ru" class="btn-ghost">Написать на почту</a>
+  </div>
+  <div class="cta-contact-info">
+    <a href="https://t.me/Robertunov">@Robertunov</a>
+    <a href="mailto:Redstarrob@mail.ru">Redstarrob@mail.ru</a>
+    <a href="tel:89223533819">8 922 353 38 19</a>
+  </div>
+</section>
+
+<!-- ======================== AUDIT SECTION (for builder) ======================== -->
+<!-- Раскройте этот блок: найдите .audit-section в CSS и поставьте display:block -->
+<section class="audit-section" id="audit">
+  <div class="audit-inner">
+    <div class="audit-title">Аудит лендинга</div>
+    <div class="audit-subtitle">Direct Response Architecture · StoryBrand Framework · Полный отчёт</div>
+
+    <!-- I -->
+    <div class="audit-block">
+      <div class="audit-block-title">I. Структура давления</div>
+
+      <div class="audit-item">
+        <div class="audit-item-head"><span class="audit-badge badge-ok">ЕСТЬ</span> Чёткий оффер</div>
+        <div class="audit-item-body">УТП сформулировано в смысловой упаковке: «Стабильный поток пациентов из интернета — выстраиваю систему от анализа до первых записей. Понимаю медицину изнутри». На лендинге оффер вынесен в hero — пациенты, система, медфак + ИИ. Это работает. Однако отсутствует ценовой якорь — не ясно, от какой суммы начинается работа. Это создаёт барьер до CTA.</div>
+      </div>
+
+      <div class="audit-item">
+        <div class="audit-item-head"><span class="audit-badge badge-ok">ЕСТЬ</span> Выгода раскрыта</div>
+        <div class="audit-item-body">5-шаговый процесс, таблица отличий, кейсы с цифрами — выгода показана хорошо. Слабое место: нет конкретной формулировки «что будет у вас через 30 дней». Добавить блок: «Через 30 дней вы будете иметь…».</div>
+      </div>
+
+      <div class="audit-item">
+        <div class="audit-item-head"><span class="audit-badge badge-warn">ЧАСТИЧНО</span> Доказательства</div>
+        <div class="audit-item-body">Есть кейсы с цифрами (14 пациентов, 90K₽). Но их только два, и нет имён/фотографий клиентов, нет скриншотов переписки/Метрики. По StoryBrand это «успех героя» — должно быть максимально конкретным и визуальным. Нет отзывов в кавычках от реальных людей.</div>
+      </div>
+
+      <div class="audit-item">
+        <div class="audit-item-head"><span class="audit-badge badge-warn">ЧАСТИЧНО</span> Обработка возражений</div>
+        <div class="audit-item-body">Раздел «Договор с KPI» снимает возражение «а вдруг обманет». Но не обработаны: «Я малая клиника — мне это подойдёт?», «Сколько это стоит?», «Я уже пробовал — снова потрачу деньги». Рекомендуется добавить блок FAQ с 5–7 реальными возражениями.</div>
+      </div>
+
+      <div class="audit-item">
+        <div class="audit-item-head"><span class="audit-badge badge-warn">МАЛО</span> Точки CTA</div>
+        <div class="audit-item-body">На длинном лендинге CTA появляется в nav и в финале. По Direct Response Architecture CTA должен быть минимум на каждые 3 экрана: после hero, после кейсов, после about, в финале. Добавить плавающую кнопку в правый угол на мобиле.</div>
+      </div>
+    </div>
+
+    <!-- II -->
+    <div class="audit-block">
+      <div class="audit-block-title">II. Ясность коммуникации</div>
+
+      <div class="audit-item">
+        <div class="audit-item-head"><span class="audit-badge badge-ok">ДА</span> Понятно за 5 секунд, что продаётся</div>
+        <div class="audit-item-body">Hero-заголовок «Стабильный поток пациентов — это система, а не случайность» + подзаголовок с «медфак + ИИ» — понятно немедленно. Тег «Системный маркетолог · Медицинский бизнес» над заголовком работает как верификатор.</div>
+      </div>
+
+      <div class="audit-item">
+        <div class="audit-item-head"><span class="audit-badge badge-ok">ДА</span> Герой целевой</div>
+        <div class="audit-item-body">Раздел «Кому подходит» чётко называет 6 сегментов. По StoryBrand важно, чтобы каждый сегмент узнал себя в герое — это реализовано через JTBD-формулировки в кавычках.</div>
+      </div>
+
+      <div class="audit-item">
+        <div class="audit-item-head"><span class="audit-badge badge-ok">ДА</span> Проблема сформулирована</div>
+        <div class="audit-item-body">Раздел «Знакомая история» с 5 болями — работает. Формулировки конкретные. Можно усилить: добавить внешнюю + внутреннюю + философскую проблему (3 уровня по StoryBrand).</div>
+      </div>
+
+      <div class="audit-item">
+        <div class="audit-item-head"><span class="audit-badge badge-ok">ДА</span> Простой план действий</div>
+        <div class="audit-item-body">5-шаговый процесс работы разложен понятно. По StoryBrand идеально — план должен быть из 3 шагов для визуальной простоты. Сейчас 5 — допустимо, но рассмотреть сжатие до 3 укрупнённых.</div>
+      </div>
+
+      <div class="audit-item">
+        <div class="audit-item-head"><span class="audit-badge badge-ok">НЕТ</span> Информационного шума</div>
+        <div class="audit-item-body">Лендинг минималистичный. Текст на каждом экране — умеренный. Нет лишних блоков.</div>
+      </div>
+    </div>
+
+    <!-- III -->
+    <div class="audit-block">
+      <div class="audit-block-title">III. Потери конверсии — где «выпадает» пользователь</div>
+
+      <div class="audit-item">
+        <div class="audit-item-head">⚠ После hero — нет промежуточного CTA</div>
+        <div class="audit-item-body">Пользователь прочитал hero, заинтересовался, скроллит дальше — и следующее предложение нажать появится только в самом конце. Потеря горячих. Добавить CTA-полосу после раздела «Кейсы».</div>
+      </div>
+
+      <div class="audit-item">
+        <div class="audit-item-head">⚠ Раздел «Отличие от рынка» — таблица с агрессивным сравнением</div>
+        <div class="audit-item-body">Таблица работает на убеждённых. Но посетитель с первого посещения может воспринять её как «хвастовство». Рекомендуется добавить над таблицей одну фразу о понимании рынка — смягчить вход.</div>
+      </div>
+
+      <div class="audit-item">
+        <div class="audit-item-head">⚠ Кейсов только два — и без визуальных доказательств</div>
+        <div class="audit-item-body">«14 пациентов» без скриншота Яндекс.Метрики или хотя бы скрина переписки — воспринимается как заявление. Нужен хотя бы один визуальный артефакт.</div>
+      </div>
+
+      <div class="audit-item">
+        <div class="audit-item-head">⚠ Нет FAQ / блока возражений</div>
+        <div class="audit-item-body">Посетитель, дочитавший до конца и не записавшийся, вероятно, имеет конкретное незакрытое возражение. Без FAQ эта аудитория уходит молча. Критически важно для B2B с длинным циклом принятия решений.</div>
+      </div>
+
+      <div class="audit-item">
+        <div class="audit-item-head">⚠ Финальный CTA без ответа на «зачем прямо сейчас»</div>
+        <div class="audit-item-body">«Разберёмся, что мешает вашим пациентам вас найти» — хороший заголовок, но нет срочности и конкретики бесплатного разбора (продолжительность, формат). Добавить: «30 минут · Бесплатно · Конкретный план на первые 30 дней».</div>
+      </div>
+    </div>
+
+    <!-- IV -->
+    <div class="audit-block">
+      <div class="audit-block-title">IV. Конкретные улучшения</div>
+
+      <div class="audit-item">
+        <div class="audit-item-head">Слабые формулировки → усиление</div>
+        <div class="audit-item-body">
+          <strong>Hero подзаголовок сейчас:</strong> «Выстраиваю маркетинг для стоматологий...»<br>
+          <strong>→ Сильнее:</strong> «За 30 дней вы получите первых пациентов из интернета — без слепого слива бюджета и без посредников. Медфак + ИИ вместо дорогого агентства.»<br><br>
+          <strong>CTA кнопка «Получить бесплатный разбор»</strong> → слабое слово «получить»<br>
+          <strong>→ Сильнее:</strong> «Хочу первых пациентов из интернета» / «Разобрать мой маркетинг бесплатно»
+        </div>
+      </div>
+
+      <div class="audit-item">
+        <div class="audit-item-head">Усиление доказательств</div>
+        <div class="audit-item-body">
+          — Добавить скриншот статистики Яндекс.Карт «Аристократа» (звонки/переходы)<br>
+          — Добавить 3 текстовых отзыва от клиентов (фото + имя + должность)<br>
+          — Добавить счётчик «Клиентов запущено: N» с анимацией<br>
+          — Логотипы клиник-клиентов (даже 3–4 иконки повышают доверие)
+        </div>
+      </div>
+
+      <div class="audit-item">
+        <div class="audit-item-head">Предложения по CTA</div>
+        <div class="audit-item-body">
+          <strong>После hero:</strong> «Разобрать мой маркетинг бесплатно»<br>
+          <strong>После кейсов:</strong> «Хочу такой же результат — записаться»<br>
+          <strong>Плавающий (мобиль):</strong> «Записаться на разбор» (якорная кнопка)<br>
+          <strong>Финал:</strong> «30 минут · Бесплатно · Конкретный план» — добавить под кнопку
+        </div>
+      </div>
+    </div>
+
+    <!-- Кто делает что -->
+    <div class="audit-block">
+      <div class="audit-block-title">Задачи: что сделаю сам / что нужен специалист</div>
+
+      <div class="you-do">
+        <strong>✓ Решаю сам (AI / копирайтинг / структура):</strong><br>
+        — Перепишу hero-подзаголовок и CTA-кнопки на более сильные формулировки<br>
+        — Добавлю промежуточные CTA после кейсов и about<br>
+        — Напишу FAQ с 7 реальными возражениями (текст + структура)<br>
+        — Добавлю блок «Через 30 дней у вас будет…» с конкретикой<br>
+        — Усилю финальный CTA: «30 минут · Бесплатно · Конкретный план»<br>
+        — Добавлю мобильную плавающую кнопку (CSS + JS)<br>
+        — Скорректирую таблицу «Отличие» — добавлю вводной фразы
+      </div>
+
+      <div class="need-specialist">
+        <strong>⚠ Нужен специалист / ваши действия:</strong><br>
+        — <strong>Скриншоты и визуальные доказательства</strong> — только вы можете предоставить реальные данные из Яндекс.Метрики / Карт<br>
+        — <strong>Отзывы клиентов</strong> — нужно собрать текстовые отзывы + разрешение на публикацию имени/фото<br>
+        — <strong>Логотипы клиник</strong> — нужно согласование с клиентами<br>
+        — <strong>Фото Роберта</strong> — живая, рабочая фотография (не сток) для раздела About<br>
+        — <strong>Ценовой якорь</strong> — решение о раскрытии стартовой стоимости (даже «от 25 000 ₽» снимает барьер)<br>
+        — <strong>SEO-мета теги</strong> — Title, Description, OG-теги для соцсетей нужно прописать под ключевые запросы (маркетолог для стоматологии, маркетинг медицинской клиники)<br>
+        — <strong>Подключение аналитики</strong> — Яндекс.Метрика с целями на каждый CTA
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- ======================== END AUDIT ======================== -->
+
+<footer>
+  <div class="footer-name">Роберт Садртдинов</div>
+  <div class="footer-links">
+    <a href="https://t.me/Robertunov" target="_blank">Telegram</a>
+    <a href="mailto:Redstarrob@mail.ru">Email</a>
+    <a href="tel:89223533819">Телефон</a>
+  </div>
+  <div class="footer-legal">© 2025 Роберт Садртдинов · Маркетолог для медицинского бизнеса</div>
+</footer>
+
+<script>
+  // Cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    setTimeout(() => {
+      ring.style.left = e.clientX + 'px';
+      ring.style.top = e.clientY + 'px';
+    }, 80);
+  });
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.width = '20px';
+      cursor.style.height = '20px';
+      ring.style.opacity = '0.2';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.width = '10px';
+      cursor.style.height = '10px';
+      ring.style.opacity = '0.5';
+    });
+  });
+
+  // Sticky nav
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Show audit section with ?audit param
+  if (window.location.search.includes('audit')) {
+    document.querySelector('.audit-section').style.display = 'block';
+  }
+</script>
+</body>
+</html>
