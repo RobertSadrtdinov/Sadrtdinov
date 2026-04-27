@@ -1,8 +1,6 @@
 import { Card } from '@/app/components/ui/card';
 import { Spotlight } from '@/app/components/ui/spotlight';
-import { SplineScene } from '@/app/components/ui/splite';
-
-const SPLINE_SCENE = 'https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode';
+import heroRobot from '../../assets/hero-robot.png';
 
 const stats = [
   { value: '14', label: 'Новых пациентов<br />за первый месяц' },
@@ -13,15 +11,24 @@ const stats = [
 
 export function HeroSplineSection() {
   return (
-    <Card className="w-full max-w-[640px] mx-auto lg:max-w-none min-h-[420px] sm:min-h-[500px] lg:min-h-[min(85vh,720px)] gap-0 overflow-hidden border-[rgba(201,169,110,0.35)] bg-[rgba(12,12,14,0.85)] text-[#F5F2ED] shadow-none p-0 relative rounded-none lg:rounded-sm">
+    <Card className="w-full h-full min-h-0 max-w-[640px] mx-auto lg:max-w-none flex flex-col gap-0 overflow-hidden border-[rgba(201,169,110,0.35)] bg-[#0a0a0c] text-[#F5F2ED] shadow-none p-0 relative rounded-none lg:rounded-sm min-h-[70vh] lg:min-h-[calc(100vh-0px)] lg:max-h-screen">
+      <div
+        className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_80%_50%_at_10%_0%,rgba(201,169,110,0.12),transparent_55%)]"
+        aria-hidden
+      />
       <Spotlight
         className="-top-40 left-0 md:left-[30%] md:-top-20"
         fill="#E8D5B0"
       />
 
-      <div className="flex flex-1 flex-col min-h-0 h-full min-h-[280px]">
-        <div className="relative flex-1 min-h-[220px] sm:min-h-[300px] w-full z-[2] pointer-events-auto cursor-auto">
-          <SplineScene scene={SPLINE_SCENE} className="!w-full !h-full min-h-[220px] sm:min-h-[300px]" />
+      <div className="flex min-h-0 flex-1 flex-col">
+        <div className="relative z-[2] flex min-h-0 flex-1 w-full items-end justify-center px-1 sm:px-3 pt-4 sm:pt-6 pointer-events-auto">
+          <img
+            src={heroRobot}
+            alt="3D-робот на первом экране"
+            className="block h-auto max-h-[min(78vh,880px)] w-full max-w-[min(100%,640px)] object-contain object-bottom select-none"
+            draggable={false}
+          />
         </div>
 
         <div

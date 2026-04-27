@@ -309,7 +309,10 @@ export default function App() {
       ) : null}
 
       {/* Hero */}
-      <section ref={heroRef} className="min-h-screen grid grid-cols-1 lg:grid-cols-2 relative overflow-hidden">
+      <section
+        ref={heroRef}
+        className="relative grid min-h-screen grid-cols-1 overflow-hidden lg:grid-cols-2 lg:items-stretch"
+      >
         {/* Animated gradient orbs */}
         <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#C9A96E] rounded-full blur-[150px] opacity-[0.08] animate-pulse-slow"></div>
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#E8D5B0] rounded-full blur-[120px] opacity-[0.06] animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
@@ -351,14 +354,14 @@ export default function App() {
           </a>
         </div>
 
-        <div className="relative flex items-stretch justify-center overflow-hidden w-full min-h-0 max-lg:pt-2">
+        <div className="relative flex w-full min-h-0 flex-1 items-stretch justify-center overflow-hidden max-lg:min-h-[70vh] lg:min-h-screen max-lg:pt-2">
           <div
-            className="hero-bg-pattern absolute inset-0 transition-transform duration-200 ease-out pointer-events-none"
+            className="hero-bg-pattern pointer-events-none absolute inset-0 transition-transform duration-200 ease-out"
             style={{
               background: `repeating-linear-gradient(45deg, transparent, transparent 60px, rgba(201,169,110,0.03) 60px, rgba(201,169,110,0.03) 61px)`,
             }}
           />
-          <div className="relative z-[2] w-full max-w-[720px] lg:max-w-none p-0 sm:px-2 lg:pl-0 lg:pr-4">
+          <div className="relative z-[2] flex h-full min-h-0 w-full max-w-[720px] flex-1 flex-col p-0 sm:px-2 lg:max-w-none lg:pl-0 lg:pr-4">
             <HeroSplineSection />
           </div>
         </div>
