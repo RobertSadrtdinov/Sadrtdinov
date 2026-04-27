@@ -36,16 +36,10 @@ export default function App() {
       // Parallax: тонкое смещение фона и слоя с роботом
       if (heroRef.current) {
         const pattern = heroRef.current.querySelector('.hero-bg-pattern') as HTMLElement;
-        const splineLayer = heroRef.current.querySelector('.hero-spline-layer') as HTMLElement;
         const px = (e.clientX / window.innerWidth - 0.5) * 20;
         const py = (e.clientY / window.innerHeight - 0.5) * 20;
         if (pattern) {
           pattern.style.transform = `translate(${px}px, ${py}px)`;
-        }
-        if (splineLayer) {
-          const rx = (e.clientX / window.innerWidth - 0.5) * 8;
-          const ry = (e.clientY / window.innerHeight - 0.5) * 6;
-          splineLayer.style.transform = `translate(${rx}px, ${ry}px) scale(1.01)`;
         }
       }
     };
@@ -324,32 +318,32 @@ export default function App() {
         className="relative min-h-screen overflow-hidden bg-[#060607]"
       >
         <div className="absolute inset-0 z-0">
-          <div
-            className="hero-spline-layer absolute inset-0 min-h-full min-w-full transition-transform duration-300 ease-out will-change-transform cursor-auto"
-            style={{ transform: 'translate(0px, 0px) scale(1.01)' }}
-          >
-            <div className="absolute inset-0 h-full min-h-screen w-full [&_canvas]:!h-full [&_canvas]:!w-full">
-              <SplineScene scene={HERO_SPLINE_SCENE} className="!block !h-full !w-full !min-h-screen" />
+          <div className="hero-spline-layer absolute inset-0 min-h-full min-w-full cursor-auto">
+            <div className="absolute inset-0 h-full min-h-screen w-full touch-pan-y outline-none [&_canvas]:!h-full [&_canvas]:!w-full">
+              <SplineScene
+                scene={HERO_SPLINE_SCENE}
+                className="!block !h-full !w-full !min-h-screen"
+              />
             </div>
           </div>
           <div
-            className="absolute inset-0 z-[2] bg-[radial-gradient(ellipse_100%_80%_at_20%_20%,rgba(201,169,110,0.12),transparent_55%)]"
+            className="pointer-events-none absolute inset-0 z-[2] bg-[radial-gradient(ellipse_100%_80%_at_20%_20%,rgba(201,169,110,0.12),transparent_55%)]"
             aria-hidden
           />
           <div
-            className="absolute inset-0 z-[2] bg-gradient-to-r from-[#0C0C0E] via-[#0C0C0E]/85 to-[#0C0C0E]/20"
+            className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-r from-[#0C0C0E] via-[#0C0C0E]/85 to-[#0C0C0E]/20"
             aria-hidden
           />
           <div
-            className="absolute inset-0 z-[2] bg-gradient-to-b from-[#0C0C0E]/5 via-transparent to-[#0C0C0E]/88"
+            className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-b from-[#0C0C0E]/5 via-transparent to-[#0C0C0E]/88"
             aria-hidden
           />
           <div
-            className="absolute inset-0 z-[2] bg-gradient-to-l from-transparent via-[#0C0C0E]/35 to-[#0C0C0E]/80"
+            className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-l from-transparent via-[#0C0C0E]/35 to-[#0C0C0E]/80"
             aria-hidden
           />
           <div
-            className="pointer-events-none absolute inset-0 z-[2] mix-blend-screen opacity-[0.28]"
+            className="pointer-events-none absolute inset-0 z-[2] mix-blend-screen opacity-[0.24]"
             aria-hidden
           >
             <Spotlight
@@ -363,16 +357,17 @@ export default function App() {
               background: `repeating-linear-gradient(45deg, transparent, transparent 60px, rgba(201,169,110,0.04) 60px, rgba(201,169,110,0.04) 61px)`,
             }}
           />
-          <div className="absolute top-0 right-0 z-[0] h-[500px] w-[500px] translate-x-1/4 -translate-y-1/4 rounded-full bg-[#C9A96E] opacity-[0.05] blur-[120px] animate-pulse-slow" />
+          <div className="pointer-events-none absolute top-0 right-0 z-[0] h-[500px] w-[500px] translate-x-1/4 -translate-y-1/4 rounded-full bg-[#C9A96E] opacity-[0.05] blur-[120px] animate-pulse-slow" />
           <div
-            className="absolute bottom-0 left-1/3 z-[0] h-[400px] w-[400px] rounded-full bg-[#E8D5B0] opacity-[0.04] blur-[100px] animate-pulse-slow"
+            className="pointer-events-none absolute bottom-0 left-1/3 z-[0] h-[400px] w-[400px] rounded-full bg-[#E8D5B0] opacity-[0.04] blur-[100px] animate-pulse-slow"
             style={{ animationDelay: '2s' }}
           />
         </div>
 
-        <div className="relative z-[10] flex min-h-screen flex-col">
-          <div className="flex min-h-0 flex-1 flex-col justify-end px-6 pt-[7.5rem] pb-10 sm:px-10 sm:pt-36 sm:pb-12 md:px-[50px] lg:px-[60px] lg:pb-14">
-            <div className="max-w-full lg:max-w-[min(100%,520px)]">
+        {/* pointer-events-none на обёртке — клики в «пустоте» доходят до Spline; текст — pointer-events-auto */}
+        <div className="relative z-[10] flex min-h-screen flex-col pointer-events-none">
+          <div className="pointer-events-none flex min-h-0 flex-1 flex-col justify-end px-6 pt-[7.5rem] pb-10 sm:px-10 sm:pt-36 sm:pb-12 md:px-[50px] lg:px-[60px] lg:pb-14">
+            <div className="max-w-full cursor-auto [touch-action:manipulation] pointer-events-auto lg:max-w-[min(100%,520px)]">
               <div className="text-[0.68rem] tracking-[0.25em] uppercase text-[#C9A96E] mb-6 flex items-center gap-[14px] animate-slide-in-left sm:mb-8 [text-shadow:0_1px_20px_rgba(0,0,0,0.8)]">
                 <span className="block h-px w-8 bg-[#C9A96E] animate-expand-width sm:w-10" />
                 Системный маркетолог · Медицинский бизнес
@@ -425,7 +420,7 @@ export default function App() {
             </div>
           </div>
 
-          <div className="relative z-20 w-full">
+          <div className="pointer-events-auto relative z-20 w-full">
             <HeroStatsBar />
           </div>
         </div>

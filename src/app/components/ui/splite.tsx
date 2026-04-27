@@ -5,9 +5,15 @@ const Spline = lazy(() => import('@splinetool/react-spline'));
 export interface SplineSceneProps {
   scene: string;
   className?: string;
+  /**
+   * В @splinetool/react-spline по умолчанию `true` — рисует по требованию и ломает
+   * плавные анимации и взаимодействия (следование за курсором, lookAt и т.д.).
+   * Для интерактивного робота/сцены держим `false`.
+   */
+  renderOnDemand?: boolean;
 }
 
-export function SplineScene({ scene, className }: SplineSceneProps) {
+export function SplineScene({ scene, className, renderOnDemand = false }: SplineSceneProps) {
   return (
     <Suspense
       fallback={
@@ -19,7 +25,7 @@ export function SplineScene({ scene, className }: SplineSceneProps) {
         </div>
       }
     >
-      <Spline scene={scene} className={className} />
+      <Spline scene={scene} className={className} renderOnDemand={renderOnDemand} />
     </Suspense>
   );
 }
