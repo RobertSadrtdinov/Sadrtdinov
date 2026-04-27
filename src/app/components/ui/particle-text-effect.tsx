@@ -138,6 +138,12 @@ export interface ParticleTextEffectProps {
   words?: string[];
   className?: string;
   showInstructions?: boolean;
+  /**
+   * Режим фона: заполняет контейнер, без мешающих кликам `pointer-events`,
+   * без подписи; слушатели мыши не вешаются. Для сцены на весь герой.
+   */
+  asBackground?: boolean;
+  canvasClassName?: string;
 }
 
 function generateRandomPosForSpawn(x: number, y: number, mag: number): Vector2D {
@@ -165,6 +171,8 @@ export function ParticleTextEffect({
   words: wordsProp,
   className,
   showInstructions = true,
+  asBackground = false,
+  canvasClassName,
 }: ParticleTextEffectProps) {
   const words = wordsProp ?? DEFAULT_WORDS;
   const wordsKey = words.join("\u0001");
@@ -361,19 +369,36 @@ export function ParticleTextEffect({
       e.preventDefault();
     };
 
-    canvas.addEventListener("mousedown", handleMouseDown);
-    canvas.addEventListener("mouseup", handleMouseUp);
-    canvas.addEventListener("mousemove", handleMouseMove);
-    canvas.addEventListener("contextmenu", handleContextMenu);
+    if (!asBackground) {
+      canvas.addEventListener("mousedown", handleMouseDown);
+      canvas.addEventListener("mouseup", handleMouseUp);
+      canvas.addEventListener("mousemove", handleMouseMove);
+      canvas.addEventListener("contextmenu", handleContextMenu);
+    }
 
     return () => {
       stop();
-      canvas.removeEventListener("mousedown", handleMouseDown);
-      canvas.removeEventListener("mouseup", handleMouseUp);
-      canvas.removeEventListener("mousemove", handleMouseMove);
-      canvas.removeEventListener("contextmenu", handleContextMenu);
+      if (!asBackground) {
+        canvas.removeEventListener("mousedown", handleMouseDown);
+        canvas.removeEventListener("mouseup", handleMouseUp);
+        canvas.removeEventListener("mousemove", handleMouseMove);
+        canvas.removeEventListener("contextmenu", handleContextMenu);
+      }
     };
-  }, [wordsKey]);
+  }, [wordsKey, asBackground]);
+
+  if (asBackground) {
+    return (
+      <div
+        className={cn("pointer-events-none absolute inset-0 h-full w-full min-h-0 select-none p-0", className)}
+      >
+        <canvas
+          ref={canvasRef}
+          className={cn("block h-full w-full !max-w-none !rounded-none !border-0 !shadow-none", canvasClassName)}
+        />
+      </div>
+    );
+  }
 
   return (
     <div

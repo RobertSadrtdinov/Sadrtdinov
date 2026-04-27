@@ -1,9 +1,12 @@
 import { useEffect, useState, useRef } from 'react';
 import { HeroStatsBar } from './components/hero-spline-section';
+import { ParticleTextEffect } from './components/ui/particle-text-effect';
 import { SplineScene } from './components/ui/splite';
 import { Spotlight } from './components/ui/spotlight';
 
 const HERO_SPLINE_SCENE = 'https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode';
+
+const HERO_PARTICLE_WORDS = ['SADRTDINOV', 'СИСТЕМА', 'ПАЦИЕНТЫ', 'РОСТ', 'МаркетИНГ'];
 
 export default function App() {
   const [scrolled, setScrolled] = useState(false);
@@ -318,7 +321,13 @@ export default function App() {
         className="relative min-h-screen overflow-hidden bg-[#060607]"
       >
         <div className="absolute inset-0 z-0">
-          <div className="hero-spline-layer absolute inset-0 min-h-full min-w-full cursor-auto">
+          <div
+            className="absolute inset-0 z-0 overflow-hidden opacity-[0.3] [mix-blend-mode:soft-light] pointer-events-none"
+            aria-hidden
+          >
+            <ParticleTextEffect asBackground words={HERO_PARTICLE_WORDS} />
+          </div>
+          <div className="hero-spline-layer absolute inset-0 z-[1] min-h-full min-w-full cursor-auto">
             <div className="absolute inset-0 h-full min-h-screen w-full touch-pan-y outline-none [&_canvas]:!h-full [&_canvas]:!w-full">
               <SplineScene
                 scene={HERO_SPLINE_SCENE}
