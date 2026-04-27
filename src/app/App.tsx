@@ -1,6 +1,9 @@
 import { useEffect, useState, useRef } from 'react';
 import { HeroStatsBar } from './components/hero-spline-section';
-import heroRobot from '../assets/hero-robot.png';
+import { SplineScene } from './components/ui/splite';
+import { Spotlight } from './components/ui/spotlight';
+
+const HERO_SPLINE_SCENE = 'https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode';
 
 export default function App() {
   const [scrolled, setScrolled] = useState(false);
@@ -33,16 +36,16 @@ export default function App() {
       // Parallax: тонкое смещение фона и слоя с роботом
       if (heroRef.current) {
         const pattern = heroRef.current.querySelector('.hero-bg-pattern') as HTMLElement;
-        const robotLayer = heroRef.current.querySelector('.hero-robot-layer') as HTMLElement;
+        const splineLayer = heroRef.current.querySelector('.hero-spline-layer') as HTMLElement;
         const px = (e.clientX / window.innerWidth - 0.5) * 20;
         const py = (e.clientY / window.innerHeight - 0.5) * 20;
         if (pattern) {
           pattern.style.transform = `translate(${px}px, ${py}px)`;
         }
-        if (robotLayer) {
-          const rx = (e.clientX / window.innerWidth - 0.5) * 10;
-          const ry = (e.clientY / window.innerHeight - 0.5) * 8;
-          robotLayer.style.transform = `translate(${rx}px, ${ry}px) scale(1.02)`;
+        if (splineLayer) {
+          const rx = (e.clientX / window.innerWidth - 0.5) * 8;
+          const ry = (e.clientY / window.innerHeight - 0.5) * 6;
+          splineLayer.style.transform = `translate(${rx}px, ${ry}px) scale(1.01)`;
         }
       }
     };
@@ -315,40 +318,47 @@ export default function App() {
         </div>
       ) : null}
 
-      {/* Hero: робот на весь фон первого экрана */}
+      {/* Hero: Spline 3D на фоне первого экрана */}
       <section
         ref={heroRef}
         className="relative min-h-screen overflow-hidden bg-[#060607]"
       >
         <div className="absolute inset-0 z-0">
           <div
-            className="hero-robot-layer absolute inset-0 transition-transform duration-300 ease-out will-change-transform"
-            style={{ transform: 'translate(0px, 0px) scale(1.02)' }}
+            className="hero-spline-layer absolute inset-0 min-h-full min-w-full transition-transform duration-300 ease-out will-change-transform cursor-auto"
+            style={{ transform: 'translate(0px, 0px) scale(1.01)' }}
           >
-            <img
-              src={heroRobot}
-              alt=""
-              className="h-full w-full object-contain object-bottom select-none pointer-events-none [image-rendering:auto]"
+            <div className="absolute inset-0 h-full min-h-screen w-full [&_canvas]:!h-full [&_canvas]:!w-full">
+              <SplineScene scene={HERO_SPLINE_SCENE} className="!block !h-full !w-full !min-h-screen" />
+            </div>
+          </div>
+          <div
+            className="absolute inset-0 z-[2] bg-[radial-gradient(ellipse_100%_80%_at_20%_20%,rgba(201,169,110,0.12),transparent_55%)]"
+            aria-hidden
+          />
+          <div
+            className="absolute inset-0 z-[2] bg-gradient-to-r from-[#0C0C0E] via-[#0C0C0E]/85 to-[#0C0C0E]/20"
+            aria-hidden
+          />
+          <div
+            className="absolute inset-0 z-[2] bg-gradient-to-b from-[#0C0C0E]/5 via-transparent to-[#0C0C0E]/88"
+            aria-hidden
+          />
+          <div
+            className="absolute inset-0 z-[2] bg-gradient-to-l from-transparent via-[#0C0C0E]/35 to-[#0C0C0E]/80"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute inset-0 z-[2] mix-blend-screen opacity-[0.28]"
+            aria-hidden
+          >
+            <Spotlight
+              className="-top-32 left-0 !opacity-100 [animation:spotlight_2s_ease_0.75s_1_forwards] md:-top-20 md:left-[20%] lg:left-[50%] lg:-translate-x-1/2"
+              fill="#E8D5B0"
             />
           </div>
           <div
-            className="absolute inset-0 z-[1] bg-[radial-gradient(ellipse_100%_80%_at_20%_20%,rgba(201,169,110,0.14),transparent_50%)]"
-            aria-hidden
-          />
-          <div
-            className="absolute inset-0 z-[1] bg-gradient-to-r from-[#0C0C0E] via-[#0C0C0E]/88 to-[#0C0C0E]/25"
-            aria-hidden
-          />
-          <div
-            className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0C0C0E]/55 via-transparent to-[#0C0C0E]/90"
-            aria-hidden
-          />
-          <div
-            className="absolute inset-0 z-[1] bg-gradient-to-l from-[#0C0C0E]/70 via-transparent to-transparent"
-            aria-hidden
-          />
-          <div
-            className="hero-bg-pattern pointer-events-none absolute inset-0 z-[1] opacity-40 mix-blend-overlay transition-transform duration-200 ease-out"
+            className="hero-bg-pattern pointer-events-none absolute inset-0 z-[2] opacity-40 mix-blend-overlay transition-transform duration-200 ease-out"
             style={{
               background: `repeating-linear-gradient(45deg, transparent, transparent 60px, rgba(201,169,110,0.04) 60px, rgba(201,169,110,0.04) 61px)`,
             }}
