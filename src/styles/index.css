@@ -1,3 +1,220 @@
 @import './fonts.css';
 @import './tailwind.css';
 @import './theme.css';
+
+:root {
+  --bg-color: #000308;
+  --light-color: #00e5ff;
+  --highlight-color: #ffb86c;
+  --glow-color-1: rgba(0, 229, 255, 0.8);
+  --glow-color-2: rgba(0, 150, 255, 0.6);
+  --highlight-glow: rgba(255, 184, 108, 0.7);
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-5%);
+    opacity: 0;
+  }
+}
+
+@keyframes fade {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  5%,
+  85% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes floorGlow {
+  0%,
+  100% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+@keyframes mainGlow {
+  from {
+    opacity: 0.5;
+    filter: blur(30px);
+  }
+  to {
+    opacity: 0.7;
+    filter: blur(20px);
+  }
+}
+
+@keyframes moveGrid {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -100px -50px;
+  }
+}
+
+.cybercore-demo {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--bg-color);
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at center, rgba(0, 70, 120, 0.2) 0%, transparent 70%),
+    linear-gradient(180deg, #000308 0%, #010811 45%, #000308 100%);
+}
+
+.floor {
+  position: absolute;
+  left: -20%;
+  right: -20%;
+  bottom: -24%;
+  height: 62%;
+  transform: perspective(650px) rotateX(68deg);
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.28) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.18) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: moveGrid 10s linear infinite, floorGlow 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 22px var(--glow-color-2));
+}
+
+.main-column {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 3px;
+  height: 82%;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to top,
+    rgba(0, 229, 255, 0) 0%,
+    var(--glow-color-1) 40%,
+    rgba(0, 229, 255, 0) 100%
+  );
+  box-shadow: 0 0 22px var(--glow-color-1);
+  animation: mainGlow 1.8s ease-in-out infinite alternate;
+}
+
+.light-stream-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.light-beam {
+  position: absolute;
+  bottom: -10%;
+  height: 120%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 229, 255, 0) 0%,
+    rgba(0, 229, 255, 0.8) 35%,
+    rgba(0, 229, 255, 0) 100%
+  );
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.8);
+  animation-name: rise, fade;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: infinite, infinite;
+}
+
+.light-beam.secondary {
+  background: linear-gradient(
+    to top,
+    rgba(255, 184, 108, 0) 0%,
+    var(--highlight-glow) 35%,
+    rgba(255, 184, 108, 0) 100%
+  );
+  box-shadow: 0 0 14px var(--highlight-glow);
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  padding: 2rem;
+  color: #e7f7ff;
+}
+
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.main-header nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.main-header a {
+  color: #a0dfff;
+  text-decoration: none;
+}
+
+.hero-section {
+  max-width: 720px;
+  margin-top: 18vh;
+}
+
+.hero-section h1 {
+  font-size: clamp(2.2rem, 7vw, 5rem);
+  line-height: 1.05;
+  margin-bottom: 1rem;
+}
+
+.hero-section p {
+  max-width: 60ch;
+  color: #c8e5f1;
+  line-height: 1.7;
+}
+
+.cta-button {
+  margin-top: 1.5rem;
+  border: 1px solid rgba(0, 229, 255, 0.6);
+  background: rgba(0, 229, 255, 0.14);
+  color: #dfffff;
+  padding: 0.75rem 1.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .main-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .main-header nav {
+    flex-wrap: wrap;
+  }
+}
