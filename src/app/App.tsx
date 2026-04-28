@@ -716,10 +716,11 @@ export default function App() {
           --mid: #6E6E73;
           --border: #E8E8ED;
           --transition: 0.25s ease;
-          --text-primary: #F8FBFF;
-          --text-secondary: #D4DEEA;
-          --text-muted-readable: #B9C6D6;
-          --accent-readable: #8FC4F0;
+          --text-primary: #FFFFFF;
+          --text-secondary: #DDEBFA;
+          --text-muted-readable: #B5CCE4;
+          --accent-readable: #9EDBFF;
+          --deep-blue-readable: #1A3C5E;
           --section-x: clamp(1.15rem, 4.05vw, 3.75rem);
           --section-y: clamp(4.6rem, calc(7.1vw * var(--phi)), 8.8rem);
           --split-gap: clamp(2rem, calc(2.2vw * var(--phi)), 6.2rem);
@@ -755,6 +756,10 @@ export default function App() {
 
         #page-top .text-\[\#C9A96E\] {
           color: var(--accent-readable) !important;
+        }
+
+        #page-top .text-\[\#0C0C0E\] {
+          color: var(--deep-blue-readable) !important;
         }
 
         #page-top .text-\[rgba\(136\,136\,136\,0\.4\)\] {
