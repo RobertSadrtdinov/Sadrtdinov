@@ -337,7 +337,7 @@ export default function App() {
               </div>
 
               <div
-                className="relative min-h-[260px] w-full shrink-0 overflow-hidden lg:min-h-[min(58vh,520px)] lg:flex-1 lg:max-w-[52%] pointer-events-auto"
+                className="relative min-h-[260px] w-full shrink-0 overflow-hidden lg:min-h-[min(58vh,520px)] lg:flex-1 lg:max-w-[52%] lg:-translate-y-10 xl:-translate-y-14 pointer-events-auto"
                 aria-hidden
               >
                 <div className="absolute inset-0 outline-none [&_canvas]:h-full [&_canvas]:w-full">
