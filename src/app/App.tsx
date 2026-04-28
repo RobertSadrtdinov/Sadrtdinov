@@ -841,14 +841,21 @@ export default function App() {
           color: var(--text-primary) !important;
         }
 
-        #page-top nav a,
+        #page-top nav ul a,
         #page-top footer a {
           color: var(--text-secondary);
         }
 
-        #page-top nav a:hover,
+        #page-top nav ul a:hover,
         #page-top footer a:hover {
           color: var(--accent-readable);
+        }
+
+        /* Keep text readable on filled accent buttons */
+        #page-top a.bg-\[\#9EDBFF\],
+        #page-top a.bg-\[\#C9A96E\] {
+          color: #123251 !important;
+          font-weight: 600;
         }
 
         section {
