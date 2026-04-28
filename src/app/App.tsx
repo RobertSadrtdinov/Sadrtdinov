@@ -134,7 +134,7 @@ export default function App() {
   return (
     <div
       id="page-top"
-      className={`min-h-screen bg-gradient-to-b from-[#1A3C5E] via-[#2E6DA4] to-[#FFFFFF] text-[#F5F2ED] overflow-x-hidden ${STATIC_PAGE ? 'static-page' : ''}`}
+      className={`site-gradient-bg min-h-screen text-[#F5F2ED] overflow-x-hidden ${STATIC_PAGE ? 'static-page' : ''}`}
       style={{ fontFamily: 'Inter, sans-serif', cursor: STATIC_PAGE ? 'auto' : 'none' }}
     >
       {/* Noise Overlay */}
@@ -723,6 +723,16 @@ export default function App() {
 
         section {
           scroll-margin-top: 68px;
+        }
+
+        .site-gradient-bg {
+          background:
+            radial-gradient(1200px 480px at 50% 52%, rgba(255, 255, 255, 0.95) 0%, rgba(235, 243, 251, 0.7) 30%, rgba(206, 228, 244, 0.36) 52%, rgba(173, 205, 228, 0.18) 70%, rgba(118, 163, 196, 0.08) 100%),
+            radial-gradient(900px 360px at 50% 0%, rgba(105, 161, 198, 0.55) 0%, rgba(64, 112, 147, 0.38) 40%, rgba(20, 44, 63, 0.18) 72%, rgba(8, 18, 28, 0) 100%),
+            radial-gradient(950px 340px at 50% 100%, rgba(7, 16, 27, 0.92) 0%, rgba(8, 17, 28, 0.76) 32%, rgba(11, 24, 38, 0.42) 56%, rgba(10, 23, 36, 0.08) 84%, rgba(10, 23, 36, 0) 100%),
+            linear-gradient(180deg, #8bb0ca 0%, #cde3f2 26%, #f4f9fd 48%, #e4f0f8 66%, #9cbfd7 82%, #0b1622 100%);
+          background-attachment: fixed;
+          background-repeat: no-repeat;
         }
 
         @media (max-width: 768px) {
