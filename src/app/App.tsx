@@ -743,6 +743,26 @@ export default function App() {
           line-height: 1.72;
         }
 
+        /* Global readable defaults for all tabs/cards/sections */
+        #page-top section,
+        #page-top footer,
+        #page-top nav {
+          color: var(--text-secondary);
+        }
+
+        #page-top section h1,
+        #page-top section h2,
+        #page-top section h3,
+        #page-top footer h1,
+        #page-top footer h2,
+        #page-top footer h3 {
+          color: var(--text-primary);
+        }
+
+        #page-top em {
+          color: var(--accent-readable);
+        }
+
         #page-top .text-\[\#F5F2ED\] {
           color: var(--text-primary) !important;
         }
@@ -770,6 +790,10 @@ export default function App() {
           color: var(--text-muted-readable) !important;
         }
 
+        #page-top .text-\[\#F5F2ED\]\/60 {
+          color: color-mix(in srgb, var(--text-primary) 60%, transparent) !important;
+        }
+
         #page-top .bg-\[\#C9A96E\] {
           background-color: var(--accent-readable) !important;
         }
@@ -795,6 +819,36 @@ export default function App() {
         #page-top .hover\:bg-\[rgba\(201\,169\,110\,0\.05\)\]:hover,
         #page-top .hover\:bg-\[rgba\(201\,169\,110\,0\.02\)\]:hover {
           background-color: rgba(26, 60, 94, 0.16) !important;
+        }
+
+        /* Cards + list/tabs readability pass */
+        #story li span:last-child,
+        #process .group p,
+        #cases .group p,
+        #audiences .group p,
+        #about .group div:last-child,
+        #guarantee .group div:last-child,
+        #difference .group div:last-child {
+          color: var(--text-secondary) !important;
+        }
+
+        #process .group .text-\[\#F5F2ED\],
+        #cases .group .text-\[\#F5F2ED\],
+        #audiences .group .text-\[\#F5F2ED\],
+        #about .group .text-\[\#F5F2ED\],
+        #guarantee .group .text-\[\#F5F2ED\],
+        #difference .group .text-\[\#F5F2ED\] {
+          color: var(--text-primary) !important;
+        }
+
+        #page-top nav a,
+        #page-top footer a {
+          color: var(--text-secondary);
+        }
+
+        #page-top nav a:hover,
+        #page-top footer a:hover {
+          color: var(--accent-readable);
         }
 
         section {
