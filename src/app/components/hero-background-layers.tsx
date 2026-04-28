@@ -1,28 +1,13 @@
 import { memo } from "react";
-import { ParticleTextEffect } from "./ui/particle-text-effect";
-import { SplineScene } from "./ui/splite";
 import { Spotlight } from "./ui/spotlight";
 
-const HERO_SPLINE_SCENE = "https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode";
-const HERO_PARTICLE_WORDS = ["SADRTDINOV", "СИСТЕМА", "ПАЦИЕНТЫ", "РОСТ", "МаркетИНГ"];
-
 /**
- * Фон героя с Spline и эффектами. memo — родитель (App) не дёргает 3D при setState в других частях страницы.
+ * Лёгкий фон первого экрана без 3D.
  */
 function HeroBackgroundLayersImpl() {
   return (
     <div className="absolute inset-0 z-0">
-      <div
-        className="absolute inset-0 z-0 overflow-hidden opacity-[0.3] [mix-blend-mode:soft-light] pointer-events-none"
-        aria-hidden
-      >
-        <ParticleTextEffect asBackground words={HERO_PARTICLE_WORDS} />
-      </div>
-      <div className="hero-spline-layer absolute inset-0 z-[1] min-h-full min-w-full cursor-auto">
-        <div className="absolute inset-0 h-full min-h-screen w-full touch-pan-y outline-none [&_canvas]:!h-full [&_canvas]:!w-full">
-          <SplineScene scene={HERO_SPLINE_SCENE} className="!block !h-full !w-full !min-h-screen" />
-        </div>
-      </div>
+      <div className="absolute inset-0 z-[1] bg-[#060607]" />
       <div
         className="pointer-events-none absolute inset-0 z-[2] bg-[radial-gradient(ellipse_100%_80%_at_20%_20%,rgba(201,169,110,0.12),transparent_55%)]"
         aria-hidden

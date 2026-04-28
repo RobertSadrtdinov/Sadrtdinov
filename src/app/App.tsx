@@ -3,12 +3,16 @@ import { CustomCursor } from './components/custom-cursor';
 import { HeroBackgroundLayers } from './components/hero-background-layers';
 import { HeroStatsBar } from './components/hero-spline-section';
 
+const STATIC_PAGE = true;
+
 export default function App() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (STATIC_PAGE) return;
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 60);
     };
@@ -79,6 +83,8 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    if (STATIC_PAGE) return;
+
     const onMove = (e: MouseEvent) => {
       if (!heroRef.current) return;
       const pattern = heroRef.current.querySelector('.hero-bg-pattern') as HTMLElement | null;
@@ -115,7 +121,7 @@ export default function App() {
   const scrollToHash = (hash: string) => {
     const el = document.querySelector(hash);
     if (el) {
-      (el as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      (el as HTMLElement).scrollIntoView({ behavior: STATIC_PAGE ? 'auto' : 'smooth', block: 'start' });
     } else {
       window.location.hash = hash;
     }
@@ -125,8 +131,8 @@ export default function App() {
   return (
     <div
       id="page-top"
-      className="min-h-screen bg-[#0C0C0E] text-[#F5F2ED] overflow-x-hidden"
-      style={{ fontFamily: 'Syne, sans-serif', cursor: 'none' }}
+      className={`min-h-screen bg-[#0C0C0E] text-[#F5F2ED] overflow-x-hidden ${STATIC_PAGE ? 'static-page' : ''}`}
+      style={{ fontFamily: 'Syne, sans-serif', cursor: STATIC_PAGE ? 'auto' : 'none' }}
     >
       {/* Noise Overlay */}
       <div className="fixed inset-0 pointer-events-none z-[999] opacity-[0.025]" style={{
@@ -150,7 +156,7 @@ export default function App() {
         ))}
       </div>
 
-      <CustomCursor />
+      {!STATIC_PAGE && <CustomCursor />}
 
       {/* Navigation */}
       <nav
@@ -163,7 +169,7 @@ export default function App() {
           onClick={(e) => {
             e.preventDefault();
             setMobileNavOpen(false);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: STATIC_PAGE ? 'auto' : 'smooth' });
             if (window.location.hash) {
               const base = window.location.pathname + (window.location.search || '');
               window.history.replaceState(null, '', base);
@@ -265,14 +271,14 @@ export default function App() {
         </div>
       ) : null}
 
-      {/* Hero: Spline 3D на фоне первого экрана */}
+      {/* Hero: лёгкий статичный фон первого экрана */}
       <section
         ref={heroRef}
         className="relative min-h-screen overflow-hidden bg-[#060607]"
       >
         <HeroBackgroundLayers />
 
-        {/* pointer-events-none на обёртке — клики в «пустоте» доходят до Spline; текст — pointer-events-auto */}
+        {/* pointer-events-none на обёртке; текстовый блок остаётся интерактивным */}
         <div className="relative z-[10] flex min-h-screen flex-col pointer-events-none">
           <div className="pointer-events-none flex min-h-0 flex-1 flex-col justify-end px-6 pt-[7.5rem] pb-10 sm:px-10 sm:pt-36 sm:pb-12 md:px-[50px] lg:px-[60px] lg:pb-14">
             <div className="max-w-full cursor-auto [touch-action:manipulation] pointer-events-auto lg:max-w-[min(100%,520px)]">
@@ -668,7 +674,7 @@ export default function App() {
           href="#page-top"
           onClick={(e) => {
             e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: STATIC_PAGE ? 'auto' : 'smooth' });
             if (window.location.hash) {
               const base = window.location.pathname + (window.location.search || '');
               window.history.replaceState(null, '', base);
@@ -769,8 +775,24 @@ export default function App() {
           transform: translateY(0);
         }
 
+        .static-page *,
+        .static-page *::before,
+        .static-page *::after {
+          animation: none !important;
+          transition: none !important;
+        }
+
+        .static-page .reveal,
+        .static-page .reveal.visible {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+
         /* Smooth scrolling + offset for fixed header on anchor links */
-        html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+        html {
+          scroll-behavior: ${STATIC_PAGE ? 'auto' : 'smooth'};
+          scroll-padding-top: 5.5rem;
+        }
 
         /* Selection */
         ::selection {
