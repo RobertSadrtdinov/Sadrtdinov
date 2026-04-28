@@ -758,12 +758,43 @@ export default function App() {
           color: var(--accent-readable) !important;
         }
 
+        #page-top .text-\[\#E8D5B0\] {
+          color: var(--accent-readable) !important;
+        }
+
         #page-top .text-\[\#0C0C0E\] {
           color: var(--deep-blue-readable) !important;
         }
 
         #page-top .text-\[rgba\(136\,136\,136\,0\.4\)\] {
           color: var(--text-muted-readable) !important;
+        }
+
+        #page-top .bg-\[\#C9A96E\] {
+          background-color: var(--accent-readable) !important;
+        }
+
+        #page-top .bg-\[\#E8D5B0\] {
+          background-color: #d6ecff !important;
+        }
+
+        #page-top .border-\[\#C9A96E\] {
+          border-color: var(--blue2) !important;
+        }
+
+        #page-top .hover\:bg-\[\#E8D5B0\]:hover {
+          background-color: #d6ecff !important;
+        }
+
+        #page-top .hover\:bg-\[rgba\(201\,169\,110\,0\.15\)\]:hover {
+          background-color: rgba(46, 109, 164, 0.18) !important;
+        }
+
+        #page-top .hover\:bg-\[rgba\(201\,169\,110\,0\.12\)\]:hover,
+        #page-top .hover\:bg-\[rgba\(201\,169\,110\,0\.08\)\]:hover,
+        #page-top .hover\:bg-\[rgba\(201\,169\,110\,0\.05\)\]:hover,
+        #page-top .hover\:bg-\[rgba\(201\,169\,110\,0\.02\)\]:hover {
+          background-color: rgba(26, 60, 94, 0.16) !important;
         }
 
         section {
