@@ -691,6 +691,7 @@ export default function App() {
         <div className="flex gap-8">
           <a href="https://t.me/Robertunov" target="_blank" rel="noopener noreferrer" className="text-[0.68rem] tracking-[0.15em] uppercase text-[#888] no-underline transition-all duration-300 hover:text-[#9EDBFF] hover:tracking-[0.2em]">Telegram</a>
           <a href="mailto:Redstarrob@mail.ru" className="text-[0.68rem] tracking-[0.15em] uppercase text-[#888] no-underline transition-all duration-300 hover:text-[#9EDBFF] hover:tracking-[0.2em]">Email</a>
+          <a href="/privacy.html" className="text-[0.68rem] tracking-[0.15em] uppercase text-[#888] no-underline transition-all duration-300 hover:text-[#9EDBFF] hover:tracking-[0.2em]">Политика</a>
           <a
             href="tel:+79223533819"
             className="text-[0.68rem] tracking-[0.15em] uppercase text-[#888] no-underline transition-all duration-300 hover:text-[#9EDBFF] hover:tracking-[0.2em]"
