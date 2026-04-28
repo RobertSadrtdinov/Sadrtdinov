@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { CustomCursor } from './components/custom-cursor';
-import { HeroBackgroundLayers } from './components/hero-background-layers';
 import { HeroStatsBar } from './components/hero-spline-section';
+import CybercoreBackground from '@/components/ui/cybercore-section-hero';
 
 const STATIC_PAGE = true;
 
@@ -276,7 +276,7 @@ export default function App() {
         ref={heroRef}
         className="relative min-h-screen overflow-hidden bg-[#060607]"
       >
-        <HeroBackgroundLayers />
+        <CybercoreBackground beamCount={70} />
 
         {/* pointer-events-none на обёртке; текстовый блок остаётся интерактивным */}
         <div className="relative z-[10] flex min-h-screen flex-col pointer-events-none">
@@ -784,6 +784,18 @@ export default function App() {
 
         .static-page .reveal,
         .static-page .reveal.visible {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+
+        .static-page .animate-fade-in-up,
+        .static-page .animate-fade-in,
+        .static-page .animate-slide-in-left {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+
+        .static-page [class*='animate-'] {
           opacity: 1 !important;
           transform: none !important;
         }
