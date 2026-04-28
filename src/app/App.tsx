@@ -134,7 +134,7 @@ export default function App() {
   return (
     <div
       id="page-top"
-      className={`site-gradient-bg min-h-screen text-[#F5F2ED] overflow-x-hidden ${STATIC_PAGE ? 'static-page' : ''}`}
+      className={`min-h-screen bg-[#000000] text-[#F5F2ED] overflow-x-hidden ${STATIC_PAGE ? 'static-page' : ''}`}
       style={{ fontFamily: 'Inter, sans-serif', cursor: STATIC_PAGE ? 'auto' : 'none' }}
     >
       {/* Noise Overlay */}
