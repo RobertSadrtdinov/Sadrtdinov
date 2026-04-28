@@ -282,7 +282,7 @@ export default function App() {
         <HeroBackgroundLayers />
 
         <div className="relative z-[10] flex min-h-screen flex-col pointer-events-none">
-          <div className="pointer-events-none flex min-h-0 flex-1 flex-col justify-end px-6 pt-[7.5rem] pb-10 sm:px-10 sm:pt-36 sm:pb-12 md:px-[50px] lg:px-[60px] lg:pb-14">
+          <div className="pointer-events-none flex min-h-0 flex-1 flex-col justify-start px-6 pt-24 pb-8 sm:px-10 sm:pt-32 sm:pb-10 md:px-[50px] lg:justify-end lg:px-[60px] lg:pt-[7.5rem] lg:pb-14">
             <div className="mx-auto w-full max-w-[min(1300px,92vw)]">
               <div className="text-[0.68rem] tracking-[0.25em] uppercase text-[#C9A96E] mb-6 flex items-center gap-[14px] animate-slide-in-left sm:mb-8 [text-shadow:0_1px_20px_rgba(0,0,0,0.8)] pointer-events-auto">
                 <span className="block h-px w-8 bg-[#C9A96E] animate-expand-width sm:w-10" />
@@ -294,7 +294,7 @@ export default function App() {
                 <div className="min-w-0 max-w-full flex-1 cursor-auto [touch-action:manipulation] pointer-events-auto lg:basis-[61.8%] lg:max-w-[min(100%,650px)]">
                   <h1
                     style={{ fontFamily: 'Cormorant Garamond, serif' }}
-                    className="mb-3 text-[clamp(2.25rem,5.2vw,4.8rem)] font-light leading-[1.08] text-[#F5F2ED] sm:mb-4 animate-fade-in-up [text-shadow:0_2px_32px_rgba(0,0,0,0.75)]"
+                    className="mb-3 text-[clamp(1.95rem,11vw,4.8rem)] font-light leading-[1.06] text-[#F5F2ED] sm:mb-4 animate-fade-in-up [text-shadow:0_2px_32px_rgba(0,0,0,0.75)]"
                   >
                     Стабильный поток
                     <br />
@@ -306,14 +306,14 @@ export default function App() {
                   </h1>
 
                   <p
-                    className="text-[0.94rem] leading-[1.72] text-[#c8c4bc] sm:max-w-[58ch] mb-8 sm:mb-10 font-normal tracking-[0.015em] animate-fade-in-up [text-shadow:0_1px_12px_rgba(0,0,0,0.9)]"
+                    className="text-[0.94rem] leading-[1.68] text-[#c8c4bc] sm:max-w-[58ch] mb-6 sm:mb-8 font-normal tracking-[0.015em] animate-fade-in-up [text-shadow:0_1px_12px_rgba(0,0,0,0.9)]"
                     style={{ animationDelay: '0.2s' }}
                   >
                     Выстраиваю маркетинг для стоматологий, клиник и медицинских специалистов от аудита до первых записей. Понимаю
                     медицину изнутри. Медфак + ИИ-инструменты вместо дорогого агентства.
                   </p>
 
-                  <div className="mb-8 flex flex-wrap items-center gap-4 sm:mb-10 sm:gap-5 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+                  <div className="mb-1 flex flex-wrap items-center gap-3 sm:mb-8 sm:gap-4 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
                     <a
                       href="#contact"
                       className="group relative inline-block overflow-hidden border-2 border-transparent bg-[#C9A96E] px-7 py-3.5 text-[0.68rem] uppercase tracking-[0.2em] text-[#0C0C0E] no-underline transition-all duration-300 sm:px-9 sm:py-4 sm:text-[0.72rem] hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(201,169,110,0.45)]"
@@ -329,23 +329,16 @@ export default function App() {
                     </a>
                   </div>
 
-                  <a
-                    href="#story"
-                    className="mb-0 inline-flex items-center gap-3 text-[0.6rem] uppercase tracking-[0.2em] text-[#9a9a9a] no-underline transition-colors hover:text-[#C9A96E] sm:text-[0.65rem] animate-bounce-subtle [text-shadow:0_0_8px_rgba(0,0,0,0.9)]"
-                  >
-                    <span className="block h-[50px] w-px bg-gradient-to-b from-[#C9A96E] to-transparent animate-scroll-line" />
-                    Листать вниз
-                  </a>
                 </div>
 
                 <div
-                  className="relative min-h-[260px] w-full shrink-0 overflow-hidden lg:min-h-[min(62vh,560px)] lg:basis-[38.2%] lg:max-w-[38.2%] pointer-events-auto lg:self-start"
+                  className="relative hidden min-h-[270px] w-full shrink-0 overflow-hidden pointer-events-auto lg:block lg:min-h-[min(62vh,570px)] lg:basis-[38.2%] lg:max-w-[38.2%] lg:self-start"
                   aria-hidden
                 >
                   <div className="absolute inset-0 outline-none [&_canvas]:h-full [&_canvas]:w-full">
                     <SplineScene
                       scene={HERO_ROBOT_SCENE}
-                      className="block h-full min-h-[260px] w-full lg:min-h-[min(58vh,520px)]"
+                      className="block h-full min-h-[270px] w-full lg:min-h-[min(58vh,530px)]"
                     />
                   </div>
                 </div>
