@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+﻿import { useEffect, useRef } from "react";
 
 /**
  * Курсор изолирован от App: при движении мыши не трогает Spline/hero в ререндерах.
@@ -71,7 +71,7 @@ export function CustomCursor() {
     <>
       <div
         ref={dotRef}
-        className="pointer-events-none fixed z-[9999] h-[10px] w-[10px] rounded-full bg-[#C9A96E]"
+        className="pointer-events-none fixed z-[9999] h-[10px] w-[10px] rounded-full bg-[#9EDBFF]"
         style={{
           left: 0,
           top: 0,
@@ -82,7 +82,7 @@ export function CustomCursor() {
       />
       <div
         ref={ringRef}
-        className="pointer-events-none fixed z-[9998] h-9 w-9 rounded-full border border-[#C9A96E] opacity-50"
+        className="pointer-events-none fixed z-[9998] h-9 w-9 rounded-full border border-[#9EDBFF] opacity-50"
         style={{
           left: 0,
           top: 0,
@@ -93,3 +93,4 @@ export function CustomCursor() {
     </>
   );
 }
+

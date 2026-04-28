@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+﻿import { useEffect, useRef } from "react";
 
 const stats = [
   { value: "14", label: "Новых пациентов<br />за первый месяц" },
@@ -88,3 +88,4 @@ export function HeroStatsBar() {
     </div>
   );
 }
+

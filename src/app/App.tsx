@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+﻿import { useEffect, useState, useRef } from 'react';
 import { CustomCursor } from './components/custom-cursor';
 import { HeroBackgroundLayers } from './components/hero-background-layers';
 import { HeroStatsBar } from './components/hero-spline-section';
@@ -119,7 +119,7 @@ export default function App() {
   }, [mobileNavOpen]);
 
   const navLinkClass =
-    'relative text-[0.72rem] tracking-[0.18em] uppercase text-[#888] no-underline transition-all duration-300 hover:text-[#C9A96E] hover:tracking-[0.22em] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-[#1A3C5E] after:transition-transform after:duration-300 hover:after:scale-x-100';
+    'relative text-[0.72rem] tracking-[0.18em] uppercase text-[#888] no-underline transition-all duration-300 hover:text-[#9EDBFF] hover:tracking-[0.22em] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-[#1A3C5E] after:transition-transform after:duration-300 hover:after:scale-x-100';
   const closeMobileNav = () => setMobileNavOpen(false);
   const scrollToHash = (hash: string) => {
     const el = document.querySelector(hash);
@@ -148,7 +148,7 @@ export default function App() {
         {[...Array(20)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-[#C9A96E] rounded-full opacity-20 animate-float"
+            className="absolute w-1 h-1 bg-[#9EDBFF] rounded-full opacity-20 animate-float"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -164,7 +164,7 @@ export default function App() {
       {/* Navigation */}
       <nav
         className={`fixed top-0 left-0 right-0 z-[100] px-6 sm:px-[40px] lg:px-[60px] py-7 flex justify-between items-center gap-4 border-b transition-all duration-400 ${
-          scrolled ? 'bg-[rgba(12,12,14,0.95)] border-[rgba(201,169,110,0.25)] py-[18px] backdrop-blur-[12px]' : 'border-transparent'
+          scrolled ? 'bg-[rgba(12,12,14,0.95)] border-[rgba(46,109,164,0.25)] py-[18px] backdrop-blur-[12px]' : 'border-transparent'
         }`}
       >
         <a
@@ -178,7 +178,7 @@ export default function App() {
               window.history.replaceState(null, '', base);
             }
           }}
-          className="text-[1.05rem] sm:text-[1.1rem] tracking-[0.12em] text-[#C9A96E] no-underline font-semibold hover:scale-105 transition-transform duration-300 shrink-0"
+          className="text-[1.05rem] sm:text-[1.1rem] tracking-[0.12em] text-[#9EDBFF] no-underline font-semibold hover:scale-105 transition-transform duration-300 shrink-0"
         >
           Р. Садртдинов
         </a>
@@ -208,14 +208,14 @@ export default function App() {
           <a
             href="#contact"
             onClick={closeMobileNav}
-            className="text-[0.6rem] sm:text-[0.72rem] tracking-[0.14em] sm:tracking-[0.18em] uppercase text-[#0C0C0E] bg-[#C9A96E] px-3 py-[9px] sm:px-6 sm:py-[10px] no-underline transition-all duration-300 hover:bg-[#E8D5B0] hover:-translate-y-[2px] hover:shadow-[0_8px_20px_rgba(201,169,110,0.3)] inline-block text-center"
+            className="text-[0.6rem] sm:text-[0.72rem] tracking-[0.14em] sm:tracking-[0.18em] uppercase text-[#0C0C0E] bg-[#9EDBFF] px-3 py-[9px] sm:px-6 sm:py-[10px] no-underline transition-all duration-300 hover:bg-[#D6ECFF] hover:-translate-y-[2px] hover:shadow-[0_8px_20px_rgba(46,109,164,0.3)] inline-block text-center"
           >
             <span className="sm:hidden">Разбор</span>
             <span className="hidden sm:inline">Записаться на разбор</span>
           </a>
           <button
             type="button"
-            className="lg:hidden min-w-[44px] min-h-[44px] flex items-center justify-center text-[#C9A96E] border border-[rgba(201,169,110,0.4)] text-[0.6rem] tracking-[0.12em] uppercase"
+            className="lg:hidden min-w-[44px] min-h-[44px] flex items-center justify-center text-[#9EDBFF] border border-[rgba(46,109,164,0.4)] text-[0.6rem] tracking-[0.12em] uppercase"
             aria-expanded={mobileNavOpen}
             aria-controls="mobile-nav"
             aria-label={mobileNavOpen ? 'Закрыть меню' : 'Открыть разделы сайта'}
@@ -251,7 +251,7 @@ export default function App() {
               <li key={hash}>
                 <a
                   href={hash}
-                  className={`${navLinkClass} text-[0.8rem] tracking-[0.2em] text-[#F5F2ED] hover:text-[#C9A96E]`}
+                  className={`${navLinkClass} text-[0.8rem] tracking-[0.2em] text-[#F5F2ED] hover:text-[#9EDBFF]`}
                   onClick={(e) => {
                     e.preventDefault();
                     scrollToHash(hash);
@@ -264,7 +264,7 @@ export default function App() {
           </ul>
           <button
             type="button"
-            className="absolute top-5 right-5 w-12 h-12 text-[#C9A96E] text-2xl leading-none"
+            className="absolute top-5 right-5 w-12 h-12 text-[#9EDBFF] text-2xl leading-none"
             onClick={closeMobileNav}
             aria-label="Закрыть меню"
           >
@@ -342,18 +342,18 @@ export default function App() {
       </section>
 
       {/* Problem */}
-      <section id="story" className="py-[var(--section-y)] px-[var(--section-x)] border-t border-[rgba(201,169,110,0.25)] relative">
+      <section id="story" className="py-[var(--section-y)] px-[var(--section-x)] border-t border-[rgba(46,109,164,0.25)] relative">
         {/* Decorative lines */}
-        <div className="absolute top-20 left-0 w-[200px] h-[1px] bg-gradient-to-r from-transparent via-[#C9A96E] to-transparent opacity-30 animate-pulse-glow"></div>
+        <div className="absolute top-20 left-0 w-[200px] h-[1px] bg-gradient-to-r from-transparent via-[#9EDBFF] to-transparent opacity-30 animate-pulse-glow"></div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-[var(--split-gap)] max-w-[min(1300px,92vw)] mx-auto items-start">
           <div className="reveal opacity-0 translate-y-7 transition-all duration-700">
-            <div className="text-[0.65rem] tracking-[0.3em] uppercase text-[#C9A96E] mb-4 flex items-center gap-[14px]">
-              <span className="block w-[30px] h-[1px] bg-[#C9A96E] animate-expand-width"></span>
+            <div className="text-[0.65rem] tracking-[0.3em] uppercase text-[#9EDBFF] mb-4 flex items-center gap-[14px]">
+              <span className="block w-[30px] h-[1px] bg-[#9EDBFF] animate-expand-width"></span>
               Знакомая история
             </div>
             <h2 className="text-[clamp(2.2rem,3.5vw,3.6rem)] font-light leading-[1.1] text-[#F5F2ED] mb-10">
-              Маркетолог брал деньги.<br />Пациентов <em className="italic text-[#C9A96E] inline-block hover:scale-105 transition-transform duration-300">не стало.</em>
+              Маркетолог брал деньги.<br />Пациентов <em className="italic text-[#9EDBFF] inline-block hover:scale-105 transition-transform duration-300">не стало.</em>
             </h2>
             <p className="text-[1.05rem] text-[#888] leading-[1.85] mb-6">
               Большинство клиник теряют новых пациентов не из-за плохого продукта — а потому что у них нет системы. Запускают рекламу без стратегии, нанимают маркетологов без понимания медицины и получают «охваты» вместо записей.
@@ -361,7 +361,7 @@ export default function App() {
           </div>
 
           <div className="reveal opacity-0 translate-y-7 transition-all duration-700">
-            <ul className="list-none flex flex-col gap-0 border-t border-[rgba(201,169,110,0.25)]">
+            <ul className="list-none flex flex-col gap-0 border-t border-[rgba(46,109,164,0.25)]">
               {[
                 'Нанимали маркетологов — брали деньги, результата нет. Страх снова потерять бюджет',
                 'Нет понимания, какие каналы работают в медицине и как обойти ограничения ФЗ-38',
@@ -369,8 +369,8 @@ export default function App() {
                 'Непонятно откуда приходят пациенты и сколько каждый из них стоит клинике',
                 'Пробовали разных подрядчиков — каждый делал своё. Единой системы так и нет'
               ].map((pain, i) => (
-                <li key={i} className="py-6 border-b border-[rgba(201,169,110,0.25)] grid grid-cols-[36px_1fr] gap-5 items-start hover:bg-[rgba(201,169,110,0.02)] hover:px-4 transition-all duration-300 group">
-                  <span className="text-[0.9rem] text-[#C9A96E] opacity-60 mt-[2px] group-hover:opacity-100 group-hover:scale-125 transition-all duration-300">
+                <li key={i} className="py-6 border-b border-[rgba(46,109,164,0.25)] grid grid-cols-[36px_1fr] gap-5 items-start hover:bg-[rgba(46,109,164,0.02)] hover:px-4 transition-all duration-300 group">
+                  <span className="text-[0.9rem] text-[#9EDBFF] opacity-60 mt-[2px] group-hover:opacity-100 group-hover:scale-125 transition-all duration-300">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <span className="text-[0.9rem] text-[#888] leading-[1.7] group-hover:text-[#F5F2ED] transition-colors duration-300">{pain}</span>
@@ -382,22 +382,22 @@ export default function App() {
       </section>
 
       {/* Process */}
-      <section id="process" className="py-[var(--section-y)] px-[var(--section-x)] bg-[rgba(255,255,255,0.015)] border-t border-b border-[rgba(201,169,110,0.25)] relative overflow-hidden">
+      <section id="process" className="py-[var(--section-y)] px-[var(--section-x)] bg-[rgba(255,255,255,0.015)] border-t border-b border-[rgba(46,109,164,0.25)] relative overflow-hidden">
         {/* Animated background element */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-[rgba(201,169,110,0.1)] rounded-full animate-spin-slow"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-[rgba(46,109,164,0.1)] rounded-full animate-spin-slow"></div>
 
         <div className="max-w-[min(1300px,92vw)] mx-auto relative z-[2]">
           <div className="mb-20 reveal opacity-0 translate-y-7 transition-all duration-700">
-            <div className="text-[0.65rem] tracking-[0.3em] uppercase text-[#C9A96E] mb-4 flex items-center gap-[14px]">
-              <span className="block w-[30px] h-[1px] bg-[#C9A96E] animate-expand-width"></span>
+            <div className="text-[0.65rem] tracking-[0.3em] uppercase text-[#9EDBFF] mb-4 flex items-center gap-[14px]">
+              <span className="block w-[30px] h-[1px] bg-[#9EDBFF] animate-expand-width"></span>
               Как строится работа
             </div>
             <h2 className="text-[clamp(2.2rem,3.5vw,3.6rem)] font-light leading-[1.1] text-[#F5F2ED]">
-              Пять шагов от хаоса<br />к <em className="italic text-[#C9A96E]">измеримой системе</em>
+              Пять шагов от хаоса<br />к <em className="italic text-[#9EDBFF]">измеримой системе</em>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-[1px]" style={{ background: 'rgba(201,169,110,0.25)' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-[1px]" style={{ background: 'rgba(46,109,164,0.25)' }}>
             {[
               { num: '01', title: 'Аудит и анализ', desc: 'Изучаю целевую аудиторию, конкурентов и текущее состояние маркетинга. Нахожу точки потерь.' },
               { num: '02', title: 'Стратегия', desc: 'Строю маркетинговую карту: какие каналы, в какой последовательности, с каким бюджетом.' },
@@ -405,19 +405,19 @@ export default function App() {
               { num: '04', title: 'Автоматизация', desc: 'ИИ-инструменты и чат-боты берут на себя запись, прогрев и обработку входящих. Система работает без вас.' },
               { num: '05', title: 'Аналитика и рост', desc: 'Прозрачная отчётность: видно каждое действие и каждый рубль. Итерируем и масштабируем то, что работает.' }
             ].map((step, idx) => (
-              <div key={step.num} className="bg-[#0C0C0E] p-11 relative transition-all duration-500 hover:bg-[rgba(201,169,110,0.08)] hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(26,60,94,0.10)] reveal opacity-0 translate-y-7 group">
+              <div key={step.num} className="bg-[#0C0C0E] p-11 relative transition-all duration-500 hover:bg-[rgba(46,109,164,0.08)] hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(26,60,94,0.10)] reveal opacity-0 translate-y-7 group">
                 <div className="process-dot hidden lg:flex">{step.num}</div>
                 {idx < 4 ? <div className="process-link hidden lg:block" aria-hidden /> : null}
-                <div className="absolute inset-0 bg-gradient-to-br from-[rgba(201,169,110,0.1)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <span className="relative text-[4rem] font-light text-[rgba(201,169,110,0.12)] leading-none mb-6 block group-hover:text-[rgba(201,169,110,0.25)] group-hover:scale-110 transition-all duration-500">
+                <div className="absolute inset-0 bg-gradient-to-br from-[rgba(46,109,164,0.1)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <span className="relative text-[4rem] font-light text-[rgba(46,109,164,0.12)] leading-none mb-6 block group-hover:text-[rgba(46,109,164,0.25)] group-hover:scale-110 transition-all duration-500">
                   {step.num}
                 </span>
-                <div className="relative text-[0.78rem] tracking-[0.1em] uppercase text-[#C9A96E] mb-[14px] group-hover:tracking-[0.15em] transition-all duration-300">{step.title}</div>
+                <div className="relative text-[0.78rem] tracking-[0.1em] uppercase text-[#9EDBFF] mb-[14px] group-hover:tracking-[0.15em] transition-all duration-300">{step.title}</div>
                 <p className="relative text-[0.82rem] text-[#888] leading-[1.75] group-hover:text-[#F5F2ED] transition-colors duration-300">{step.desc}</p>
 
                 {/* Animated corner accent */}
-                <div className="absolute top-0 right-0 w-0 h-[2px] bg-[#C9A96E] group-hover:w-12 transition-all duration-500"></div>
-                <div className="absolute top-0 right-0 w-[2px] h-0 bg-[#C9A96E] group-hover:h-12 transition-all duration-500"></div>
+                <div className="absolute top-0 right-0 w-0 h-[2px] bg-[#9EDBFF] group-hover:w-12 transition-all duration-500"></div>
+                <div className="absolute top-0 right-0 w-[2px] h-0 bg-[#9EDBFF] group-hover:h-12 transition-all duration-500"></div>
               </div>
             ))}
           </div>
@@ -428,17 +428,17 @@ export default function App() {
       <section id="difference" className="py-[var(--section-y)] px-[var(--section-x)]">
         <div className="max-w-[min(1300px,92vw)] mx-auto">
           <div className="mb-[70px] reveal opacity-0 translate-y-7 transition-all duration-700">
-            <div className="text-[0.65rem] tracking-[0.3em] uppercase text-[#C9A96E] mb-4 flex items-center gap-[14px]">
-              <span className="block w-[30px] h-[1px] bg-[#C9A96E] animate-expand-width"></span>
+            <div className="text-[0.65rem] tracking-[0.3em] uppercase text-[#9EDBFF] mb-4 flex items-center gap-[14px]">
+              <span className="block w-[30px] h-[1px] bg-[#9EDBFF] animate-expand-width"></span>
               Отличие от рынка
             </div>
             <h2 className="text-[clamp(2.2rem,3.5vw,3.6rem)] font-light leading-[1.1] text-[#F5F2ED]">
-              Не «ещё один маркетолог».<br /><em className="italic text-[#C9A96E]">Системный подход</em> + медфак.
+              Не «ещё один маркетолог».<br /><em className="italic text-[#9EDBFF]">Системный подход</em> + медфак.
             </h2>
           </div>
 
-          <div className="border border-[rgba(201,169,110,0.25)] w-full reveal opacity-0 translate-y-7 transition-all duration-700 hover:border-[rgba(201,169,110,0.4)] hover:shadow-[0_0_40px_rgba(201,169,110,0.1)]">
-            <div className="grid grid-cols-1 lg:grid-cols-3 border-b border-[rgba(201,169,110,0.25)] gap-[1px]" style={{ background: 'rgba(201,169,110,0.25)' }}>
+          <div className="border border-[rgba(46,109,164,0.25)] w-full reveal opacity-0 translate-y-7 transition-all duration-700 hover:border-[rgba(46,109,164,0.4)] hover:shadow-[0_0_40px_rgba(46,109,164,0.1)]">
+            <div className="grid grid-cols-1 lg:grid-cols-3 border-b border-[rgba(46,109,164,0.25)] gap-[1px]" style={{ background: 'rgba(46,109,164,0.25)' }}>
               <div className="bg-[#0C0C0E] p-7 text-[0.65rem] tracking-[0.2em] uppercase text-[#888]">Критерий</div>
               <div className="bg-[#0C0C0E] p-7 text-[0.65rem] tracking-[0.2em] uppercase text-[#888]">Роберт Садртдинов</div>
               <div className="bg-[#0C0C0E] p-7 text-[0.65rem] tracking-[0.2em] uppercase text-[#888]">Обычный маркетолог / агентство</div>
@@ -451,10 +451,10 @@ export default function App() {
               { cat: 'Результат', mine: 'Измеримый итог: пациенты, выручка, заявки. Договор с KPI', theirs: 'Результат — «охваты выросли» без привязки к коммерческим показателям' },
               { cat: 'Прозрачность', mine: 'Открытый прайс. Честно о сроках и возможностях до подписания', theirs: 'Цены только после звонка. Обещания золотых гор без фиксации результата' }
             ].map((row, i) => (
-              <div key={i} className="grid grid-cols-1 lg:grid-cols-3 border-b last:border-b-0 border-[rgba(201,169,110,0.25)] gap-[1px] group hover:bg-[rgba(201,169,110,0.02)] transition-colors duration-300" style={{ background: 'rgba(201,169,110,0.25)' }}>
-                <div className="bg-[#0C0C0E] p-7 text-[0.78rem] tracking-[0.08em] font-medium text-[#C9A96E] group-hover:text-[#E8D5B0] transition-colors duration-300">{row.cat}</div>
+              <div key={i} className="grid grid-cols-1 lg:grid-cols-3 border-b last:border-b-0 border-[rgba(46,109,164,0.25)] gap-[1px] group hover:bg-[rgba(46,109,164,0.02)] transition-colors duration-300" style={{ background: 'rgba(46,109,164,0.25)' }}>
+                <div className="bg-[#0C0C0E] p-7 text-[0.78rem] tracking-[0.08em] font-medium text-[#9EDBFF] group-hover:text-[#D6ECFF] transition-colors duration-300">{row.cat}</div>
                 <div className="bg-[#0C0C0E] p-7 text-[0.85rem] leading-[1.6] text-[#F5F2ED] relative group-hover:translate-x-1 transition-transform duration-300">
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0 h-[2px] bg-[#C9A96E] group-hover:w-2 transition-all duration-300"></div>
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0 h-[2px] bg-[#9EDBFF] group-hover:w-2 transition-all duration-300"></div>
                   {row.mine}
                 </div>
                 <div className="bg-[#0C0C0E] p-7 text-[0.85rem] leading-[1.6] text-[#888] opacity-60">{row.theirs}</div>
@@ -465,41 +465,41 @@ export default function App() {
       </section>
 
       {/* Cases */}
-      <section id="cases" className="py-[var(--section-y)] px-[var(--section-x)] bg-[rgba(255,255,255,0.015)] border-t border-b border-[rgba(201,169,110,0.25)]">
+      <section id="cases" className="py-[var(--section-y)] px-[var(--section-x)] bg-[rgba(255,255,255,0.015)] border-t border-b border-[rgba(46,109,164,0.25)]">
         <div className="max-w-[min(1300px,92vw)] mx-auto">
           <div className="mb-[70px] reveal opacity-0 translate-y-7 transition-all duration-700">
-            <div className="text-[0.65rem] tracking-[0.3em] uppercase text-[#C9A96E] mb-4 flex items-center gap-[14px]">
-              <span className="block w-[30px] h-[1px] bg-[#C9A96E] animate-expand-width"></span>
+            <div className="text-[0.65rem] tracking-[0.3em] uppercase text-[#9EDBFF] mb-4 flex items-center gap-[14px]">
+              <span className="block w-[30px] h-[1px] bg-[#9EDBFF] animate-expand-width"></span>
               Доказанный результат
             </div>
             <h2 className="text-[clamp(2.2rem,3.5vw,3.6rem)] font-light leading-[1.1] text-[#F5F2ED]">
-              Реальные цифры.<br /><em className="italic text-[#C9A96E]">Реальные клиники.</em>
+              Реальные цифры.<br /><em className="italic text-[#9EDBFF]">Реальные клиники.</em>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-[1px]" style={{ background: 'rgba(201,169,110,0.25)' }}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-[1px]" style={{ background: 'rgba(46,109,164,0.25)' }}>
             {[
               { tag: 'Кейс 01 · Стоматология «Аристократ»', metric: '14', label: 'Новых пациентов за 1 месяц', desc: 'Результат получен через Яндекс.Карты без рекламного бюджета. Аудит профиля, работа с отзывами, оптимизация описания — системный запуск бесплатного органического канала дал немедленный результат.' },
               { tag: 'Кейс 02 · Медицинский специалист', metric: '90К', label: '₽ выручки в первую неделю', desc: '90 000 рублей выручки для медицинского специалиста в первую неделю после запуска системы продаж. Построена связка: упаковка → автоматическая запись → воронка прогрева.' }
             ].map((caseItem, idx) => (
-              <div key={idx} className="bg-[#0C0C0E] p-[60px] relative overflow-hidden transition-all duration-500 hover:bg-[rgba(201,169,110,0.05)] reveal opacity-0 translate-y-7 group">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#C9A96E] to-transparent opacity-0 group-hover:opacity-[0.03] transition-opacity duration-700"></div>
+              <div key={idx} className="bg-[#0C0C0E] p-[60px] relative overflow-hidden transition-all duration-500 hover:bg-[rgba(46,109,164,0.05)] reveal opacity-0 translate-y-7 group">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#9EDBFF] to-transparent opacity-0 group-hover:opacity-[0.03] transition-opacity duration-700"></div>
 
-                <span className="relative text-[0.65rem] tracking-[0.2em] uppercase text-[#C9A96E] mb-7 block group-hover:tracking-[0.25em] transition-all duration-300">{caseItem.tag}</span>
+                <span className="relative text-[0.65rem] tracking-[0.2em] uppercase text-[#9EDBFF] mb-7 block group-hover:tracking-[0.25em] transition-all duration-300">{caseItem.tag}</span>
                 <span
                   data-value={caseItem.metric}
-                  className="animate-number relative text-[clamp(3rem,5vw,5rem)] font-light text-[#F5F2ED] leading-none mb-2 block group-hover:scale-110 group-hover:text-[#C9A96E] transition-all duration-500 origin-left"
+                  className="animate-number relative text-[clamp(3rem,5vw,5rem)] font-light text-[#F5F2ED] leading-none mb-2 block group-hover:scale-110 group-hover:text-[#9EDBFF] transition-all duration-500 origin-left"
                 >
                   {caseItem.metric}
                 </span>
                 <span className="relative text-[0.78rem] text-[#888] tracking-[0.08em] uppercase mb-8 block">{caseItem.label}</span>
-                <div className="relative w-10 h-[1px] bg-[rgba(201,169,110,0.25)] my-7 group-hover:w-20 group-hover:bg-[#C9A96E] transition-all duration-500"></div>
+                <div className="relative w-10 h-[1px] bg-[rgba(46,109,164,0.25)] my-7 group-hover:w-20 group-hover:bg-[#9EDBFF] transition-all duration-500"></div>
                 <p className="relative text-[0.88rem] text-[#888] leading-[1.75] group-hover:text-[#F5F2ED] transition-colors duration-300">
                   {caseItem.desc}
                 </p>
 
                 {/* Corner decoration */}
-                <div className="absolute bottom-0 left-0 w-0 h-[3px] bg-gradient-to-r from-[#C9A96E] to-transparent group-hover:w-32 transition-all duration-700"></div>
+                <div className="absolute bottom-0 left-0 w-0 h-[3px] bg-gradient-to-r from-[#9EDBFF] to-transparent group-hover:w-32 transition-all duration-700"></div>
               </div>
             ))}
           </div>
@@ -509,15 +509,15 @@ export default function App() {
       {/* About */}
       <section id="about" className="py-[var(--section-y)] px-[var(--section-x)] relative">
         {/* Decorative element */}
-        <div className="absolute right-0 top-1/2 w-[300px] h-[300px] border border-[rgba(201,169,110,0.1)] rounded-full -translate-y-1/2 translate-x-1/2 animate-pulse-slow"></div>
+        <div className="absolute right-0 top-1/2 w-[300px] h-[300px] border border-[rgba(46,109,164,0.1)] rounded-full -translate-y-1/2 translate-x-1/2 animate-pulse-slow"></div>
 
         <div className="max-w-[min(1300px,92vw)] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[var(--split-gap)] items-start relative z-[2]">
           <div className="reveal opacity-0 translate-y-7 transition-all duration-700">
-            <div className="text-[0.65rem] tracking-[0.3em] uppercase text-[#C9A96E] mb-4 flex items-center gap-[14px]">
-              <span className="block w-[30px] h-[1px] bg-[#C9A96E] animate-expand-width"></span>
+            <div className="text-[0.65rem] tracking-[0.3em] uppercase text-[#9EDBFF] mb-4 flex items-center gap-[14px]">
+              <span className="block w-[30px] h-[1px] bg-[#9EDBFF] animate-expand-width"></span>
               Об эксперте
             </div>
-            <blockquote className="text-[clamp(1.4rem,2.2vw,2rem)] italic text-[#F5F2ED] leading-[1.6] border-l-2 border-[#C9A96E] pl-8 mb-10 hover:border-l-4 hover:pl-7 transition-all duration-300">
+            <blockquote className="text-[clamp(1.4rem,2.2vw,2rem)] italic text-[#F5F2ED] leading-[1.6] border-l-2 border-[#9EDBFF] pl-8 mb-10 hover:border-l-4 hover:pl-7 transition-all duration-300">
               «Большинство клиник теряют пациентов не из-за плохого продукта — а из-за отсутствия системы. Я строю эту систему. Шаг за шагом, инструмент за инструментом.»
             </blockquote>
             <p className="text-[0.9rem] text-[#888] leading-[1.85] mb-6 hover:text-[#F5F2ED] transition-colors duration-300">
@@ -528,7 +528,7 @@ export default function App() {
             </p>
             <div className="flex flex-wrap gap-[10px] mt-8">
               {['Медфак · стомфак', '10 лет в продажах', 'ИИ-инструменты', 'Договор с KPI', 'Открытый прайс'].map((tag) => (
-                <span key={tag} className="text-[0.68rem] tracking-[0.15em] uppercase border border-[rgba(201,169,110,0.25)] px-[18px] py-2 text-[#888] hover:border-[#C9A96E] hover:text-[#C9A96E] hover:bg-[rgba(201,169,110,0.05)] transition-all duration-300 cursor-default">
+                <span key={tag} className="text-[0.68rem] tracking-[0.15em] uppercase border border-[rgba(46,109,164,0.25)] px-[18px] py-2 text-[#888] hover:border-[#9EDBFF] hover:text-[#9EDBFF] hover:bg-[rgba(46,109,164,0.05)] transition-all duration-300 cursor-default">
                   {tag}
                 </span>
               ))}
@@ -542,12 +542,12 @@ export default function App() {
               { title: 'ИИ-инструменты', desc: 'Claude, ChatGPT, Midjourney, Figma, чат-боты. Снижают стоимость производства контента и аналитики в 3–5 раз.' },
               { title: 'Работал в нишах', desc: 'Стоматология, подология, нутрициология, психология. Понимает специфику каждой специализации.' }
             ].map((cred, i) => (
-              <div key={i} className="border-b border-[rgba(201,169,110,0.25)] py-7 grid grid-cols-[80px_1fr] gap-6 items-start first:border-t hover:bg-[rgba(201,169,110,0.02)] hover:px-4 transition-all duration-300 group">
-                <div className="text-[1.8rem] text-[rgba(201,169,110,0.3)] leading-none group-hover:text-[#C9A96E] group-hover:scale-125 transition-all duration-300">
+              <div key={i} className="border-b border-[rgba(46,109,164,0.25)] py-7 grid grid-cols-[80px_1fr] gap-6 items-start first:border-t hover:bg-[rgba(46,109,164,0.02)] hover:px-4 transition-all duration-300 group">
+                <div className="text-[1.8rem] text-[rgba(46,109,164,0.3)] leading-none group-hover:text-[#9EDBFF] group-hover:scale-125 transition-all duration-300">
                   {String(i + 1).padStart(2, '0')}
                 </div>
                 <div>
-                  <div className="text-[0.78rem] text-[#F5F2ED] tracking-[0.05em] mb-[6px] group-hover:text-[#C9A96E] transition-colors duration-300">{cred.title}</div>
+                  <div className="text-[0.78rem] text-[#F5F2ED] tracking-[0.05em] mb-[6px] group-hover:text-[#9EDBFF] transition-colors duration-300">{cred.title}</div>
                   <div className="text-[0.8rem] text-[#888] leading-[1.6] group-hover:text-[#F5F2ED] transition-colors duration-300">{cred.desc}</div>
                 </div>
               </div>
@@ -557,19 +557,19 @@ export default function App() {
       </section>
 
       {/* Audiences */}
-      <section id="audiences" className="py-[var(--section-y)] px-[var(--section-x)] bg-[rgba(255,255,255,0.015)] border-t border-b border-[rgba(201,169,110,0.25)]">
+      <section id="audiences" className="py-[var(--section-y)] px-[var(--section-x)] bg-[rgba(255,255,255,0.015)] border-t border-b border-[rgba(46,109,164,0.25)]">
         <div className="max-w-[min(1300px,92vw)] mx-auto">
           <div className="mb-[70px] reveal opacity-0 translate-y-7 transition-all duration-700">
-            <div className="text-[0.65rem] tracking-[0.3em] uppercase text-[#C9A96E] mb-4 flex items-center gap-[14px]">
-              <span className="block w-[30px] h-[1px] bg-[#C9A96E] animate-expand-width"></span>
+            <div className="text-[0.65rem] tracking-[0.3em] uppercase text-[#9EDBFF] mb-4 flex items-center gap-[14px]">
+              <span className="block w-[30px] h-[1px] bg-[#9EDBFF] animate-expand-width"></span>
               Кому подходит
             </div>
             <h2 className="text-[clamp(2.2rem,3.5vw,3.6rem)] font-light leading-[1.1] text-[#F5F2ED]">
-              Работаю с теми, кто<br /><em className="italic text-[#C9A96E]">берёт ответственность</em> за результат
+              Работаю с теми, кто<br /><em className="italic text-[#9EDBFF]">берёт ответственность</em> за результат
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[1px]" style={{ background: 'rgba(201,169,110,0.25)' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[1px]" style={{ background: 'rgba(46,109,164,0.25)' }}>
             {[
               { num: '01', name: 'Владельцы стоматологий', jtbd: '«Хочу стабильный поток новых пациентов, не зависящий от сарафана»', pain: 'Знаю специфику медрекламы и ФЗ-38. Строю систему с нуля или восстанавливаю существующую.' },
               { num: '02', name: 'Подологи, нутрициологи, узкие специалисты', jtbd: '«Хочу выйти из режима сарафана и выстроить предсказуемый поток»', pain: 'Работаю с узкими нишами, которые другие агентства не видят как аудиторию.' },
@@ -578,16 +578,16 @@ export default function App() {
               { num: '05', name: 'Предприниматели с хаосом в маркетинге', jtbd: '«Хочу прекратить хаос и понять откуда приходят клиенты»', pain: 'Прозрачность процесса, измеримые результаты, системный подход к делегированию.' },
               { num: '06', name: 'Эксперты, коучи, психологи', jtbd: '«Хочу превратить экспертизу в стабильный поток клиентов онлайн»', pain: 'Сам являюсь экспертом, строящим личный бренд — понимаю модель изнутри.' }
             ].map((aud) => (
-              <div key={aud.num} className="bg-[#0C0C0E] p-11 transition-all duration-500 hover:bg-[rgba(201,169,110,0.08)] hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(0,0,0,0.4)] reveal opacity-0 translate-y-7 group">
-                <span className="text-[2.2rem] text-[rgba(201,169,110,0.18)] leading-none mb-5 block group-hover:text-[rgba(201,169,110,0.4)] group-hover:scale-110 transition-all duration-500">
+              <div key={aud.num} className="bg-[#0C0C0E] p-11 transition-all duration-500 hover:bg-[rgba(46,109,164,0.08)] hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(0,0,0,0.4)] reveal opacity-0 translate-y-7 group">
+                <span className="text-[2.2rem] text-[rgba(46,109,164,0.18)] leading-none mb-5 block group-hover:text-[rgba(46,109,164,0.4)] group-hover:scale-110 transition-all duration-500">
                   {aud.num}
                 </span>
-                <div className="text-[0.82rem] text-[#F5F2ED] tracking-[0.08em] mb-3 font-medium group-hover:text-[#C9A96E] transition-colors duration-300">{aud.name}</div>
-                <div className="text-[0.8rem] text-[#C9A96E] leading-[1.5] mb-4 italic group-hover:scale-105 transition-transform duration-300 origin-left">{aud.jtbd}</div>
+                <div className="text-[0.82rem] text-[#F5F2ED] tracking-[0.08em] mb-3 font-medium group-hover:text-[#9EDBFF] transition-colors duration-300">{aud.name}</div>
+                <div className="text-[0.8rem] text-[#9EDBFF] leading-[1.5] mb-4 italic group-hover:scale-105 transition-transform duration-300 origin-left">{aud.jtbd}</div>
                 <p className="text-[0.78rem] text-[#888] leading-[1.7] group-hover:text-[#F5F2ED] transition-colors duration-300">{aud.pain}</p>
 
                 {/* Animated border */}
-                <div className="absolute inset-0 border-2 border-[#C9A96E] scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-500 pointer-events-none"></div>
+                <div className="absolute inset-0 border-2 border-[#9EDBFF] scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-500 pointer-events-none"></div>
               </div>
             ))}
           </div>
@@ -595,15 +595,15 @@ export default function App() {
       </section>
 
       {/* Guarantee */}
-      <section id="guarantee" className="py-[calc(var(--section-y)*0.86)] px-[var(--section-x)] border-t border-[rgba(201,169,110,0.25)]">
+      <section id="guarantee" className="py-[calc(var(--section-y)*0.86)] px-[var(--section-x)] border-t border-[rgba(46,109,164,0.25)]">
         <div className="max-w-[min(1300px,92vw)] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[var(--split-gap)] items-center">
           <div className="reveal opacity-0 translate-y-7 transition-all duration-700">
-            <div className="text-[0.65rem] tracking-[0.3em] uppercase text-[#C9A96E] mb-4 flex items-center gap-[14px]">
-              <span className="block w-[30px] h-[1px] bg-[#C9A96E] animate-expand-width"></span>
+            <div className="text-[0.65rem] tracking-[0.3em] uppercase text-[#9EDBFF] mb-4 flex items-center gap-[14px]">
+              <span className="block w-[30px] h-[1px] bg-[#9EDBFF] animate-expand-width"></span>
               Условия работы
             </div>
             <h2 className="text-[clamp(2.2rem,3.5vw,3.6rem)] font-light leading-[1.1] text-[#F5F2ED] mb-6">
-              Договор с KPI.<br /><em className="italic text-[#C9A96E]">Прозрачно</em> до подписания.
+              Договор с KPI.<br /><em className="italic text-[#9EDBFF]">Прозрачно</em> до подписания.
             </h2>
             <p className="text-[0.9rem] text-[#888] leading-[1.85] mb-5">
               Роберт не обещает того, чего не может выполнить. Цены видны без звонка — единственный маркетолог в нише с открытым прайсом. Каждый проект закрепляется договором с фиксированными результатами и сроками.
@@ -618,8 +618,8 @@ export default function App() {
               { text: '<strong>Прозрачная отчётность</strong> — видно каждое действие и каждый рубль. Еженедельный отчёт о движении по системе.' },
               { text: '<strong>Понимаю ФЗ-38</strong> — работаю строго в рамках ограничений медицинской рекламы. Нет риска штрафов.' }
             ].map((point, i) => (
-              <div key={i} className="py-[22px] border-b border-[rgba(201,169,110,0.25)] flex gap-5 items-start first:border-t hover:bg-[rgba(201,169,110,0.02)] hover:px-4 transition-all duration-300 group">
-                <div className="text-[#C9A96E] text-[0.8rem] mt-[2px] group-hover:scale-125 transition-transform duration-300">◆</div>
+              <div key={i} className="py-[22px] border-b border-[rgba(46,109,164,0.25)] flex gap-5 items-start first:border-t hover:bg-[rgba(46,109,164,0.02)] hover:px-4 transition-all duration-300 group">
+                <div className="text-[#9EDBFF] text-[0.8rem] mt-[2px] group-hover:scale-125 transition-transform duration-300">◆</div>
                 <div className="text-[0.85rem] text-[#888] leading-[1.7] group-hover:text-[#F5F2ED] transition-colors duration-300" dangerouslySetInnerHTML={{ __html: point.text.replace('<strong>', '<strong class="text-[#F5F2ED] font-medium">') }}></div>
               </div>
             ))}
@@ -628,29 +628,29 @@ export default function App() {
       </section>
 
       {/* CTA */}
-      <section id="contact" className="py-[calc(var(--section-y)*1.02)] px-[var(--section-x)] bg-[rgba(201,169,110,0.04)] border-t border-[rgba(201,169,110,0.25)] text-center relative overflow-hidden">
+      <section id="contact" className="py-[calc(var(--section-y)*1.02)] px-[var(--section-x)] bg-[rgba(46,109,164,0.04)] border-t border-[rgba(46,109,164,0.25)] text-center relative overflow-hidden">
         {/* Animated background circles */}
         <div className="cta-pulse-bg pointer-events-none absolute inset-0" aria-hidden />
-        <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-[#C9A96E] rounded-full blur-[100px] opacity-[0.05] animate-pulse-slow"></div>
-        <div className="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-[#E8D5B0] rounded-full blur-[80px] opacity-[0.05] animate-pulse-slow" style={{ animationDelay: '1.5s' }}></div>
+        <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-[#9EDBFF] rounded-full blur-[100px] opacity-[0.05] animate-pulse-slow"></div>
+        <div className="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-[#D6ECFF] rounded-full blur-[80px] opacity-[0.05] animate-pulse-slow" style={{ animationDelay: '1.5s' }}></div>
 
         <div className="relative z-[2]">
-          <div className="text-[0.65rem] tracking-[0.3em] uppercase text-[#C9A96E] mb-4 flex items-center gap-[14px] justify-center animate-fade-in">
-            <span className="block w-[30px] h-[1px] bg-[#C9A96E]"></span>
+          <div className="text-[0.65rem] tracking-[0.3em] uppercase text-[#9EDBFF] mb-4 flex items-center gap-[14px] justify-center animate-fade-in">
+            <span className="block w-[30px] h-[1px] bg-[#9EDBFF]"></span>
             Начать работу
           </div>
           <h2 className="text-[clamp(2.2rem,3.5vw,3.6rem)] font-light leading-[1.1] text-[#F5F2ED] mb-5 animate-fade-in-up">
-            Разберёмся, что мешает<br />вашим <em className="italic text-[#C9A96E]">пациентам вас найти</em>
+            Разберёмся, что мешает<br />вашим <em className="italic text-[#9EDBFF]">пациентам вас найти</em>
           </h2>
           <p className="text-[0.95rem] text-[#888] max-w-[500px] mx-auto mb-14 leading-[1.8] animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             Проведу бесплатный 30-минутный разбор. Покажу, какой канал даст первых пациентов быстрее всего именно в вашей ситуации.
           </p>
           <div className="flex gap-5 justify-center items-center flex-wrap animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-            <a href="https://t.me/Robertunov" target="_blank" rel="noopener noreferrer" className="relative overflow-hidden text-[0.72rem] tracking-[0.2em] uppercase text-[#0C0C0E] bg-[#C9A96E] px-[36px] py-[16px] no-underline transition-all duration-300 inline-block group hover:shadow-[0_15px_40px_rgba(201,169,110,0.4)] hover:-translate-y-2 hover:scale-105">
-              <span className="absolute inset-0 bg-[#E8D5B0] -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
+            <a href="https://t.me/Robertunov" target="_blank" rel="noopener noreferrer" className="relative overflow-hidden text-[0.72rem] tracking-[0.2em] uppercase text-[#0C0C0E] bg-[#9EDBFF] px-[36px] py-[16px] no-underline transition-all duration-300 inline-block group hover:shadow-[0_15px_40px_rgba(46,109,164,0.4)] hover:-translate-y-2 hover:scale-105">
+              <span className="absolute inset-0 bg-[#D6ECFF] -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
               <span className="relative z-[1]">Написать в Telegram</span>
             </a>
-            <a href="mailto:Redstarrob@mail.ru" className="text-[0.72rem] tracking-[0.2em] uppercase text-[#C9A96E] border-2 border-[#C9A96E] px-9 py-4 no-underline transition-all duration-300 inline-block hover:bg-[rgba(201,169,110,0.15)] hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(201,169,110,0.2)]">
+            <a href="mailto:Redstarrob@mail.ru" className="text-[0.72rem] tracking-[0.2em] uppercase text-[#9EDBFF] border-2 border-[#9EDBFF] px-9 py-4 no-underline transition-all duration-300 inline-block hover:bg-[rgba(46,109,164,0.15)] hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(46,109,164,0.2)]">
               Написать на почту
             </a>
           </div>
@@ -659,12 +659,12 @@ export default function App() {
               href="https://t.me/Robertunov"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#888] no-underline transition-all duration-300 hover:text-[#C9A96E] hover:scale-110"
+              className="text-[#888] no-underline transition-all duration-300 hover:text-[#9EDBFF] hover:scale-110"
             >
               @Robertunov
             </a>
-            <a href="mailto:Redstarrob@mail.ru" className="text-[#888] no-underline transition-all duration-300 hover:text-[#C9A96E] hover:scale-110">Redstarrob@mail.ru</a>
-            <a href="tel:+79223533819" className="text-[#888] no-underline transition-all duration-300 hover:text-[#C9A96E] hover:scale-110">
+            <a href="mailto:Redstarrob@mail.ru" className="text-[#888] no-underline transition-all duration-300 hover:text-[#9EDBFF] hover:scale-110">Redstarrob@mail.ru</a>
+            <a href="tel:+79223533819" className="text-[#888] no-underline transition-all duration-300 hover:text-[#9EDBFF] hover:scale-110">
               8 922 353 38 19
             </a>
           </div>
@@ -672,7 +672,7 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer className="py-[calc(var(--section-x)*1.08)] px-[var(--section-x)] border-t border-[rgba(201,169,110,0.25)] flex flex-col lg:flex-row justify-between items-center gap-6 relative">
+      <footer className="py-[calc(var(--section-x)*1.08)] px-[var(--section-x)] border-t border-[rgba(46,109,164,0.25)] flex flex-col lg:flex-row justify-between items-center gap-6 relative">
         <div className="pointer-events-none absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-[#1A3C5E] to-transparent" aria-hidden />
         <a
           href="#page-top"
@@ -684,16 +684,16 @@ export default function App() {
               window.history.replaceState(null, '', base);
             }
           }}
-          className="text-[1rem] text-[#C9A96E] tracking-[0.1em] font-semibold hover:scale-105 transition-transform duration-300 no-underline"
+          className="text-[1rem] text-[#9EDBFF] tracking-[0.1em] font-semibold hover:scale-105 transition-transform duration-300 no-underline"
         >
           Роберт Садртдинов
         </a>
         <div className="flex gap-8">
-          <a href="https://t.me/Robertunov" target="_blank" rel="noopener noreferrer" className="text-[0.68rem] tracking-[0.15em] uppercase text-[#888] no-underline transition-all duration-300 hover:text-[#C9A96E] hover:tracking-[0.2em]">Telegram</a>
-          <a href="mailto:Redstarrob@mail.ru" className="text-[0.68rem] tracking-[0.15em] uppercase text-[#888] no-underline transition-all duration-300 hover:text-[#C9A96E] hover:tracking-[0.2em]">Email</a>
+          <a href="https://t.me/Robertunov" target="_blank" rel="noopener noreferrer" className="text-[0.68rem] tracking-[0.15em] uppercase text-[#888] no-underline transition-all duration-300 hover:text-[#9EDBFF] hover:tracking-[0.2em]">Telegram</a>
+          <a href="mailto:Redstarrob@mail.ru" className="text-[0.68rem] tracking-[0.15em] uppercase text-[#888] no-underline transition-all duration-300 hover:text-[#9EDBFF] hover:tracking-[0.2em]">Email</a>
           <a
             href="tel:+79223533819"
-            className="text-[0.68rem] tracking-[0.15em] uppercase text-[#888] no-underline transition-all duration-300 hover:text-[#C9A96E] hover:tracking-[0.2em]"
+            className="text-[0.68rem] tracking-[0.15em] uppercase text-[#888] no-underline transition-all duration-300 hover:text-[#9EDBFF] hover:tracking-[0.2em]"
           >
             Телефон
           </a>
@@ -774,11 +774,11 @@ export default function App() {
           color: var(--text-secondary) !important;
         }
 
-        #page-top .text-\[\#C9A96E\] {
+        #page-top .text-\[\#9EDBFF\] {
           color: var(--accent-readable) !important;
         }
 
-        #page-top .text-\[\#E8D5B0\] {
+        #page-top .text-\[\#D6ECFF\] {
           color: var(--accent-readable) !important;
         }
 
@@ -794,19 +794,19 @@ export default function App() {
           color: color-mix(in srgb, var(--text-primary) 60%, transparent) !important;
         }
 
-        #page-top .bg-\[\#C9A96E\] {
+        #page-top .bg-\[\#9EDBFF\] {
           background-color: var(--accent-readable) !important;
         }
 
-        #page-top .bg-\[\#E8D5B0\] {
+        #page-top .bg-\[\#D6ECFF\] {
           background-color: #d6ecff !important;
         }
 
-        #page-top .border-\[\#C9A96E\] {
+        #page-top .border-\[\#9EDBFF\] {
           border-color: var(--blue2) !important;
         }
 
-        #page-top .hover\:bg-\[\#E8D5B0\]:hover {
+        #page-top .hover\:bg-\[\#D6ECFF\]:hover {
           background-color: #d6ecff !important;
         }
 
@@ -1136,3 +1136,4 @@ export default function App() {
     </div>
   );
 }
+
