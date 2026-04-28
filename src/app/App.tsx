@@ -134,8 +134,8 @@ export default function App() {
   return (
     <div
       id="page-top"
-      className={`min-h-screen bg-[#0C0C0E] text-[#F5F2ED] overflow-x-hidden ${STATIC_PAGE ? 'static-page' : ''}`}
-      style={{ fontFamily: 'Inter, sans-serif', cursor: STATIC_PAGE ? 'auto' : 'none', backgroundColor: '#FFFFFF' }}
+      className={`min-h-screen bg-gradient-to-b from-[#1A3C5E] via-[#2E6DA4] to-[#FFFFFF] text-[#F5F2ED] overflow-x-hidden ${STATIC_PAGE ? 'static-page' : ''}`}
+      style={{ fontFamily: 'Inter, sans-serif', cursor: STATIC_PAGE ? 'auto' : 'none' }}
     >
       {/* Noise Overlay */}
       <div className="fixed inset-0 pointer-events-none z-[999] opacity-[0.025]" style={{
@@ -284,14 +284,14 @@ export default function App() {
           <div className="pointer-events-none flex min-h-0 flex-1 flex-col justify-start px-6 pt-24 pb-8 sm:px-10 sm:pt-32 sm:pb-10 md:px-[50px] lg:justify-end lg:px-[60px] lg:pt-[7.5rem] lg:pb-14">
             <div className="mx-auto w-full max-w-[min(1320px,94vw)]">
               <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
-                <div className="relative min-w-0 cursor-auto [touch-action:manipulation] pointer-events-auto">
+                <div className="relative min-w-0 cursor-auto [touch-action:manipulation] pointer-events-auto lg:pr-2">
                   <div className="hero-text-glow pointer-events-none absolute -inset-x-4 -inset-y-3 -z-[1] rounded-[2rem]" aria-hidden />
                   <p className="mb-4 text-sm text-[#8fc4f0] animate-slide-in-left" style={{ animationDelay: "0s" }}>
                     Precision. Artistry. Confidence.
                   </p>
                   <h1
                     style={{ animationDelay: "0.15s" }}
-                    className="mb-6 text-[clamp(3.3rem,8vw,7.2rem)] font-semibold leading-[0.98] text-[#F5F2ED] animate-fade-in-up [text-shadow:0_2px_32px_rgba(0,0,0,0.75)]"
+                    className="mb-6 text-[clamp(2.25rem,6.1vw,5.6rem)] font-semibold leading-[1.0] text-[#F5F2ED] animate-fade-in-up [text-shadow:0_2px_32px_rgba(0,0,0,0.75)] [overflow-wrap:anywhere]"
                   >
                     Sadrtdinov
                   </h1>
