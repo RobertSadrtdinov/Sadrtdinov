@@ -337,6 +337,9 @@ export default function App() {
                   className="relative hidden min-h-[270px] w-full shrink-0 overflow-hidden pointer-events-auto lg:block lg:min-h-[min(62vh,570px)] lg:basis-[38.2%] lg:max-w-[38.2%] lg:self-start"
                   aria-hidden
                 >
+                  <div className="pointer-events-none absolute left-6 top-6 z-20 text-[clamp(1.35rem,2.2vw,2.15rem)] font-semibold tracking-[0.08em] text-[#F5F2ED] [text-shadow:0_8px_30px_rgba(0,0,0,0.55)]">
+                    Sadrtdinov
+                  </div>
                   <div className="absolute inset-0 outline-none [&_canvas]:h-full [&_canvas]:w-full">
                     <SplineScene
                       scene={HERO_ROBOT_SCENE}
