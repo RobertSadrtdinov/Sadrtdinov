@@ -119,7 +119,7 @@ export default function App() {
   }, [mobileNavOpen]);
 
   const navLinkClass =
-    'text-[0.72rem] tracking-[0.18em] uppercase text-[#888] no-underline transition-all duration-300 hover:text-[#C9A96E] hover:tracking-[0.22em]';
+    'relative text-[0.72rem] tracking-[0.18em] uppercase text-[#888] no-underline transition-all duration-300 hover:text-[#C9A96E] hover:tracking-[0.22em] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-[#1A3C5E] after:transition-transform after:duration-300 hover:after:scale-x-100';
   const closeMobileNav = () => setMobileNavOpen(false);
   const scrollToHash = (hash: string) => {
     const el = document.querySelector(hash);
@@ -135,7 +135,7 @@ export default function App() {
     <div
       id="page-top"
       className={`min-h-screen bg-[#0C0C0E] text-[#F5F2ED] overflow-x-hidden ${STATIC_PAGE ? 'static-page' : ''}`}
-      style={{ fontFamily: 'Syne, sans-serif', cursor: STATIC_PAGE ? 'auto' : 'none' }}
+      style={{ fontFamily: 'Inter, sans-serif', cursor: STATIC_PAGE ? 'auto' : 'none' }}
     >
       {/* Noise Overlay */}
       <div className="fixed inset-0 pointer-events-none z-[999] opacity-[0.025]" style={{
@@ -178,8 +178,7 @@ export default function App() {
               window.history.replaceState(null, '', base);
             }
           }}
-          style={{ fontFamily: 'Cormorant Garamond, serif' }}
-          className="text-[1.05rem] sm:text-[1.1rem] tracking-[0.12em] text-[#C9A96E] no-underline font-light hover:scale-105 transition-transform duration-300 shrink-0"
+          className="text-[1.05rem] sm:text-[1.1rem] tracking-[0.12em] text-[#C9A96E] no-underline font-semibold hover:scale-105 transition-transform duration-300 shrink-0"
         >
           Р. Садртдинов
         </a>
@@ -284,17 +283,18 @@ export default function App() {
         <div className="relative z-[10] flex min-h-screen flex-col pointer-events-none">
           <div className="pointer-events-none flex min-h-0 flex-1 flex-col justify-start px-6 pt-24 pb-8 sm:px-10 sm:pt-32 sm:pb-10 md:px-[50px] lg:justify-end lg:px-[60px] lg:pt-[7.5rem] lg:pb-14">
             <div className="mx-auto w-full max-w-[min(1300px,92vw)]">
-              <div className="text-[0.68rem] tracking-[0.25em] uppercase text-[#C9A96E] mb-6 flex items-center gap-[14px] animate-slide-in-left sm:mb-8 [text-shadow:0_1px_20px_rgba(0,0,0,0.8)] pointer-events-auto">
+              <div className="text-[0.68rem] tracking-[0.25em] uppercase text-[#C9A96E] mb-6 flex items-center gap-[14px] animate-slide-in-left sm:mb-8 [text-shadow:0_1px_20px_rgba(0,0,0,0.8)] pointer-events-auto" style={{ animationDelay: '0s' }}>
                 <span className="block h-px w-8 bg-[#C9A96E] animate-expand-width sm:w-10" />
                 Системный маркетолог · Медицинский бизнес
               </div>
 
               {/* Ряд: заголовок и робот начинаются с одной верхней линии (первая строка h1) */}
               <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-8 xl:gap-12">
-                <div className="min-w-0 max-w-full flex-1 cursor-auto [touch-action:manipulation] pointer-events-auto lg:basis-[61.8%] lg:max-w-[min(100%,650px)]">
+                <div className="relative min-w-0 max-w-full flex-1 cursor-auto [touch-action:manipulation] pointer-events-auto lg:basis-[61.8%] lg:max-w-[min(100%,650px)]">
+                  <div className="hero-text-glow pointer-events-none absolute -inset-x-4 -inset-y-3 -z-[1] rounded-[2rem]" aria-hidden />
                   <h1
-                    style={{ fontFamily: 'Cormorant Garamond, serif' }}
-                    className="mb-3 text-[clamp(1.95rem,11vw,4.8rem)] font-light leading-[1.06] text-[#F5F2ED] sm:mb-4 animate-fade-in-up [text-shadow:0_2px_32px_rgba(0,0,0,0.75)]"
+                    style={{ animationDelay: '0.15s' }}
+                    className="mb-3 text-[clamp(3.5rem,8vw,8rem)] font-semibold leading-[0.98] text-[#F5F2ED] sm:mb-4 animate-fade-in-up [text-shadow:0_2px_32px_rgba(0,0,0,0.75)]"
                   >
                     Стабильный поток
                     <br />
@@ -307,13 +307,13 @@ export default function App() {
 
                   <p
                     className="text-[0.94rem] leading-[1.68] text-[#c8c4bc] sm:max-w-[58ch] mb-6 sm:mb-8 font-normal tracking-[0.015em] animate-fade-in-up [text-shadow:0_1px_12px_rgba(0,0,0,0.9)]"
-                    style={{ animationDelay: '0.2s' }}
+                    style={{ animationDelay: '0.3s' }}
                   >
                     Выстраиваю маркетинг для стоматологий, клиник и медицинских специалистов от аудита до первых записей. Понимаю
                     медицину изнутри. Медфак + ИИ-инструменты вместо дорогого агентства.
                   </p>
 
-                  <div className="mb-1 flex flex-wrap items-center gap-3 sm:mb-8 sm:gap-4 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+                  <div className="mb-1 flex flex-wrap items-center gap-3 sm:mb-8 sm:gap-4 animate-fade-in-up" style={{ animationDelay: '0.45s' }}>
                     <a
                       href="#contact"
                       className="group relative inline-block overflow-hidden border-2 border-transparent bg-[#C9A96E] px-7 py-3.5 text-[0.68rem] uppercase tracking-[0.2em] text-[#0C0C0E] no-underline transition-all duration-300 sm:px-9 sm:py-4 sm:text-[0.72rem] hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(201,169,110,0.45)]"
@@ -363,7 +363,7 @@ export default function App() {
               <span className="block w-[30px] h-[1px] bg-[#C9A96E] animate-expand-width"></span>
               Знакомая история
             </div>
-            <h2 style={{ fontFamily: 'Cormorant Garamond, serif' }} className="text-[clamp(2.2rem,3.5vw,3.6rem)] font-light leading-[1.1] text-[#F5F2ED] mb-10">
+            <h2 className="text-[clamp(2.2rem,3.5vw,3.6rem)] font-light leading-[1.1] text-[#F5F2ED] mb-10">
               Маркетолог брал деньги.<br />Пациентов <em className="italic text-[#C9A96E] inline-block hover:scale-105 transition-transform duration-300">не стало.</em>
             </h2>
             <p className="text-[1.05rem] text-[#888] leading-[1.85] mb-6">
@@ -381,7 +381,7 @@ export default function App() {
                 'Пробовали разных подрядчиков — каждый делал своё. Единой системы так и нет'
               ].map((pain, i) => (
                 <li key={i} className="py-6 border-b border-[rgba(201,169,110,0.25)] grid grid-cols-[36px_1fr] gap-5 items-start hover:bg-[rgba(201,169,110,0.02)] hover:px-4 transition-all duration-300 group">
-                  <span style={{ fontFamily: 'Cormorant Garamond, serif' }} className="text-[0.9rem] text-[#C9A96E] opacity-60 mt-[2px] group-hover:opacity-100 group-hover:scale-125 transition-all duration-300">
+                  <span className="text-[0.9rem] text-[#C9A96E] opacity-60 mt-[2px] group-hover:opacity-100 group-hover:scale-125 transition-all duration-300">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <span className="text-[0.9rem] text-[#888] leading-[1.7] group-hover:text-[#F5F2ED] transition-colors duration-300">{pain}</span>
@@ -403,7 +403,7 @@ export default function App() {
               <span className="block w-[30px] h-[1px] bg-[#C9A96E] animate-expand-width"></span>
               Как строится работа
             </div>
-            <h2 style={{ fontFamily: 'Cormorant Garamond, serif' }} className="text-[clamp(2.2rem,3.5vw,3.6rem)] font-light leading-[1.1] text-[#F5F2ED]">
+            <h2 className="text-[clamp(2.2rem,3.5vw,3.6rem)] font-light leading-[1.1] text-[#F5F2ED]">
               Пять шагов от хаоса<br />к <em className="italic text-[#C9A96E]">измеримой системе</em>
             </h2>
           </div>
@@ -416,9 +416,11 @@ export default function App() {
               { num: '04', title: 'Автоматизация', desc: 'ИИ-инструменты и чат-боты берут на себя запись, прогрев и обработку входящих. Система работает без вас.' },
               { num: '05', title: 'Аналитика и рост', desc: 'Прозрачная отчётность: видно каждое действие и каждый рубль. Итерируем и масштабируем то, что работает.' }
             ].map((step, idx) => (
-              <div key={step.num} className="bg-[#0C0C0E] p-11 relative transition-all duration-500 hover:bg-[rgba(201,169,110,0.08)] hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)] reveal opacity-0 translate-y-7 group">
+              <div key={step.num} className="bg-[#0C0C0E] p-11 relative transition-all duration-500 hover:bg-[rgba(201,169,110,0.08)] hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(26,60,94,0.10)] reveal opacity-0 translate-y-7 group">
+                <div className="process-dot hidden lg:flex">{step.num}</div>
+                {idx < 4 ? <div className="process-link hidden lg:block" aria-hidden /> : null}
                 <div className="absolute inset-0 bg-gradient-to-br from-[rgba(201,169,110,0.1)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <span style={{ fontFamily: 'Cormorant Garamond, serif' }} className="relative text-[4rem] font-light text-[rgba(201,169,110,0.12)] leading-none mb-6 block group-hover:text-[rgba(201,169,110,0.25)] group-hover:scale-110 transition-all duration-500">
+                <span className="relative text-[4rem] font-light text-[rgba(201,169,110,0.12)] leading-none mb-6 block group-hover:text-[rgba(201,169,110,0.25)] group-hover:scale-110 transition-all duration-500">
                   {step.num}
                 </span>
                 <div className="relative text-[0.78rem] tracking-[0.1em] uppercase text-[#C9A96E] mb-[14px] group-hover:tracking-[0.15em] transition-all duration-300">{step.title}</div>
@@ -441,7 +443,7 @@ export default function App() {
               <span className="block w-[30px] h-[1px] bg-[#C9A96E] animate-expand-width"></span>
               Отличие от рынка
             </div>
-            <h2 style={{ fontFamily: 'Cormorant Garamond, serif' }} className="text-[clamp(2.2rem,3.5vw,3.6rem)] font-light leading-[1.1] text-[#F5F2ED]">
+            <h2 className="text-[clamp(2.2rem,3.5vw,3.6rem)] font-light leading-[1.1] text-[#F5F2ED]">
               Не «ещё один маркетолог».<br /><em className="italic text-[#C9A96E]">Системный подход</em> + медфак.
             </h2>
           </div>
@@ -481,7 +483,7 @@ export default function App() {
               <span className="block w-[30px] h-[1px] bg-[#C9A96E] animate-expand-width"></span>
               Доказанный результат
             </div>
-            <h2 style={{ fontFamily: 'Cormorant Garamond, serif' }} className="text-[clamp(2.2rem,3.5vw,3.6rem)] font-light leading-[1.1] text-[#F5F2ED]">
+            <h2 className="text-[clamp(2.2rem,3.5vw,3.6rem)] font-light leading-[1.1] text-[#F5F2ED]">
               Реальные цифры.<br /><em className="italic text-[#C9A96E]">Реальные клиники.</em>
             </h2>
           </div>
@@ -497,7 +499,6 @@ export default function App() {
                 <span className="relative text-[0.65rem] tracking-[0.2em] uppercase text-[#C9A96E] mb-7 block group-hover:tracking-[0.25em] transition-all duration-300">{caseItem.tag}</span>
                 <span
                   data-value={caseItem.metric}
-                  style={{ fontFamily: 'Cormorant Garamond, serif' }}
                   className="animate-number relative text-[clamp(3rem,5vw,5rem)] font-light text-[#F5F2ED] leading-none mb-2 block group-hover:scale-110 group-hover:text-[#C9A96E] transition-all duration-500 origin-left"
                 >
                   {caseItem.metric}
@@ -527,7 +528,7 @@ export default function App() {
               <span className="block w-[30px] h-[1px] bg-[#C9A96E] animate-expand-width"></span>
               Об эксперте
             </div>
-            <blockquote style={{ fontFamily: 'Cormorant Garamond, serif' }} className="text-[clamp(1.4rem,2.2vw,2rem)] italic text-[#F5F2ED] leading-[1.6] border-l-2 border-[#C9A96E] pl-8 mb-10 hover:border-l-4 hover:pl-7 transition-all duration-300">
+            <blockquote className="text-[clamp(1.4rem,2.2vw,2rem)] italic text-[#F5F2ED] leading-[1.6] border-l-2 border-[#C9A96E] pl-8 mb-10 hover:border-l-4 hover:pl-7 transition-all duration-300">
               «Большинство клиник теряют пациентов не из-за плохого продукта — а из-за отсутствия системы. Я строю эту систему. Шаг за шагом, инструмент за инструментом.»
             </blockquote>
             <p className="text-[0.9rem] text-[#888] leading-[1.85] mb-6 hover:text-[#F5F2ED] transition-colors duration-300">
@@ -553,7 +554,7 @@ export default function App() {
               { title: 'Работал в нишах', desc: 'Стоматология, подология, нутрициология, психология. Понимает специфику каждой специализации.' }
             ].map((cred, i) => (
               <div key={i} className="border-b border-[rgba(201,169,110,0.25)] py-7 grid grid-cols-[80px_1fr] gap-6 items-start first:border-t hover:bg-[rgba(201,169,110,0.02)] hover:px-4 transition-all duration-300 group">
-                <div style={{ fontFamily: 'Cormorant Garamond, serif' }} className="text-[1.8rem] text-[rgba(201,169,110,0.3)] leading-none group-hover:text-[#C9A96E] group-hover:scale-125 transition-all duration-300">
+                <div className="text-[1.8rem] text-[rgba(201,169,110,0.3)] leading-none group-hover:text-[#C9A96E] group-hover:scale-125 transition-all duration-300">
                   {String(i + 1).padStart(2, '0')}
                 </div>
                 <div>
@@ -574,7 +575,7 @@ export default function App() {
               <span className="block w-[30px] h-[1px] bg-[#C9A96E] animate-expand-width"></span>
               Кому подходит
             </div>
-            <h2 style={{ fontFamily: 'Cormorant Garamond, serif' }} className="text-[clamp(2.2rem,3.5vw,3.6rem)] font-light leading-[1.1] text-[#F5F2ED]">
+            <h2 className="text-[clamp(2.2rem,3.5vw,3.6rem)] font-light leading-[1.1] text-[#F5F2ED]">
               Работаю с теми, кто<br /><em className="italic text-[#C9A96E]">берёт ответственность</em> за результат
             </h2>
           </div>
@@ -589,7 +590,7 @@ export default function App() {
               { num: '06', name: 'Эксперты, коучи, психологи', jtbd: '«Хочу превратить экспертизу в стабильный поток клиентов онлайн»', pain: 'Сам являюсь экспертом, строящим личный бренд — понимаю модель изнутри.' }
             ].map((aud) => (
               <div key={aud.num} className="bg-[#0C0C0E] p-11 transition-all duration-500 hover:bg-[rgba(201,169,110,0.08)] hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(0,0,0,0.4)] reveal opacity-0 translate-y-7 group">
-                <span style={{ fontFamily: 'Cormorant Garamond, serif' }} className="text-[2.2rem] text-[rgba(201,169,110,0.18)] leading-none mb-5 block group-hover:text-[rgba(201,169,110,0.4)] group-hover:scale-110 transition-all duration-500">
+                <span className="text-[2.2rem] text-[rgba(201,169,110,0.18)] leading-none mb-5 block group-hover:text-[rgba(201,169,110,0.4)] group-hover:scale-110 transition-all duration-500">
                   {aud.num}
                 </span>
                 <div className="text-[0.82rem] text-[#F5F2ED] tracking-[0.08em] mb-3 font-medium group-hover:text-[#C9A96E] transition-colors duration-300">{aud.name}</div>
@@ -612,7 +613,7 @@ export default function App() {
               <span className="block w-[30px] h-[1px] bg-[#C9A96E] animate-expand-width"></span>
               Условия работы
             </div>
-            <h2 style={{ fontFamily: 'Cormorant Garamond, serif' }} className="text-[clamp(2.2rem,3.5vw,3.6rem)] font-light leading-[1.1] text-[#F5F2ED] mb-6">
+            <h2 className="text-[clamp(2.2rem,3.5vw,3.6rem)] font-light leading-[1.1] text-[#F5F2ED] mb-6">
               Договор с KPI.<br /><em className="italic text-[#C9A96E]">Прозрачно</em> до подписания.
             </h2>
             <p className="text-[0.9rem] text-[#888] leading-[1.85] mb-5">
@@ -640,6 +641,7 @@ export default function App() {
       {/* CTA */}
       <section id="contact" className="py-[calc(var(--section-y)*1.02)] px-[var(--section-x)] bg-[rgba(201,169,110,0.04)] border-t border-[rgba(201,169,110,0.25)] text-center relative overflow-hidden">
         {/* Animated background circles */}
+        <div className="cta-pulse-bg pointer-events-none absolute inset-0" aria-hidden />
         <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-[#C9A96E] rounded-full blur-[100px] opacity-[0.05] animate-pulse-slow"></div>
         <div className="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-[#E8D5B0] rounded-full blur-[80px] opacity-[0.05] animate-pulse-slow" style={{ animationDelay: '1.5s' }}></div>
 
@@ -648,14 +650,14 @@ export default function App() {
             <span className="block w-[30px] h-[1px] bg-[#C9A96E]"></span>
             Начать работу
           </div>
-          <h2 style={{ fontFamily: 'Cormorant Garamond, serif' }} className="text-[clamp(2.2rem,3.5vw,3.6rem)] font-light leading-[1.1] text-[#F5F2ED] mb-5 animate-fade-in-up">
+          <h2 className="text-[clamp(2.2rem,3.5vw,3.6rem)] font-light leading-[1.1] text-[#F5F2ED] mb-5 animate-fade-in-up">
             Разберёмся, что мешает<br />вашим <em className="italic text-[#C9A96E]">пациентам вас найти</em>
           </h2>
           <p className="text-[0.95rem] text-[#888] max-w-[500px] mx-auto mb-14 leading-[1.8] animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             Проведу бесплатный 30-минутный разбор. Покажу, какой канал даст первых пациентов быстрее всего именно в вашей ситуации.
           </p>
           <div className="flex gap-5 justify-center items-center flex-wrap animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-            <a href="https://t.me/Robertunov" target="_blank" rel="noopener noreferrer" className="relative overflow-hidden text-[0.72rem] tracking-[0.2em] uppercase text-[#0C0C0E] bg-[#C9A96E] px-9 py-4 no-underline transition-all duration-300 inline-block group hover:shadow-[0_15px_40px_rgba(201,169,110,0.4)] hover:-translate-y-2 hover:scale-105">
+            <a href="https://t.me/Robertunov" target="_blank" rel="noopener noreferrer" className="relative overflow-hidden text-[0.72rem] tracking-[0.2em] uppercase text-[#0C0C0E] bg-[#C9A96E] px-[36px] py-[16px] no-underline transition-all duration-300 inline-block group hover:shadow-[0_15px_40px_rgba(201,169,110,0.4)] hover:-translate-y-2 hover:scale-105">
               <span className="absolute inset-0 bg-[#E8D5B0] -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
               <span className="relative z-[1]">Написать в Telegram</span>
             </a>
@@ -682,6 +684,7 @@ export default function App() {
 
       {/* Footer */}
       <footer className="py-[calc(var(--section-x)*1.08)] px-[var(--section-x)] border-t border-[rgba(201,169,110,0.25)] flex flex-col lg:flex-row justify-between items-center gap-6 relative">
+        <div className="pointer-events-none absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-[#1A3C5E] to-transparent" aria-hidden />
         <a
           href="#page-top"
           onClick={(e) => {
@@ -692,8 +695,7 @@ export default function App() {
               window.history.replaceState(null, '', base);
             }
           }}
-          style={{ fontFamily: 'Cormorant Garamond, serif' }}
-          className="text-[1rem] text-[#C9A96E] tracking-[0.1em] font-light hover:scale-105 transition-transform duration-300 no-underline"
+          className="text-[1rem] text-[#C9A96E] tracking-[0.1em] font-semibold hover:scale-105 transition-transform duration-300 no-underline"
         >
           Роберт Садртдинов
         </a>
@@ -716,9 +718,22 @@ export default function App() {
       <style>{`
         :root {
           --phi: 1.618;
+          --blue: #1A3C5E;
+          --blue2: #2E6DA4;
+          --sky: #EBF3FB;
+          --white: #FFFFFF;
+          --light: #F5F5F7;
+          --ink: #1D1D1F;
+          --mid: #6E6E73;
+          --border: #E8E8ED;
+          --transition: 0.25s ease;
           --section-x: clamp(1.15rem, 4.05vw, 3.75rem);
           --section-y: clamp(4.6rem, calc(7.1vw * var(--phi)), 8.8rem);
           --split-gap: clamp(2rem, calc(2.2vw * var(--phi)), 6.2rem);
+        }
+
+        section {
+          scroll-margin-top: 68px;
         }
 
         @media (max-width: 768px) {
@@ -818,6 +833,21 @@ export default function App() {
           50% { opacity: 0.1; transform: scale(1.05); }
         }
 
+        @keyframes heroTextGlow {
+          0%, 100% { opacity: 0.35; transform: scale(1); }
+          50% { opacity: 0.55; transform: scale(1.03); }
+        }
+
+        @keyframes processLine {
+          0% { opacity: 0.35; transform: scaleX(0.94); }
+          100% { opacity: 0.95; transform: scaleX(1.04); }
+        }
+
+        @keyframes ctaPulse {
+          0%, 100% { opacity: 0.08; transform: scale(1); }
+          50% { opacity: 0.18; transform: scale(1.05); }
+        }
+
         @keyframes pulse-glow {
           0%, 100% { opacity: 0.3; }
           50% { opacity: 0.6; }
@@ -870,6 +900,68 @@ export default function App() {
         .animate-scroll-line { animation: scroll-line 2s infinite ease-in-out; }
         .animate-spin-slow { animation: spin-slow 60s linear infinite; }
 
+        .hero-text-glow {
+          background:
+            radial-gradient(circle at 18% 28%, rgba(26, 60, 94, 0.4), transparent 52%),
+            radial-gradient(circle at 70% 72%, rgba(46, 109, 164, 0.26), transparent 56%);
+          animation: heroTextGlow 8s ease-in-out infinite;
+        }
+
+        .process-dot {
+          position: absolute;
+          top: 0.9rem;
+          left: 50%;
+          z-index: 2;
+          width: 2rem;
+          height: 2rem;
+          margin-left: -1rem;
+          border: 1px solid rgba(26, 60, 94, 0.75);
+          border-radius: 9999px;
+          color: #9aa8b8;
+          font-size: 0.72rem;
+          font-weight: 600;
+          align-items: center;
+          justify-content: center;
+          background: rgba(12, 12, 14, 0.9);
+          transition: all var(--transition);
+        }
+
+        .group:hover .process-dot {
+          background: var(--blue);
+          color: var(--white);
+          border-color: var(--blue2);
+        }
+
+        .process-link {
+          position: absolute;
+          top: 1.9rem;
+          left: calc(50% + 1rem);
+          width: calc(100% - 2rem);
+          height: 1px;
+          background: linear-gradient(90deg, rgba(26, 60, 94, 0.75), rgba(46, 109, 164, 0.1));
+          transform-origin: left center;
+          animation: processLine 2.8s ease-in-out infinite alternate;
+          pointer-events: none;
+        }
+
+        .cta-pulse-bg {
+          background: radial-gradient(circle at 50% 48%, rgba(26, 60, 94, 0.28), transparent 58%);
+          animation: ctaPulse 6s ease-in-out infinite;
+        }
+
+        #story li,
+        #cases .grid > div,
+        #audiences .grid > div,
+        #process .grid > div {
+          transition: all var(--transition) !important;
+        }
+
+        #story li:hover,
+        #cases .grid > div:hover,
+        #audiences .grid > div:hover {
+          box-shadow: 0 20px 60px rgba(26, 60, 94, 0.10);
+        }
+
         .reveal {
           opacity: 0;
           transform: translateY(28px);
@@ -880,29 +972,24 @@ export default function App() {
           transform: translateY(0);
         }
 
-        .static-page *,
-        .static-page *::before,
-        .static-page *::after {
-          animation: none !important;
-          transition: none !important;
-        }
-
         .static-page .reveal,
         .static-page .reveal.visible {
           opacity: 1 !important;
           transform: none !important;
         }
 
-        .static-page .animate-fade-in-up,
-        .static-page .animate-fade-in,
-        .static-page .animate-slide-in-left {
-          opacity: 1 !important;
-          transform: none !important;
-        }
+        @media (max-width: 390px) {
+          .hero-text-glow {
+            inset: -0.5rem !important;
+          }
 
-        .static-page [class*='animate-'] {
-          opacity: 1 !important;
-          transform: none !important;
+          h1 {
+            letter-spacing: -0.01em;
+          }
+
+          #contact a {
+            max-width: 100%;
+          }
         }
 
         /* Smooth scrolling + offset for fixed header on anchor links */
