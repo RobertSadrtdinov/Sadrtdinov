@@ -716,9 +716,49 @@ export default function App() {
           --mid: #6E6E73;
           --border: #E8E8ED;
           --transition: 0.25s ease;
+          --text-primary: #F8FBFF;
+          --text-secondary: #D4DEEA;
+          --text-muted-readable: #B9C6D6;
+          --accent-readable: #8FC4F0;
           --section-x: clamp(1.15rem, 4.05vw, 3.75rem);
           --section-y: clamp(4.6rem, calc(7.1vw * var(--phi)), 8.8rem);
           --split-gap: clamp(2rem, calc(2.2vw * var(--phi)), 6.2rem);
+        }
+
+        #page-top {
+          font-family: Inter, sans-serif;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          text-rendering: optimizeLegibility;
+        }
+
+        #page-top h1,
+        #page-top h2,
+        #page-top h3 {
+          letter-spacing: -0.012em;
+        }
+
+        #page-top p {
+          line-height: 1.72;
+        }
+
+        #page-top .text-\[\#F5F2ED\] {
+          color: var(--text-primary) !important;
+        }
+
+        #page-top .text-\[\#c8c4bc\],
+        #page-top .text-\[\#888\],
+        #page-top .text-\[\#9a9a9a\],
+        #page-top .text-\[\#a8a8a8\] {
+          color: var(--text-secondary) !important;
+        }
+
+        #page-top .text-\[\#C9A96E\] {
+          color: var(--accent-readable) !important;
+        }
+
+        #page-top .text-\[rgba\(136\,136\,136\,0\.4\)\] {
+          color: var(--text-muted-readable) !important;
         }
 
         section {
