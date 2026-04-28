@@ -283,7 +283,7 @@ export default function App() {
 
         <div className="relative z-[10] flex min-h-screen flex-col pointer-events-none">
           <div className="pointer-events-none flex min-h-0 flex-1 flex-col justify-end px-6 pt-[7.5rem] pb-10 sm:px-10 sm:pt-36 sm:pb-12 md:px-[50px] lg:px-[60px] lg:pb-14">
-            <div className="mx-auto w-full max-w-[1300px]">
+            <div className="mx-auto w-full max-w-[min(1300px,92vw)]">
               <div className="text-[0.68rem] tracking-[0.25em] uppercase text-[#C9A96E] mb-6 flex items-center gap-[14px] animate-slide-in-left sm:mb-8 [text-shadow:0_1px_20px_rgba(0,0,0,0.8)] pointer-events-auto">
                 <span className="block h-px w-8 bg-[#C9A96E] animate-expand-width sm:w-10" />
                 Системный маркетолог · Медицинский бизнес
@@ -291,10 +291,10 @@ export default function App() {
 
               {/* Ряд: заголовок и робот начинаются с одной верхней линии (первая строка h1) */}
               <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-8 xl:gap-12">
-                <div className="min-w-0 max-w-full flex-1 cursor-auto [touch-action:manipulation] pointer-events-auto lg:max-w-[min(100%,520px)]">
+                <div className="min-w-0 max-w-full flex-1 cursor-auto [touch-action:manipulation] pointer-events-auto lg:basis-[61.8%] lg:max-w-[min(100%,650px)]">
                   <h1
                     style={{ fontFamily: 'Cormorant Garamond, serif' }}
-                    className="mb-3 text-[clamp(2.4rem,5.5vw,5rem)] font-light leading-[1.05] text-[#F5F2ED] sm:mb-4 animate-fade-in-up [text-shadow:0_2px_32px_rgba(0,0,0,0.75)]"
+                    className="mb-3 text-[clamp(2.25rem,5.2vw,4.8rem)] font-light leading-[1.08] text-[#F5F2ED] sm:mb-4 animate-fade-in-up [text-shadow:0_2px_32px_rgba(0,0,0,0.75)]"
                   >
                     Стабильный поток
                     <br />
@@ -306,7 +306,7 @@ export default function App() {
                   </h1>
 
                   <p
-                    className="text-[0.9rem] leading-[1.75] text-[#c8c4bc] sm:max-w-[440px] mb-8 sm:mb-10 font-normal tracking-[0.02em] animate-fade-in-up [text-shadow:0_1px_12px_rgba(0,0,0,0.9)]"
+                    className="text-[0.94rem] leading-[1.72] text-[#c8c4bc] sm:max-w-[58ch] mb-8 sm:mb-10 font-normal tracking-[0.015em] animate-fade-in-up [text-shadow:0_1px_12px_rgba(0,0,0,0.9)]"
                     style={{ animationDelay: '0.2s' }}
                   >
                     Выстраиваю маркетинг для стоматологий, клиник и медицинских специалистов от аудита до первых записей. Понимаю
@@ -339,7 +339,7 @@ export default function App() {
                 </div>
 
                 <div
-                  className="relative min-h-[260px] w-full shrink-0 overflow-hidden lg:min-h-[min(58vh,520px)] lg:flex-1 lg:max-w-[52%] pointer-events-auto lg:self-start"
+                  className="relative min-h-[260px] w-full shrink-0 overflow-hidden lg:min-h-[min(62vh,560px)] lg:basis-[38.2%] lg:max-w-[38.2%] pointer-events-auto lg:self-start"
                   aria-hidden
                 >
                   <div className="absolute inset-0 outline-none [&_canvas]:h-full [&_canvas]:w-full">
@@ -360,11 +360,11 @@ export default function App() {
       </section>
 
       {/* Problem */}
-      <section id="story" className="py-[140px] px-[60px] border-t border-[rgba(201,169,110,0.25)] relative">
+      <section id="story" className="py-[var(--section-y)] px-[var(--section-x)] border-t border-[rgba(201,169,110,0.25)] relative">
         {/* Decorative lines */}
         <div className="absolute top-20 left-0 w-[200px] h-[1px] bg-gradient-to-r from-transparent via-[#C9A96E] to-transparent opacity-30 animate-pulse-glow"></div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-[100px] max-w-[1300px] mx-auto items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-[var(--split-gap)] max-w-[min(1300px,92vw)] mx-auto items-start">
           <div className="reveal opacity-0 translate-y-7 transition-all duration-700">
             <div className="text-[0.65rem] tracking-[0.3em] uppercase text-[#C9A96E] mb-4 flex items-center gap-[14px]">
               <span className="block w-[30px] h-[1px] bg-[#C9A96E] animate-expand-width"></span>
@@ -400,11 +400,11 @@ export default function App() {
       </section>
 
       {/* Process */}
-      <section id="process" className="py-[140px] px-[60px] bg-[rgba(255,255,255,0.015)] border-t border-b border-[rgba(201,169,110,0.25)] relative overflow-hidden">
+      <section id="process" className="py-[var(--section-y)] px-[var(--section-x)] bg-[rgba(255,255,255,0.015)] border-t border-b border-[rgba(201,169,110,0.25)] relative overflow-hidden">
         {/* Animated background element */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-[rgba(201,169,110,0.1)] rounded-full animate-spin-slow"></div>
 
-        <div className="max-w-[1300px] mx-auto relative z-[2]">
+        <div className="max-w-[min(1300px,92vw)] mx-auto relative z-[2]">
           <div className="mb-20 reveal opacity-0 translate-y-7 transition-all duration-700">
             <div className="text-[0.65rem] tracking-[0.3em] uppercase text-[#C9A96E] mb-4 flex items-center gap-[14px]">
               <span className="block w-[30px] h-[1px] bg-[#C9A96E] animate-expand-width"></span>
@@ -441,8 +441,8 @@ export default function App() {
       </section>
 
       {/* Difference */}
-      <section id="difference" className="py-[140px] px-[60px]">
-        <div className="max-w-[1300px] mx-auto">
+      <section id="difference" className="py-[var(--section-y)] px-[var(--section-x)]">
+        <div className="max-w-[min(1300px,92vw)] mx-auto">
           <div className="mb-[70px] reveal opacity-0 translate-y-7 transition-all duration-700">
             <div className="text-[0.65rem] tracking-[0.3em] uppercase text-[#C9A96E] mb-4 flex items-center gap-[14px]">
               <span className="block w-[30px] h-[1px] bg-[#C9A96E] animate-expand-width"></span>
@@ -481,8 +481,8 @@ export default function App() {
       </section>
 
       {/* Cases */}
-      <section id="cases" className="py-[140px] px-[60px] bg-[rgba(255,255,255,0.015)] border-t border-b border-[rgba(201,169,110,0.25)]">
-        <div className="max-w-[1300px] mx-auto">
+      <section id="cases" className="py-[var(--section-y)] px-[var(--section-x)] bg-[rgba(255,255,255,0.015)] border-t border-b border-[rgba(201,169,110,0.25)]">
+        <div className="max-w-[min(1300px,92vw)] mx-auto">
           <div className="mb-[70px] reveal opacity-0 translate-y-7 transition-all duration-700">
             <div className="text-[0.65rem] tracking-[0.3em] uppercase text-[#C9A96E] mb-4 flex items-center gap-[14px]">
               <span className="block w-[30px] h-[1px] bg-[#C9A96E] animate-expand-width"></span>
@@ -524,11 +524,11 @@ export default function App() {
       </section>
 
       {/* About */}
-      <section id="about" className="py-[140px] px-[60px] relative">
+      <section id="about" className="py-[var(--section-y)] px-[var(--section-x)] relative">
         {/* Decorative element */}
         <div className="absolute right-0 top-1/2 w-[300px] h-[300px] border border-[rgba(201,169,110,0.1)] rounded-full -translate-y-1/2 translate-x-1/2 animate-pulse-slow"></div>
 
-        <div className="max-w-[1300px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[100px] items-start relative z-[2]">
+        <div className="max-w-[min(1300px,92vw)] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[var(--split-gap)] items-start relative z-[2]">
           <div className="reveal opacity-0 translate-y-7 transition-all duration-700">
             <div className="text-[0.65rem] tracking-[0.3em] uppercase text-[#C9A96E] mb-4 flex items-center gap-[14px]">
               <span className="block w-[30px] h-[1px] bg-[#C9A96E] animate-expand-width"></span>
@@ -574,8 +574,8 @@ export default function App() {
       </section>
 
       {/* Audiences */}
-      <section id="audiences" className="py-[140px] px-[60px] bg-[rgba(255,255,255,0.015)] border-t border-b border-[rgba(201,169,110,0.25)]">
-        <div className="max-w-[1300px] mx-auto">
+      <section id="audiences" className="py-[var(--section-y)] px-[var(--section-x)] bg-[rgba(255,255,255,0.015)] border-t border-b border-[rgba(201,169,110,0.25)]">
+        <div className="max-w-[min(1300px,92vw)] mx-auto">
           <div className="mb-[70px] reveal opacity-0 translate-y-7 transition-all duration-700">
             <div className="text-[0.65rem] tracking-[0.3em] uppercase text-[#C9A96E] mb-4 flex items-center gap-[14px]">
               <span className="block w-[30px] h-[1px] bg-[#C9A96E] animate-expand-width"></span>
@@ -612,8 +612,8 @@ export default function App() {
       </section>
 
       {/* Guarantee */}
-      <section id="guarantee" className="py-[120px] px-[60px] border-t border-[rgba(201,169,110,0.25)]">
-        <div className="max-w-[1300px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[100px] items-center">
+      <section id="guarantee" className="py-[calc(var(--section-y)*0.86)] px-[var(--section-x)] border-t border-[rgba(201,169,110,0.25)]">
+        <div className="max-w-[min(1300px,92vw)] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[var(--split-gap)] items-center">
           <div className="reveal opacity-0 translate-y-7 transition-all duration-700">
             <div className="text-[0.65rem] tracking-[0.3em] uppercase text-[#C9A96E] mb-4 flex items-center gap-[14px]">
               <span className="block w-[30px] h-[1px] bg-[#C9A96E] animate-expand-width"></span>
@@ -645,7 +645,7 @@ export default function App() {
       </section>
 
       {/* CTA */}
-      <section id="contact" className="py-40 px-[60px] bg-[rgba(201,169,110,0.04)] border-t border-[rgba(201,169,110,0.25)] text-center relative overflow-hidden">
+      <section id="contact" className="py-[calc(var(--section-y)*1.02)] px-[var(--section-x)] bg-[rgba(201,169,110,0.04)] border-t border-[rgba(201,169,110,0.25)] text-center relative overflow-hidden">
         {/* Animated background circles */}
         <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-[#C9A96E] rounded-full blur-[100px] opacity-[0.05] animate-pulse-slow"></div>
         <div className="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-[#E8D5B0] rounded-full blur-[80px] opacity-[0.05] animate-pulse-slow" style={{ animationDelay: '1.5s' }}></div>
@@ -688,7 +688,7 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer className="py-[60px] px-[60px] border-t border-[rgba(201,169,110,0.25)] flex flex-col lg:flex-row justify-between items-center gap-6 relative">
+      <footer className="py-[calc(var(--section-x)*1.08)] px-[var(--section-x)] border-t border-[rgba(201,169,110,0.25)] flex flex-col lg:flex-row justify-between items-center gap-6 relative">
         <a
           href="#page-top"
           onClick={(e) => {
@@ -721,6 +721,99 @@ export default function App() {
 
       {/* Global Styles */}
       <style>{`
+        :root {
+          --phi: 1.618;
+          --section-x: clamp(1.15rem, 4.05vw, 3.75rem);
+          --section-y: clamp(4.6rem, calc(7.1vw * var(--phi)), 8.8rem);
+          --split-gap: clamp(2rem, calc(2.2vw * var(--phi)), 6.2rem);
+        }
+
+        @media (max-width: 768px) {
+          :root {
+            --section-x: 1.05rem;
+            --section-y: 3.6rem;
+            --split-gap: 1.4rem;
+          }
+
+          nav {
+            padding-top: 0.95rem !important;
+            padding-bottom: 0.95rem !important;
+          }
+
+          section {
+            scroll-margin-top: 5.4rem;
+          }
+
+          #story,
+          #process,
+          #difference,
+          #cases,
+          #about,
+          #audiences,
+          #guarantee,
+          #contact {
+            padding-left: var(--section-x) !important;
+            padding-right: var(--section-x) !important;
+          }
+
+          #story h2,
+          #process h2,
+          #difference h2,
+          #cases h2,
+          #about h2,
+          #audiences h2,
+          #guarantee h2,
+          #contact h2 {
+            line-height: 1.16 !important;
+            letter-spacing: 0 !important;
+          }
+
+          #story p,
+          #process p,
+          #difference p,
+          #cases p,
+          #about p,
+          #audiences p,
+          #guarantee p,
+          #contact p {
+            font-size: 0.92rem !important;
+            line-height: 1.68 !important;
+          }
+
+          #story .grid,
+          #about .grid,
+          #guarantee .grid {
+            gap: 1.35rem !important;
+          }
+
+          #process .grid > div,
+          #audiences .grid > div,
+          #cases .grid > div {
+            padding: 1.05rem !important;
+          }
+
+          #difference .grid > div,
+          #guarantee .flex > div {
+            padding: 0.9rem !important;
+          }
+
+          #contact .flex.gap-5 {
+            gap: 0.7rem !important;
+          }
+
+          #contact a {
+            width: 100%;
+            max-width: 21rem;
+            text-align: center;
+          }
+
+          footer {
+            padding-left: var(--section-x) !important;
+            padding-right: var(--section-x) !important;
+            text-align: center;
+          }
+        }
+
         @keyframes float {
           0%, 100% { transform: translate(0, 0) rotate(0deg); }
           33% { transform: translate(30px, -30px) rotate(120deg); }
