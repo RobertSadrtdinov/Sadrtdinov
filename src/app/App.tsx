@@ -1,7 +1,10 @@
 import { useEffect, useState, useRef } from 'react';
 import { CustomCursor } from './components/custom-cursor';
+import { HeroBackgroundLayers } from './components/hero-background-layers';
 import { HeroStatsBar } from './components/hero-spline-section';
-import CybercoreBackground from '@/components/ui/cybercore-section-hero';
+import { SplineScene } from '@/components/ui/splite';
+
+const HERO_ROBOT_SCENE = 'https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode';
 
 const STATIC_PAGE = true;
 
@@ -271,66 +274,79 @@ export default function App() {
         </div>
       ) : null}
 
-      {/* Hero: лёгкий статичный фон первого экрана */}
+      {/* Hero: градиентный фон + Spline-робот справа от оффера */}
       <section
         ref={heroRef}
         className="relative min-h-screen overflow-hidden bg-[#060607]"
       >
-        <CybercoreBackground beamCount={70} />
+        <HeroBackgroundLayers />
 
-        {/* pointer-events-none на обёртке; текстовый блок остаётся интерактивным */}
         <div className="relative z-[10] flex min-h-screen flex-col pointer-events-none">
           <div className="pointer-events-none flex min-h-0 flex-1 flex-col justify-end px-6 pt-[7.5rem] pb-10 sm:px-10 sm:pt-36 sm:pb-12 md:px-[50px] lg:px-[60px] lg:pb-14">
-            <div className="max-w-full cursor-auto [touch-action:manipulation] pointer-events-auto lg:max-w-[min(100%,520px)]">
-              <div className="text-[0.68rem] tracking-[0.25em] uppercase text-[#C9A96E] mb-6 flex items-center gap-[14px] animate-slide-in-left sm:mb-8 [text-shadow:0_1px_20px_rgba(0,0,0,0.8)]">
-                <span className="block h-px w-8 bg-[#C9A96E] animate-expand-width sm:w-10" />
-                Системный маркетолог · Медицинский бизнес
+            <div className="mx-auto flex w-full max-w-[1300px] flex-col gap-10 lg:flex-row lg:items-end lg:gap-8 xl:gap-12">
+              <div className="min-w-0 max-w-full cursor-auto [touch-action:manipulation] pointer-events-auto lg:max-w-[min(100%,520px)] lg:flex-1">
+                <div className="text-[0.68rem] tracking-[0.25em] uppercase text-[#C9A96E] mb-6 flex items-center gap-[14px] animate-slide-in-left sm:mb-8 [text-shadow:0_1px_20px_rgba(0,0,0,0.8)]">
+                  <span className="block h-px w-8 bg-[#C9A96E] animate-expand-width sm:w-10" />
+                  Системный маркетолог · Медицинский бизнес
+                </div>
+
+                <h1
+                  style={{ fontFamily: 'Cormorant Garamond, serif' }}
+                  className="mb-3 text-[clamp(2.4rem,5.5vw,5rem)] font-light leading-[1.05] text-[#F5F2ED] sm:mb-4 animate-fade-in-up [text-shadow:0_2px_32px_rgba(0,0,0,0.75)]"
+                >
+                  Стабильный поток
+                  <br />
+                  пациентов —
+                  <br />
+                  <em className="mt-0.5 inline-block italic text-[#C9A96E] transition-transform duration-300 hover:scale-105">это система,</em>
+                  <br />
+                  а не случайность
+                </h1>
+
+                <p
+                  className="text-[0.9rem] leading-[1.75] text-[#c8c4bc] sm:max-w-[440px] mb-8 sm:mb-10 font-normal tracking-[0.02em] animate-fade-in-up [text-shadow:0_1px_12px_rgba(0,0,0,0.9)]"
+                  style={{ animationDelay: '0.2s' }}
+                >
+                  Выстраиваю маркетинг для стоматологий, клиник и медицинских специалистов от аудита до первых записей. Понимаю
+                  медицину изнутри. Медфак + ИИ-инструменты вместо дорогого агентства.
+                </p>
+
+                <div className="mb-8 flex flex-wrap items-center gap-4 sm:mb-10 sm:gap-5 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+                  <a
+                    href="#contact"
+                    className="group relative inline-block overflow-hidden border-2 border-transparent bg-[#C9A96E] px-7 py-3.5 text-[0.68rem] uppercase tracking-[0.2em] text-[#0C0C0E] no-underline transition-all duration-300 sm:px-9 sm:py-4 sm:text-[0.72rem] hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(201,169,110,0.45)]"
+                  >
+                    <span className="absolute inset-0 -translate-x-full bg-[#E8D5B0] transition-transform duration-300 group-hover:translate-x-0" />
+                    <span className="relative z-[1]">Получить бесплатный разбор</span>
+                  </a>
+                  <a
+                    href="#cases"
+                    className="inline-block border border-[#C9A96E] px-7 py-3.5 text-[0.68rem] uppercase tracking-[0.2em] text-[#C9A96E] no-underline transition-all duration-300 backdrop-blur-sm sm:px-9 sm:py-4 sm:text-[0.72rem] hover:-translate-y-1 hover:bg-[rgba(201,169,110,0.12)] hover:shadow-[0_10px_30px_rgba(201,169,110,0.2)] [text-shadow:0_1px_8px_rgba(0,0,0,0.9)]"
+                  >
+                    Смотреть кейсы
+                  </a>
+                </div>
+
+                <a
+                  href="#story"
+                  className="mb-0 inline-flex items-center gap-3 text-[0.6rem] uppercase tracking-[0.2em] text-[#9a9a9a] no-underline transition-colors hover:text-[#C9A96E] sm:text-[0.65rem] animate-bounce-subtle [text-shadow:0_0_8px_rgba(0,0,0,0.9)]"
+                >
+                  <span className="block h-[50px] w-px bg-gradient-to-b from-[#C9A96E] to-transparent animate-scroll-line" />
+                  Листать вниз
+                </a>
               </div>
 
-              <h1
-                style={{ fontFamily: 'Cormorant Garamond, serif' }}
-                className="mb-3 text-[clamp(2.4rem,5.5vw,5rem)] font-light leading-[1.05] text-[#F5F2ED] sm:mb-4 animate-fade-in-up [text-shadow:0_2px_32px_rgba(0,0,0,0.75)]"
+              <div
+                className="relative min-h-[260px] w-full shrink-0 overflow-hidden lg:min-h-[min(58vh,520px)] lg:flex-1 lg:max-w-[52%] pointer-events-auto"
+                aria-hidden
               >
-                Стабильный поток
-                <br />
-                пациентов —
-                <br />
-                <em className="mt-0.5 inline-block italic text-[#C9A96E] transition-transform duration-300 hover:scale-105">это система,</em>
-                <br />
-                а не случайность
-              </h1>
-
-              <p
-                className="text-[0.9rem] leading-[1.75] text-[#c8c4bc] sm:max-w-[440px] mb-8 sm:mb-10 font-normal tracking-[0.02em] animate-fade-in-up [text-shadow:0_1px_12px_rgba(0,0,0,0.9)]"
-                style={{ animationDelay: '0.2s' }}
-              >
-                Выстраиваю маркетинг для стоматологий, клиник и медицинских специалистов от аудита до первых записей. Понимаю
-                медицину изнутри. Медфак + ИИ-инструменты вместо дорогого агентства.
-              </p>
-
-              <div className="mb-8 flex flex-wrap items-center gap-4 sm:mb-10 sm:gap-5 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-                <a
-                  href="#contact"
-                  className="group relative inline-block overflow-hidden border-2 border-transparent bg-[#C9A96E] px-7 py-3.5 text-[0.68rem] uppercase tracking-[0.2em] text-[#0C0C0E] no-underline transition-all duration-300 sm:px-9 sm:py-4 sm:text-[0.72rem] hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(201,169,110,0.45)]"
-                >
-                  <span className="absolute inset-0 -translate-x-full bg-[#E8D5B0] transition-transform duration-300 group-hover:translate-x-0" />
-                  <span className="relative z-[1]">Получить бесплатный разбор</span>
-                </a>
-                <a
-                  href="#cases"
-                  className="inline-block border border-[#C9A96E] px-7 py-3.5 text-[0.68rem] uppercase tracking-[0.2em] text-[#C9A96E] no-underline transition-all duration-300 backdrop-blur-sm sm:px-9 sm:py-4 sm:text-[0.72rem] hover:-translate-y-1 hover:bg-[rgba(201,169,110,0.12)] hover:shadow-[0_10px_30px_rgba(201,169,110,0.2)] [text-shadow:0_1px_8px_rgba(0,0,0,0.9)]"
-                >
-                  Смотреть кейсы
-                </a>
+                <div className="absolute inset-0 outline-none [&_canvas]:h-full [&_canvas]:w-full">
+                  <SplineScene
+                    scene={HERO_ROBOT_SCENE}
+                    className="block h-full min-h-[260px] w-full lg:min-h-[min(58vh,520px)]"
+                  />
+                </div>
               </div>
-
-              <a
-                href="#story"
-                className="mb-0 inline-flex items-center gap-3 text-[0.6rem] uppercase tracking-[0.2em] text-[#9a9a9a] no-underline transition-colors hover:text-[#C9A96E] sm:text-[0.65rem] animate-bounce-subtle [text-shadow:0_0_8px_rgba(0,0,0,0.9)]"
-              >
-                <span className="block h-[50px] w-px bg-gradient-to-b from-[#C9A96E] to-transparent animate-scroll-line" />
-                Листать вниз
-              </a>
             </div>
           </div>
 
