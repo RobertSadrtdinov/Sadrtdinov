@@ -282,69 +282,53 @@ export default function App() {
 
         <div className="relative z-[10] flex min-h-screen flex-col pointer-events-none">
           <div className="pointer-events-none flex min-h-0 flex-1 flex-col justify-start px-6 pt-24 pb-8 sm:px-10 sm:pt-32 sm:pb-10 md:px-[50px] lg:justify-end lg:px-[60px] lg:pt-[7.5rem] lg:pb-14">
-            <div className="mx-auto w-full max-w-[min(1300px,92vw)]">
-              <div className="text-[0.68rem] tracking-[0.25em] uppercase text-[#C9A96E] mb-6 flex items-center gap-[14px] animate-slide-in-left sm:mb-8 [text-shadow:0_1px_20px_rgba(0,0,0,0.8)] pointer-events-auto" style={{ animationDelay: '0s' }}>
-                <span className="block h-px w-8 bg-[#C9A96E] animate-expand-width sm:w-10" />
-                Системный маркетолог · Медицинский бизнес
-              </div>
-
-              {/* Ряд: заголовок и робот начинаются с одной верхней линии (первая строка h1) */}
-              <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-8 xl:gap-12">
-                <div className="relative min-w-0 max-w-full flex-1 cursor-auto [touch-action:manipulation] pointer-events-auto lg:basis-[61.8%] lg:max-w-[min(100%,650px)]">
+            <div className="mx-auto w-full max-w-[min(1320px,94vw)]">
+              <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
+                <div className="relative min-w-0 cursor-auto [touch-action:manipulation] pointer-events-auto">
                   <div className="hero-text-glow pointer-events-none absolute -inset-x-4 -inset-y-3 -z-[1] rounded-[2rem]" aria-hidden />
-                  <div className="hero-offer-block max-w-[58ch]">
-                    <h1
-                      style={{ animationDelay: '0.15s' }}
-                      className="mb-3 text-[clamp(3.5rem,8vw,8rem)] font-semibold leading-[0.98] text-[#F5F2ED] sm:mb-4 animate-fade-in-up [text-shadow:0_2px_32px_rgba(0,0,0,0.75)]"
+                  <p className="mb-4 text-sm text-[#8fc4f0] animate-slide-in-left" style={{ animationDelay: "0s" }}>
+                    Precision. Artistry. Confidence.
+                  </p>
+                  <h1
+                    style={{ animationDelay: "0.15s" }}
+                    className="mb-6 text-[clamp(3.3rem,8vw,7.2rem)] font-semibold leading-[0.98] text-[#F5F2ED] animate-fade-in-up [text-shadow:0_2px_32px_rgba(0,0,0,0.75)]"
+                  >
+                    Sadrtdinov
+                  </h1>
+                  <p
+                    className="max-w-[58ch] text-[0.98rem] leading-[1.68] text-[#c8c4bc] mb-7 animate-fade-in-up"
+                    style={{ animationDelay: "0.3s" }}
+                  >
+                    Выстраиваю маркетинг для стоматологий, клиник и медицинских специалистов от аудита до первых записей. Понимаю
+                    медицину изнутри. Медфак + ИИ-инструменты вместо дорогого агентства.
+                  </p>
+                  <div className="flex flex-wrap items-center gap-3 animate-fade-in-up" style={{ animationDelay: "0.45s" }}>
+                    <a
+                      href="#contact"
+                      className="group relative inline-block overflow-hidden rounded-full border-2 border-transparent bg-[#8FC4F0] px-7 py-3.5 text-[0.68rem] uppercase tracking-[0.2em] text-[#0C0C0E] no-underline transition-all duration-300 sm:px-9 sm:py-4 sm:text-[0.72rem] hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(143,196,240,0.35)]"
                     >
-                      Стабильный поток
-                      <br />
-                      пациентов —
-                      <br />
-                      <em className="mt-0.5 inline-block italic text-[#C9A96E] transition-transform duration-300 hover:scale-105">это система,</em>
-                      <br />
-                      а не случайность
-                    </h1>
-
-                    <p
-                      className="text-[0.94rem] leading-[1.68] text-[#c8c4bc] mb-6 sm:mb-8 font-normal tracking-[0.015em] animate-fade-in-up [text-shadow:0_1px_12px_rgba(0,0,0,0.9)]"
-                      style={{ animationDelay: '0.3s' }}
+                      <span className="absolute inset-0 -translate-x-full bg-[#EBF3FB] transition-transform duration-300 group-hover:translate-x-0" />
+                      <span className="relative z-[1]">Начать трансформацию</span>
+                    </a>
+                    <a
+                      href="#cases"
+                      className="inline-block rounded-full border border-[#2E6DA4] px-7 py-3.5 text-[0.68rem] uppercase tracking-[0.2em] text-[#8FC4F0] no-underline transition-all duration-300 sm:px-9 sm:py-4 sm:text-[0.72rem] hover:-translate-y-1 hover:bg-[rgba(46,109,164,0.18)] hover:shadow-[0_10px_30px_rgba(26,60,94,0.28)]"
                     >
-                      Выстраиваю маркетинг для стоматологий, клиник и медицинских специалистов от аудита до первых записей. Понимаю
-                      медицину изнутри. Медфак + ИИ-инструменты вместо дорогого агентства.
-                    </p>
-
-                    <div className="mb-1 flex flex-wrap items-center gap-3 sm:mb-8 sm:gap-4 animate-fade-in-up" style={{ animationDelay: '0.45s' }}>
-                      <a
-                        href="#contact"
-                        className="group relative inline-block overflow-hidden border-2 border-transparent bg-[#C9A96E] px-7 py-3.5 text-[0.68rem] uppercase tracking-[0.2em] text-[#0C0C0E] no-underline transition-all duration-300 sm:px-9 sm:py-4 sm:text-[0.72rem] hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(201,169,110,0.45)]"
-                      >
-                        <span className="absolute inset-0 -translate-x-full bg-[#E8D5B0] transition-transform duration-300 group-hover:translate-x-0" />
-                        <span className="relative z-[1]">Получить бесплатный разбор</span>
-                      </a>
-                      <a
-                        href="#cases"
-                        className="inline-block border border-[#C9A96E] px-7 py-3.5 text-[0.68rem] uppercase tracking-[0.2em] text-[#C9A96E] no-underline transition-all duration-300 backdrop-blur-sm sm:px-9 sm:py-4 sm:text-[0.72rem] hover:-translate-y-1 hover:bg-[rgba(201,169,110,0.12)] hover:shadow-[0_10px_30px_rgba(201,169,110,0.2)] [text-shadow:0_1px_8px_rgba(0,0,0,0.9)]"
-                      >
-                        Смотреть кейсы
-                      </a>
-                    </div>
+                      Смотреть кейсы
+                    </a>
                   </div>
-
                 </div>
 
-                <div
-                  className="relative hidden min-h-[270px] w-full shrink-0 overflow-hidden pointer-events-auto lg:block lg:min-h-[min(62vh,570px)] lg:basis-[38.2%] lg:max-w-[38.2%] lg:self-start"
-                  aria-hidden
-                >
-                  <div className="pointer-events-none absolute left-6 top-6 z-20 text-[clamp(1.35rem,2.2vw,2.15rem)] font-semibold tracking-[0.08em] text-[#F5F2ED] [text-shadow:0_8px_30px_rgba(0,0,0,0.55)]">
-                    Sadrtdinov
-                  </div>
+                <div className="relative min-h-[300px] w-full overflow-hidden rounded-[1.25rem] border border-[rgba(143,196,240,0.25)] bg-[rgba(9,17,28,0.55)] backdrop-blur-sm pointer-events-auto lg:min-h-[min(64vh,620px)]">
                   <div className="absolute inset-0 outline-none [&_canvas]:h-full [&_canvas]:w-full">
                     <SplineScene
                       scene={HERO_ROBOT_SCENE}
-                      className="block h-full min-h-[270px] w-full lg:min-h-[min(58vh,530px)]"
+                      className="block h-full min-h-[300px] w-full lg:min-h-[min(64vh,620px)]"
                     />
+                  </div>
+                  <div className="pointer-events-none absolute bottom-4 right-4 rounded-xl border border-[rgba(143,196,240,0.25)] bg-[rgba(9,17,28,0.75)] p-4 text-sm backdrop-blur">
+                    <p className="text-xl font-bold text-[#8FC4F0]">99%</p>
+                    <p className="text-[#D9E7F5]">Точность системного подхода</p>
                   </div>
                 </div>
               </div>
