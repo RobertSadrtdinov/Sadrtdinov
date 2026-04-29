@@ -11,6 +11,7 @@ const STATIC_PAGE = true;
 export default function App() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [isConsentAccepted, setIsConsentAccepted] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -625,23 +626,58 @@ export default function App() {
             Проведу бесплатный 30-минутный разбор. Покажу, какой канал даст первых пациентов быстрее всего именно в вашей ситуации.
           </p>
           <div className="flex gap-5 justify-center items-center flex-wrap animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-            <a href="https://t.me/Robertunov" target="_blank" rel="noopener noreferrer" className="relative overflow-hidden text-[0.72rem] tracking-[0.2em] uppercase text-[#0C0C0E] bg-[#9EDBFF] px-[36px] py-[16px] no-underline transition-all duration-300 inline-block group hover:shadow-[0_15px_40px_rgba(46,109,164,0.4)] hover:-translate-y-2 hover:scale-105">
+            <a
+              href="https://t.me/Robertunov"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-disabled={!isConsentAccepted}
+              onClick={(e) => {
+                if (!isConsentAccepted) e.preventDefault();
+              }}
+              className={`relative overflow-hidden text-[0.72rem] tracking-[0.2em] uppercase px-[36px] py-[16px] no-underline transition-all duration-300 inline-block group ${
+                isConsentAccepted
+                  ? 'text-[#0C0C0E] bg-[#9EDBFF] hover:shadow-[0_15px_40px_rgba(46,109,164,0.4)] hover:-translate-y-2 hover:scale-105'
+                  : 'text-[#6e7f8f] bg-[#2a3847] cursor-not-allowed pointer-events-none'
+              }`}
+            >
               <span className="absolute inset-0 bg-[#D6ECFF] -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
               <span className="relative z-[1]">Написать в Telegram</span>
             </a>
-            <a href="mailto:Redstarrob@mail.ru" className="text-[0.72rem] tracking-[0.2em] uppercase text-[#9EDBFF] border-2 border-[#9EDBFF] px-9 py-4 no-underline transition-all duration-300 inline-block hover:bg-[rgba(46,109,164,0.15)] hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(46,109,164,0.2)]">
+            <a
+              href="mailto:Redstarrob@mail.ru"
+              aria-disabled={!isConsentAccepted}
+              onClick={(e) => {
+                if (!isConsentAccepted) e.preventDefault();
+              }}
+              className={`text-[0.72rem] tracking-[0.2em] uppercase px-9 py-4 no-underline transition-all duration-300 inline-block ${
+                isConsentAccepted
+                  ? 'text-[#9EDBFF] border-2 border-[#9EDBFF] hover:bg-[rgba(46,109,164,0.15)] hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(46,109,164,0.2)]'
+                  : 'text-[#6e7f8f] border-2 border-[#3a4b5d] cursor-not-allowed pointer-events-none'
+              }`}
+            >
               Написать на почту
             </a>
           </div>
-          <a
-            href="/consent_personal_data.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center gap-3 text-[0.74rem] text-[#9fb0c1] tracking-[0.04em] no-underline transition-colors duration-300 hover:text-[#c6d8ea]"
-          >
-            <span className="h-4 w-4 border border-[#9EDBFF]/70 rounded-[2px] bg-transparent" aria-hidden />
-            Согласие на обработку персональных данных
-          </a>
+          <label className="mt-6 inline-flex items-center gap-3 text-[0.74rem] text-[#9fb0c1] tracking-[0.04em] cursor-pointer select-none">
+            <input
+              type="checkbox"
+              checked={isConsentAccepted}
+              onChange={(e) => setIsConsentAccepted(e.target.checked)}
+              className="h-4 w-4 appearance-none rounded-[2px] border border-[#9EDBFF]/70 bg-transparent checked:bg-[#9EDBFF] checked:border-[#9EDBFF] relative checked:after:content-[''] checked:after:absolute checked:after:left-[4px] checked:after:top-[1px] checked:after:h-[8px] checked:after:w-[4px] checked:after:border-r-2 checked:after:border-b-2 checked:after:border-[#0C0C0E] checked:after:rotate-45"
+            />
+            <span>
+              Согласие на обработку персональных данных{" "}
+              <a
+                href="/consent_personal_data.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#9EDBFF] underline-offset-2 hover:underline"
+                onClick={(e) => e.stopPropagation()}
+              >
+                (текст согласия)
+              </a>
+            </span>
+          </label>
           <div className="mt-[50px] flex justify-center gap-[50px] flex-wrap text-[0.75rem] text-[#888] tracking-[0.1em]">
             <a
               href="https://t.me/Robertunov"
