@@ -289,7 +289,7 @@ export default function App() {
                   <div className="hero-text-glow pointer-events-none absolute -inset-x-4 -inset-y-3 -z-[1] rounded-[2rem]" aria-hidden />
                   <h1
                     style={{ animationDelay: "0.15s" }}
-                    className="max-w-[20ch] text-[clamp(1.55rem,3.2vw,3.05rem)] font-medium leading-[1.24] text-[#F5F2ED] animate-fade-in-up [text-shadow:0_2px_32px_rgba(0,0,0,0.75)]"
+                    className="max-w-[20ch] text-[clamp(1.35rem,4.2vw,3.05rem)] font-medium leading-[1.18] text-[#F5F2ED] animate-fade-in-up [text-shadow:0_2px_32px_rgba(0,0,0,0.75)]"
                   >
                     14 новых заявок за 4 недели
                     <br />
@@ -625,7 +625,7 @@ export default function App() {
           <p className="text-[0.95rem] text-[#888] max-w-[500px] mx-auto mb-14 leading-[1.8] animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             Проведу бесплатный 30-минутный разбор. Покажу, какой канал даст первых пациентов быстрее всего именно в вашей ситуации.
           </p>
-          <div className="flex gap-5 justify-center items-center flex-wrap animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+          <div className="mx-auto flex w-full max-w-[780px] flex-col gap-3 sm:flex-row sm:gap-5 justify-center items-stretch sm:items-center animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
             <a
               href="https://t.me/Robertunov"
               target="_blank"
@@ -634,7 +634,7 @@ export default function App() {
               onClick={(e) => {
                 if (!isConsentAccepted) e.preventDefault();
               }}
-              className={`relative overflow-hidden text-[0.72rem] tracking-[0.2em] uppercase px-[36px] py-[16px] no-underline transition-all duration-300 inline-block group ${
+              className={`relative overflow-hidden text-[0.72rem] tracking-[0.2em] uppercase px-[36px] py-[16px] no-underline transition-all duration-300 inline-block text-center w-full sm:w-auto group ${
                 isConsentAccepted
                   ? 'text-[#0C0C0E] bg-[#9EDBFF] hover:shadow-[0_15px_40px_rgba(46,109,164,0.4)] hover:-translate-y-2 hover:scale-105'
                   : 'text-[#6e7f8f] bg-[#2a3847] cursor-not-allowed pointer-events-none'
@@ -649,7 +649,7 @@ export default function App() {
               onClick={(e) => {
                 if (!isConsentAccepted) e.preventDefault();
               }}
-              className={`text-[0.72rem] tracking-[0.2em] uppercase px-9 py-4 no-underline transition-all duration-300 inline-block ${
+              className={`text-[0.72rem] tracking-[0.2em] uppercase px-9 py-4 no-underline transition-all duration-300 inline-block text-center w-full sm:w-auto ${
                 isConsentAccepted
                   ? 'text-[#9EDBFF] border-2 border-[#9EDBFF] hover:bg-[rgba(46,109,164,0.15)] hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(46,109,164,0.2)]'
                   : 'text-[#6e7f8f] border-2 border-[#3a4b5d] cursor-not-allowed pointer-events-none'
@@ -658,7 +658,7 @@ export default function App() {
               Написать на почту
             </a>
           </div>
-          <label className="mt-6 inline-flex items-center gap-3 text-[0.74rem] text-[#9fb0c1] tracking-[0.04em] cursor-pointer select-none">
+          <label className="mt-6 inline-flex w-full max-w-[780px] items-start gap-3 text-[0.74rem] text-[#9fb0c1] tracking-[0.04em] cursor-pointer select-none text-left">
             <input
               type="checkbox"
               checked={isConsentAccepted}
@@ -678,7 +678,7 @@ export default function App() {
               </a>
             </span>
           </label>
-          <div className="mt-[50px] flex justify-center gap-[50px] flex-wrap text-[0.75rem] text-[#888] tracking-[0.1em]">
+          <div className="mt-[50px] flex justify-center gap-5 sm:gap-8 md:gap-[50px] flex-wrap text-[0.75rem] text-[#888] tracking-[0.1em]">
             <a
               href="https://t.me/Robertunov"
               target="_blank"
@@ -712,7 +712,7 @@ export default function App() {
         >
           Роберт Садртдинов
         </a>
-        <div className="flex gap-8">
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-8">
           <a href="https://t.me/Robertunov" target="_blank" rel="noopener noreferrer" className="text-[0.68rem] tracking-[0.15em] uppercase text-[#888] no-underline transition-all duration-300 hover:text-[#9EDBFF] hover:tracking-[0.2em]">Telegram</a>
           <a href="mailto:Redstarrob@mail.ru" className="text-[0.68rem] tracking-[0.15em] uppercase text-[#888] no-underline transition-all duration-300 hover:text-[#9EDBFF] hover:tracking-[0.2em]">Email</a>
           <a href="/privacy.html" className="text-[0.68rem] tracking-[0.15em] uppercase text-[#888] no-underline transition-all duration-300 hover:text-[#9EDBFF] hover:tracking-[0.2em]">Политика</a>
