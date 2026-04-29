@@ -633,10 +633,15 @@ export default function App() {
               Написать на почту
             </a>
           </div>
-          <label className="mt-6 inline-flex items-center gap-3 text-[0.74rem] text-[#9fb0c1] tracking-[0.04em]">
+          <a
+            href="/consent_personal_data.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex items-center gap-3 text-[0.74rem] text-[#9fb0c1] tracking-[0.04em] no-underline transition-colors duration-300 hover:text-[#c6d8ea]"
+          >
             <span className="h-4 w-4 border border-[#9EDBFF]/70 rounded-[2px] bg-transparent" aria-hidden />
             Согласие на обработку персональных данных
-          </label>
+          </a>
           <div className="mt-[50px] flex justify-center gap-[50px] flex-wrap text-[0.75rem] text-[#888] tracking-[0.1em]">
             <a
               href="https://t.me/Robertunov"
@@ -675,6 +680,14 @@ export default function App() {
           <a href="https://t.me/Robertunov" target="_blank" rel="noopener noreferrer" className="text-[0.68rem] tracking-[0.15em] uppercase text-[#888] no-underline transition-all duration-300 hover:text-[#9EDBFF] hover:tracking-[0.2em]">Telegram</a>
           <a href="mailto:Redstarrob@mail.ru" className="text-[0.68rem] tracking-[0.15em] uppercase text-[#888] no-underline transition-all duration-300 hover:text-[#9EDBFF] hover:tracking-[0.2em]">Email</a>
           <a href="/privacy.html" className="text-[0.68rem] tracking-[0.15em] uppercase text-[#888] no-underline transition-all duration-300 hover:text-[#9EDBFF] hover:tracking-[0.2em]">Политика</a>
+          <a
+            href="/consent_personal_data.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[0.68rem] tracking-[0.15em] uppercase text-[#888] no-underline transition-all duration-300 hover:text-[#9EDBFF] hover:tracking-[0.2em]"
+          >
+            Согласие ПД
+          </a>
           <a
             href="tel:+79223533819"
             className="text-[0.68rem] tracking-[0.15em] uppercase text-[#888] no-underline transition-all duration-300 hover:text-[#9EDBFF] hover:tracking-[0.2em]"

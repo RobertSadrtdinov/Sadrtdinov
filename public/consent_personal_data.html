@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Согласие на обработку персональных данных — Роберт Садртдинов</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: #FFFFFF;
+  color: #1D1D1F;
+  font-size: 16px;
+  line-height: 1.7;
+  padding: 60px 24px 100px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: 780px; margin: 0 auto; }
+
+/* BACK */
+.back {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.82rem; color: #6E6E73; text-decoration: none;
+  margin-bottom: 48px; transition: color 0.2s;
+}
+.back:hover { color: #1A3C5E; }
+
+/* HEADER */
+.doc-header {
+  background: #1A3C5E;
+  border-radius: 12px;
+  padding: 36px 40px;
+  margin-bottom: 32px;
+  text-align: center;
+}
+.doc-header-title {
+  font-size: 1.6rem; font-weight: 600;
+  color: #FFFFFF; letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+.doc-header-sub {
+  font-size: 0.85rem; color: rgba(235,243,251,0.65);
+  font-weight: 300;
+}
+
+/* OPERATOR BOX */
+.operator-box {
+  background: #F3F4F6;
+  border: 1px solid #E8E8ED;
+  border-radius: 10px;
+  padding: 20px 28px;
+  margin-bottom: 40px;
+  font-size: 0.88rem;
+  line-height: 1.8;
+}
+.operator-box strong { color: #1A3C5E; }
+.operator-box a { color: #2E6DA4; text-decoration: none; }
+.operator-box a:hover { text-decoration: underline; }
+
+/* INTRO */
+.intro {
+  font-size: 0.95rem; color: #374151;
+  line-height: 1.8; margin-bottom: 36px;
+}
+.intro-subject {
+  display: flex; align-items: baseline; gap: 8px;
+  flex-wrap: wrap; margin-bottom: 16px;
+}
+.intro-subject-label { color: #1A3C5E; font-weight: 500; white-space: nowrap; }
+.intro-subject-line {
+  flex: 1; min-width: 200px;
+  border-bottom: 1px solid #D1D5DB;
+  height: 22px;
+}
+.intro-subject-note { font-size: 0.78rem; color: #9CA3AF; font-style: italic; white-space: nowrap; }
+
+/* SECTIONS */
+.section { margin-bottom: 36px; }
+.section-title {
+  font-size: 1rem; font-weight: 600; color: #1A3C5E;
+  padding-bottom: 10px; margin-bottom: 18px;
+  border-bottom: 2px solid #1A3C5E;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-num {
+  background: #1A3C5E; color: white;
+  width: 24px; height: 24px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.72rem; font-weight: 600; flex-shrink: 0;
+}
+
+/* LIST */
+.doc-list { list-style: none; }
+.doc-list li {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 8px 0; border-bottom: 1px solid #F3F4F6;
+  font-size: 0.9rem; color: #374151;
+}
+.doc-list li:last-child { border-bottom: none; }
+.doc-list li::before {
+  content: '•'; color: #1A3C5E; font-weight: 700;
+  flex-shrink: 0; margin-top: 1px;
+}
+
+/* TABLE */
+.doc-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 0.88rem; margin-bottom: 16px;
+}
+.doc-table th {
+  background: #F3F4F6; color: #6B7280;
+  font-weight: 500; font-size: 0.78rem;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 10px 16px; text-align: left;
+  border: 1px solid #E8E8ED;
+}
+.doc-table td {
+  padding: 12px 16px; border: 1px solid #E8E8ED;
+  color: #374151; vertical-align: top; line-height: 1.65;
+}
+.doc-table td:first-child {
+  font-weight: 500; color: #1A3C5E;
+  white-space: nowrap; background: #FAFAFA;
+}
+.doc-table tr:hover td { background: #EBF3FB; }
+.doc-table tr:hover td:first-child { background: #EBF3FB; }
+
+/* CONFIRM BOX */
+.confirm-box {
+  background: #EBF3FB;
+  border: 1px solid #BFDBFE;
+  border-left: 4px solid #1A3C5E;
+  border-radius: 0 10px 10px 0;
+  padding: 20px 24px;
+  margin-bottom: 40px;
+}
+.confirm-box-title {
+  font-size: 0.9rem; font-weight: 600;
+  color: #1A3C5E; margin-bottom: 12px;
+}
+.confirm-box p {
+  font-size: 0.88rem; color: #374151;
+  line-height: 1.7; margin-bottom: 6px;
+}
+.confirm-box p:last-child { margin-bottom: 0; }
+.confirm-box a { color: #2E6DA4; text-decoration: none; }
+.confirm-box a:hover { text-decoration: underline; }
+
+/* SIGNATURE */
+.signature-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 40px; margin-bottom: 48px;
+}
+.sig-block { display: flex; flex-direction: column; gap: 0; }
+.sig-label {
+  font-size: 0.78rem; color: #6B7280;
+  margin-bottom: 8px; font-weight: 500;
+}
+.sig-line {
+  border-bottom: 1px solid #D1D5DB;
+  height: 28px; margin-bottom: 4px;
+}
+.sig-hint {
+  font-size: 0.72rem; color: #9CA3AF;
+  font-style: italic; text-align: center;
+}
+.sig-date {
+  font-size: 0.85rem; color: #374151;
+  margin-top: 16px;
+}
+.sig-date-line {
+  display: inline-block;
+  border-bottom: 1px solid #D1D5DB;
+  min-width: 180px; height: 20px;
+  margin-left: 4px;
+}
+
+/* PRINT BUTTON */
+.print-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #1A3C5E; color: white;
+  font-size: 0.82rem; font-weight: 500;
+  padding: 10px 22px; border-radius: 980px;
+  border: none; cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+  margin-bottom: 32px;
+}
+.print-btn:hover { background: #2E6DA4; }
+
+/* FOOTER DOC */
+.footer-doc {
+  margin-top: 48px; padding-top: 20px;
+  border-top: 1px solid #E8E8ED;
+  font-size: 0.78rem; color: #9CA3AF;
+  line-height: 1.65;
+}
+
+/* PRINT */
+@media print {
+  .back, .print-btn { display: none; }
+  body { padding: 24px; }
+  .doc-header { border-radius: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .section-num { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .confirm-box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  body { padding: 40px 16px 80px; }
+  .doc-header { padding: 24px 20px; }
+  .operator-box { padding: 16px 18px; }
+  .signature-grid { grid-template-columns: 1fr; gap: 32px; }
+  .doc-table { font-size: 0.8rem; }
+  .doc-table td:first-child { white-space: normal; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="/" class="back">← Вернуться на главную</a>
+
+  <button class="print-btn" onclick="window.print()">
+    🖨 Распечатать документ
+  </button>
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <div class="doc-header-title">Согласие на обработку персональных данных</div>
+    <div class="doc-header-sub">Версия 1.0 · 28.04.2026 · ФЗ-152 «О персональных данных»</div>
+  </div>
+
+  <!-- ОПЕРАТОР -->
+  <div class="operator-box">
+    <strong>Оператор персональных данных:</strong> Садртдинов Роберт — физическое лицо, самозанятый (плательщик НПД)<br>
+    <strong>ИНН:</strong> 020802728750 &nbsp;·&nbsp;
+    <strong>Email:</strong> <a href="mailto:Redstarrob@mail.ru">Redstarrob@mail.ru</a> &nbsp;·&nbsp;
+    <strong>Telegram:</strong> <a href="https://t.me/Robertunov">@Robertunov</a><br>
+    <strong>Сайт:</strong> <a href="https://sadrtdinov.ru">sadrtdinov.ru</a> &nbsp;·&nbsp;
+    <strong>Политика конфиденциальности:</strong> <a href="/privacy.html">sadrtdinov.ru/privacy.html</a>
+  </div>
+
+  <!-- ВВОДНАЯ ЧАСТЬ -->
+  <div class="intro">
+    <div class="intro-subject">
+      <span class="intro-subject-label">Я,</span>
+      <span class="intro-subject-line"></span>
+      <span class="intro-subject-note">(ФИО субъекта персональных данных)</span>
+    </div>
+    в соответствии с Федеральным законом № 152-ФЗ «О персональных данных» от 27.07.2006 года, свободно, своей волей и в своём интересе даю согласие Оператору на обработку моих персональных данных на условиях, изложенных в настоящем Согласии.
+  </div>
+
+  <!-- 1. СОСТАВ ДАННЫХ -->
+  <div class="section">
+    <div class="section-title">
+      <span class="section-num">1</span>
+      Состав персональных данных
+    </div>
+    <ul class="doc-list">
+      <li>Фамилия, имя, отчество</li>
+      <li>Номер телефона</li>
+      <li>Адрес электронной почты (email)</li>
+      <li>Содержание сообщений и обращений (через формы сайта, Telegram, email)</li>
+      <li>IP-адрес, данные браузера и страницы посещений (через Яндекс.Метрику)</li>
+    </ul>
+  </div>
+
+  <!-- 2. ЦЕЛИ -->
+  <div class="section">
+    <div class="section-title">
+      <span class="section-num">2</span>
+      Цели обработки персональных данных
+    </div>
+    <table class="doc-table">
+      <thead>
+        <tr><th>Цель</th><th>Состав действий</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Связь по запросу</td><td>Ответы на обращения, запись на консультацию, бесплатный разбор</td></tr>
+        <tr><td>Исполнение договора</td><td>Оказание маркетинговых услуг, выставление счетов, отчётность</td></tr>
+        <tr><td>Анализ посещаемости</td><td>Статистика через Яндекс.Метрику для улучшения сайта</td></tr>
+        <tr><td>Информирование</td><td>Направление материалов, связанных с оказанием услуг</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 3. ДЕЙСТВИЯ -->
+  <div class="section">
+    <div class="section-title">
+      <span class="section-num">3</span>
+      Перечень действий с персональными данными
+    </div>
+    <ul class="doc-list">
+      <li>Сбор и запись персональных данных</li>
+      <li>Систематизация и накопление</li>
+      <li>Хранение на серверах в Российской Федерации</li>
+      <li>Уточнение (обновление, изменение)</li>
+      <li>Использование в целях, указанных в разделе 2</li>
+      <li>Уничтожение по истечении срока хранения или по требованию субъекта</li>
+    </ul>
+    <p style="font-size:0.88rem;color:#6B7280;margin-top:14px;line-height:1.7">
+      Передача персональных данных третьим лицам не осуществляется, за исключением: Яндекс.Метрика (обезличенная аналитика) и случаев, предусмотренных законодательством РФ.
+    </p>
+  </div>
+
+  <!-- 4. СРОК -->
+  <div class="section">
+    <div class="section-title">
+      <span class="section-num">4</span>
+      Срок действия согласия
+    </div>
+    <table class="doc-table">
+      <tbody>
+        <tr><td>Срок хранения данных</td><td>3 года с момента последнего взаимодействия</td></tr>
+        <tr><td>Возможность отзыва</td><td>В любой момент — направить запрос на <a href="mailto:Redstarrob@mail.ru" style="color:#2E6DA4">Redstarrob@mail.ru</a></td></tr>
+        <tr><td>Срок ответа на запрос</td><td>10 рабочих дней</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 5. ПРАВА -->
+  <div class="section">
+    <div class="section-title">
+      <span class="section-num">5</span>
+      Права субъекта персональных данных
+    </div>
+    <p style="font-size:0.88rem;color:#374151;margin-bottom:14px">В соответствии со ст. 14–17 ФЗ-152 я имею право:</p>
+    <ul class="doc-list">
+      <li>Получить доступ к своим персональным данным</li>
+      <li>Потребовать уточнения или исправления неточных данных</li>
+      <li>Отозвать настоящее согласие в любой момент</li>
+      <li>Потребовать прекращения обработки и удаления данных</li>
+      <li>Обжаловать действия Оператора в Роскомнадзоре (<a href="https://rkn.gov.ru" style="color:#2E6DA4" target="_blank">rkn.gov.ru</a>)</li>
+    </ul>
+  </div>
+
+  <!-- 6. ПОДТВЕРЖДЕНИЕ -->
+  <div class="section">
+    <div class="section-title">
+      <span class="section-num">6</span>
+      Подтверждение согласия
+    </div>
+    <div class="confirm-box">
+      <div class="confirm-box-title">Настоящим подтверждаю, что:</div>
+      <p>— ознакомлен(а) с <a href="/privacy.html">Политикой конфиденциальности</a> на sadrtdinov.ru/privacy.html</p>
+      <p>— даю согласие добровольно, без принуждения</p>
+      <p>— понимаю, что вправе отозвать согласие в любой момент, направив запрос на Redstarrob@mail.ru</p>
+    </div>
+  </div>
+
+  <!-- ПОДПИСИ -->
+  <div class="signature-grid">
+    <div class="sig-block">
+      <div class="sig-label">Субъект персональных данных</div>
+      <div class="sig-line"></div>
+      <div class="sig-hint">(подпись / расшифровка)</div>
+      <div class="sig-date">
+        Дата: <span class="sig-date-line"></span>
+      </div>
+    </div>
+    <div class="sig-block">
+      <div class="sig-label">Оператор — Садртдинов Роберт</div>
+      <div class="sig-line"></div>
+      <div class="sig-hint">(подпись)</div>
+      <div class="sig-date">
+        Дата: <span class="sig-date-line"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-doc">
+    Документ составлен в соответствии с ФЗ-152 «О персональных данных» (ред. 2025 г.) и требованиями Роскомнадзора.
+    Согласие оформляется отдельным документом согласно требованиям, вступившим в силу с 01.09.2025 г.
+    Оператор зарегистрирован в реестре операторов персональных данных Роскомнадзора.
+  </div>
+
+</div>
+</body>
+</html>
