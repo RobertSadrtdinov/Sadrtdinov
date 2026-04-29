@@ -291,7 +291,7 @@ export default function App() {
                     style={{ animationDelay: "0s", fontSize: "11px", letterSpacing: "0.25em" }}
                   >
                     <span className="block h-px w-[28px] bg-[#7BAFD4]" aria-hidden />
-                    МАРКЕТИНГ ДЛЯ СТОМАТОЛОГИЙ · БЕЗ СЛИВА БЮДЖЕТА
+                    Маркетинг для стоматологий · Без слива бюджета
                   </div>
                   <h1
                     style={{ animationDelay: "0.15s" }}
