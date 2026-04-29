@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
 
-const STORAGE_KEY = "cookie_consent";
+const STORAGE_KEY = "cookie_consent_v2";
 
 export function CookieBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("resetCookieConsent") === "1") {
+      window.localStorage.removeItem(STORAGE_KEY);
+    }
+
     const saved = window.localStorage.getItem(STORAGE_KEY);
     if (!saved) {
       setVisible(true);
