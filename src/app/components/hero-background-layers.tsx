@@ -7,21 +7,24 @@ import { Spotlight } from "./ui/spotlight";
 function HeroBackgroundLayersImpl() {
   return (
     <div className="absolute inset-0 z-0">
-      <div className="absolute inset-0 z-[1] bg-[#060607]" />
       <div
-        className="pointer-events-none absolute inset-0 z-[2] bg-[radial-gradient(ellipse_100%_80%_at_20%_20%,rgba(46,109,164,0.12),transparent_55%)]"
+        className="absolute inset-0 z-[1] bg-[#060607] bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/hero-clinic-bg.png')" }}
+      />
+      <div
+        className="pointer-events-none absolute inset-0 z-[2] bg-[radial-gradient(ellipse_95%_75%_at_18%_25%,rgba(158,219,255,0.16),transparent_60%)]"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-r from-[#0C0C0E] via-[#0C0C0E]/85 to-[#0C0C0E]/20"
+        className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-r from-[#06090F]/90 via-[#06090F]/68 to-[#06090F]/22"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-b from-[#0C0C0E]/5 via-transparent to-[#0C0C0E]/88"
+        className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-b from-[#06090F]/10 via-transparent to-[#06090F]/88"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-l from-transparent via-[#0C0C0E]/35 to-[#0C0C0E]/80"
+        className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-l from-transparent via-[#06090F]/25 to-[#06090F]/72"
         aria-hidden
       />
       <div className="pointer-events-none absolute inset-0 z-[2] mix-blend-screen opacity-[0.24]" aria-hidden>
