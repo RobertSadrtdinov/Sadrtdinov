@@ -633,6 +633,10 @@ export default function App() {
               Написать на почту
             </a>
           </div>
+          <label className="mt-6 inline-flex items-center gap-3 text-[0.74rem] text-[#9fb0c1] tracking-[0.04em]">
+            <span className="h-4 w-4 border border-[#9EDBFF]/70 rounded-[2px] bg-transparent" aria-hidden />
+            Согласие на обработку персональных данных
+          </label>
           <div className="mt-[50px] flex justify-center gap-[50px] flex-wrap text-[0.75rem] text-[#888] tracking-[0.1em]">
             <a
               href="https://t.me/Robertunov"
@@ -679,7 +683,7 @@ export default function App() {
           </a>
         </div>
         <div className="text-[0.65rem] text-[rgba(136,136,136,0.4)] tracking-[0.08em]">
-          © 2025 Роберт Садртдинов · Маркетолог для медицинского бизнеса
+          © 2025 Роберт Садртдинов · Маркетолог для медицинского бизнеса · город Уфа · Самозанятость
         </div>
       </footer>
 
