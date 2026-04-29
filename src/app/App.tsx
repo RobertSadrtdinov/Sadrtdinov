@@ -286,41 +286,16 @@ export default function App() {
               <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
                 <div className="relative min-w-0 cursor-auto [touch-action:manipulation] pointer-events-auto lg:pr-2">
                   <div className="hero-text-glow pointer-events-none absolute -inset-x-4 -inset-y-3 -z-[1] rounded-[2rem]" aria-hidden />
-                  <div
-                    className="mb-4 flex items-center gap-[14px] uppercase text-[#7BAFD4] animate-slide-in-left"
-                    style={{ animationDelay: "0s", fontSize: "11px", letterSpacing: "0.25em" }}
-                  >
-                    <span className="block h-px w-[28px] bg-[#7BAFD4]" aria-hidden />
-                    Маркетинг для стоматологий · Без слива бюджета
-                  </div>
                   <h1
                     style={{ animationDelay: "0.15s" }}
-                    className="mb-6 text-[clamp(2.25rem,6.1vw,5.6rem)] font-semibold leading-[1.0] text-[#F5F2ED] animate-fade-in-up [text-shadow:0_2px_32px_rgba(0,0,0,0.75)] [overflow-wrap:anywhere]"
+                    className="max-w-[20ch] text-[clamp(1.55rem,3.2vw,3.05rem)] font-semibold leading-[1.24] text-[#F5F2ED] animate-fade-in-up [text-shadow:0_2px_32px_rgba(0,0,0,0.75)]"
                   >
-                    Sadrtdinov
+                    14 новых заявок за 4 недели
+                    <br />
+                    без рекламного бюджета -
+                    <br />
+                    от маркетолога с медфаком
                   </h1>
-                  <p
-                    className="max-w-[58ch] text-[0.98rem] leading-[1.68] text-[#c8c4bc] mb-7 animate-fade-in-up"
-                    style={{ animationDelay: "0.3s" }}
-                  >
-                    Выстраиваю маркетинг для стоматологий, клиник и медицинских специалистов от аудита до первых записей. Понимаю
-                    медицину изнутри. Медфак + ИИ-инструменты вместо дорогого агентства.
-                  </p>
-                  <div className="flex flex-wrap items-center gap-3 animate-fade-in-up" style={{ animationDelay: "0.45s" }}>
-                    <a
-                      href="#contact"
-                      className="group relative inline-block overflow-hidden rounded-full border-2 border-transparent bg-[#8FC4F0] px-7 py-3.5 text-[0.68rem] uppercase tracking-[0.2em] text-[#0C0C0E] no-underline transition-all duration-300 sm:px-9 sm:py-4 sm:text-[0.72rem] hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(143,196,240,0.35)]"
-                    >
-                      <span className="absolute inset-0 -translate-x-full bg-[#EBF3FB] transition-transform duration-300 group-hover:translate-x-0" />
-                      <span className="relative z-[1]">Начать трансформацию</span>
-                    </a>
-                    <a
-                      href="#cases"
-                      className="inline-block rounded-full border border-[#2E6DA4] px-7 py-3.5 text-[0.68rem] uppercase tracking-[0.2em] text-[#8FC4F0] no-underline transition-all duration-300 sm:px-9 sm:py-4 sm:text-[0.72rem] hover:-translate-y-1 hover:bg-[rgba(46,109,164,0.18)] hover:shadow-[0_10px_30px_rgba(26,60,94,0.28)]"
-                    >
-                      Смотреть кейсы
-                    </a>
-                  </div>
                 </div>
 
                 <div className="relative min-h-[300px] w-full overflow-hidden rounded-[1.25rem] border border-[rgba(143,196,240,0.25)] bg-[rgba(9,17,28,0.55)] backdrop-blur-sm pointer-events-auto lg:min-h-[min(64vh,620px)]">
