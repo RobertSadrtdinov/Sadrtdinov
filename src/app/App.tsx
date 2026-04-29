@@ -299,14 +299,55 @@ export default function App() {
                   </h1>
                 </div>
 
-                <div className="relative min-h-[300px] w-full overflow-hidden rounded-[1.25rem] border border-[rgba(143,196,240,0.25)] bg-[rgba(9,17,28,0.55)] backdrop-blur-sm pointer-events-auto lg:min-h-[min(64vh,620px)]">
-                  <div className="absolute inset-0 outline-none [&_canvas]:h-full [&_canvas]:w-full">
+                <div className="relative min-h-[300px] w-full overflow-hidden rounded-[1.25rem] border border-[rgba(123,175,212,0.28)] bg-[rgba(9,17,28,0.55)] backdrop-blur-sm pointer-events-auto lg:min-h-[min(64vh,620px)]">
+                  <div
+                    className="pointer-events-none absolute -inset-10 z-0"
+                    style={{
+                      background:
+                        'radial-gradient(ellipse at center, rgba(74,127,165,0.15) 0%, transparent 70%)',
+                    }}
+                    aria-hidden
+                  />
+                  <div
+                    className="pointer-events-none absolute inset-0 z-[1]"
+                    style={{
+                      backgroundImage:
+                        'linear-gradient(rgba(74,127,165,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(74,127,165,0.05) 1px, transparent 1px)',
+                      backgroundSize: '32px 32px',
+                    }}
+                    aria-hidden
+                  />
+                  <div className="absolute inset-0 outline-none z-[10] [&_canvas]:h-full [&_canvas]:w-full [&_canvas]:[filter:hue-rotate(180deg)_saturate(1.2)_brightness(0.9)]">
                     <SplineScene
                       scene={HERO_ROBOT_SCENE}
                       className="block h-full min-h-[300px] w-full lg:min-h-[min(64vh,620px)]"
                     />
                   </div>
-                  <div className="pointer-events-none absolute bottom-4 right-4 rounded-xl border border-[rgba(143,196,240,0.25)] bg-[rgba(9,17,28,0.75)] p-4 text-sm backdrop-blur">
+                  <div
+                    className="pointer-events-none absolute top-5 right-5 z-[12] text-[48px] leading-none text-[#4A7FA5] opacity-30"
+                    aria-hidden
+                  >
+                    +
+                  </div>
+                  <div
+                    className="pointer-events-none absolute left-4 top-5 z-[12] rounded-[10px] border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.07)] px-4 py-2 text-[12px] text-white backdrop-blur-[10px]"
+                    style={{ animation: 'robot-float 3s ease-in-out infinite' }}
+                  >
+                    👥 14 пациентов / мес
+                  </div>
+                  <div
+                    className="pointer-events-none absolute right-4 top-16 z-[12] rounded-[10px] border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.07)] px-4 py-2 text-[12px] text-white backdrop-blur-[10px]"
+                    style={{ animation: 'robot-float 3s ease-in-out infinite', animationDelay: '0.5s' }}
+                  >
+                    ✅ Договор с KPI
+                  </div>
+                  <div
+                    className="pointer-events-none absolute bottom-20 right-4 z-[12] rounded-[10px] border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.07)] px-4 py-2 text-[12px] text-white backdrop-blur-[10px]"
+                    style={{ animation: 'robot-float 3s ease-in-out infinite', animationDelay: '1s' }}
+                  >
+                    📈 0 ₽ бюджет
+                  </div>
+                  <div className="pointer-events-none absolute bottom-4 right-4 z-[12] rounded-xl border border-[rgba(143,196,240,0.25)] bg-[rgba(9,17,28,0.75)] p-4 text-sm backdrop-blur">
                     <p className="text-xl font-bold text-[#8FC4F0]">99%</p>
                     <p className="text-[#D9E7F5]">Точность системного подхода</p>
                   </div>
@@ -1065,6 +1106,11 @@ export default function App() {
         @keyframes spin-slow {
           from { transform: translate(-50%, -50%) rotate(0deg); }
           to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        @keyframes robot-float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-8px); }
         }
 
         .animate-float { animation: float 20s infinite ease-in-out; }
