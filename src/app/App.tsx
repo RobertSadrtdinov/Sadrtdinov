@@ -135,7 +135,7 @@ export default function App() {
     <div
       id="page-top"
       className={`min-h-screen bg-[#000000] text-[#F5F2ED] overflow-x-hidden ${STATIC_PAGE ? 'static-page' : ''}`}
-      style={{ fontFamily: 'Inter, sans-serif', cursor: STATIC_PAGE ? 'auto' : 'none' }}
+      style={{ fontFamily: 'Arial, sans-serif', cursor: STATIC_PAGE ? 'auto' : 'none' }}
     >
       {/* Noise Overlay */}
       <div className="fixed inset-0 pointer-events-none z-[999] opacity-[0.025]" style={{
@@ -707,10 +707,19 @@ export default function App() {
         }
 
         #page-top {
-          font-family: Inter, sans-serif;
+          font-family: Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
           text-rendering: optimizeLegibility;
+        }
+
+        #page-top h1,
+        #page-top h2,
+        #page-top h3,
+        #page-top nav a,
+        #page-top button,
+        #page-top .uppercase {
+          font-family: 'Montserrat', Arial, sans-serif;
         }
 
         #page-top h1,
