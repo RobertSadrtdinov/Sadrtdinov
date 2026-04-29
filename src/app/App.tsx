@@ -286,9 +286,13 @@ export default function App() {
               <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
                 <div className="relative min-w-0 cursor-auto [touch-action:manipulation] pointer-events-auto lg:pr-2">
                   <div className="hero-text-glow pointer-events-none absolute -inset-x-4 -inset-y-3 -z-[1] rounded-[2rem]" aria-hidden />
-                  <p className="mb-4 text-sm text-[#8fc4f0] animate-slide-in-left" style={{ animationDelay: "0s" }}>
-                    Precision. Artistry. Confidence.
-                  </p>
+                  <div
+                    className="mb-4 flex items-center gap-[14px] uppercase text-[#7BAFD4] animate-slide-in-left"
+                    style={{ animationDelay: "0s", fontSize: "11px", letterSpacing: "0.25em" }}
+                  >
+                    <span className="block h-px w-[28px] bg-[#7BAFD4]" aria-hidden />
+                    МАРКЕТИНГ ДЛЯ СТОМАТОЛОГИЙ · БЕЗ СЛИВА БЮДЖЕТА
+                  </div>
                   <h1
                     style={{ animationDelay: "0.15s" }}
                     className="mb-6 text-[clamp(2.25rem,6.1vw,5.6rem)] font-semibold leading-[1.0] text-[#F5F2ED] animate-fade-in-up [text-shadow:0_2px_32px_rgba(0,0,0,0.75)] [overflow-wrap:anywhere]"
