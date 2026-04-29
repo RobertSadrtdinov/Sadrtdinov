@@ -288,7 +288,7 @@ export default function App() {
                   <div className="hero-text-glow pointer-events-none absolute -inset-x-4 -inset-y-3 -z-[1] rounded-[2rem]" aria-hidden />
                   <h1
                     style={{ animationDelay: "0.15s" }}
-                    className="max-w-[20ch] text-[clamp(1.55rem,3.2vw,3.05rem)] font-semibold leading-[1.24] text-[#F5F2ED] animate-fade-in-up [text-shadow:0_2px_32px_rgba(0,0,0,0.75)]"
+                    className="max-w-[20ch] text-[clamp(1.55rem,3.2vw,3.05rem)] font-medium leading-[1.24] text-[#F5F2ED] animate-fade-in-up [text-shadow:0_2px_32px_rgba(0,0,0,0.75)]"
                   >
                     14 новых заявок за 4 недели
                     <br />
