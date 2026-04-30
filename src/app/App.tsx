@@ -329,28 +329,6 @@ export default function App() {
                   >
                     +
                   </div>
-                  <div
-                    className="pointer-events-none absolute left-4 top-5 z-[12] rounded-[10px] border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.07)] px-4 py-2 text-[12px] text-white backdrop-blur-[10px]"
-                    style={{ animation: 'robot-float 3s ease-in-out infinite' }}
-                  >
-                    👥 14 пациентов / мес
-                  </div>
-                  <div
-                    className="pointer-events-none absolute right-4 top-16 z-[12] rounded-[10px] border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.07)] px-4 py-2 text-[12px] text-white backdrop-blur-[10px]"
-                    style={{ animation: 'robot-float 3s ease-in-out infinite', animationDelay: '0.5s' }}
-                  >
-                    ✅ Договор с KPI
-                  </div>
-                  <div
-                    className="pointer-events-none absolute bottom-20 right-4 z-[12] rounded-[10px] border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.07)] px-4 py-2 text-[12px] text-white backdrop-blur-[10px]"
-                    style={{ animation: 'robot-float 3s ease-in-out infinite', animationDelay: '1s' }}
-                  >
-                    📈 0 ₽ бюджет
-                  </div>
-                  <div className="pointer-events-none absolute bottom-4 right-4 z-[12] rounded-xl border border-[rgba(143,196,240,0.25)] bg-[rgba(9,17,28,0.75)] p-4 text-sm backdrop-blur">
-                    <p className="text-xl font-bold text-[#8FC4F0]">99%</p>
-                    <p className="text-[#D9E7F5]">Точность системного подхода</p>
-                  </div>
                 </div>
               </div>
             </div>
